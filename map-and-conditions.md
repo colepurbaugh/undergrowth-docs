@@ -16,8 +16,8 @@ follow.
 
 | Reading | Where it comes from |
 |---|---|
-| **Tide** | NOAA tide predictions for the nearest station (Bay Center / Palix River), with the next high or low. |
-| **Wind** | Measured at the nearest NOAA station (Toke Point) when there is one within 50 km, otherwise the National Weather Service forecast. |
+| **Tide** | NOAA tide predictions for the nearest tide station, with the next high or low. |
+| **Wind** | Measured at the nearest NOAA station when there is one within 50 km, otherwise the National Weather Service forecast. |
 | **Temp** | Same as wind: measured if possible, forecast if not. |
 | **Sky** | National Weather Service hourly forecast. |
 
@@ -31,6 +31,37 @@ Every value fades from **bright green** (just arrived) to **dull brown** (old).
 A brown reading is still shown, but you can see at a glance not to trust it as
 much. If the service cannot reach NOAA or the Weather Service, the bar says
 *Conditions offline* and the last values keep fading.
+
+## Map styles
+
+The layers button under the zoom buttons switches the background map. Your
+choice is remembered on each device.
+
+| Style | Good for | Source |
+|---|---|---|
+| **Map** | Everyday use: roads, place names, shoreline. | OpenFreeMap (OpenStreetMap) |
+| **Satellite** | Seeing beds, channels and mudflats as they look from the air. | USGS aerial imagery |
+| **Nautical chart** | Depths, channel markers and navigation aids. | NOAA charts (not for navigation) |
+| **Topographic** | Elevation contours and terrain around the shore. | USGS topo maps |
+
+Markers, routes, keep-outs and mission paths stay on top whichever style is
+chosen. The satellite and topographic maps cover the United States only and
+become slightly blurry at the closest zoom levels.
+
+## Map buttons
+
+<img src="images/map-buttons.png" height="230" align="right" alt="The map buttons">
+
+Under the zoom buttons, from the top:
+
+- **Map style**: the menu above.
+- **Routes**: show or hide every route, with its waypoints.
+- **Connections**: show or hide radio connections and how far each radio
+  reaches (see [Radios and connections](radios-and-connections.md)).
+
+A lit button means that layer is showing. Each device remembers its choices.
+
+<img src="images/map-styles.png" width="560" alt="The demo fleet on satellite imagery, with the map style menu open">
 
 ## Clicking things
 

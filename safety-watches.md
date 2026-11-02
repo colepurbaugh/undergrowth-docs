@@ -8,7 +8,7 @@ each thing that breaks it.
 
 | Watch | Raises an alert when | Demo example |
 |---|---|---|
-| **A reading goes out of range** | a number goes below a low limit or above a high limit. Pointed at a cluster, it covers every part inside that has that reading. | Water temperature outside 42–60 °F in every Tokeland tank; roll beyond ±35° on each vessel. |
+| **A reading goes out of range** | a number goes below a low limit or above a high limit. Pointed at a cluster, it covers every part inside that has that reading. | Water temperature outside 42–60 °F in every crab tank; roll beyond ±35° on each vessel. |
 | **Too close** | a vessel comes inside any keep-out distance: hazards, baskets, and other vessels. It ignores the vessel's own parts and wherever its mission is sending it. | Lil Toot too close to a sandbar. |
 | **A sensor stops reporting** | real readings stop arriving for a number of minutes (a dead thermometer battery). An override never hides a silent sensor. | Tank thermometers silent for 3 hours. |
 

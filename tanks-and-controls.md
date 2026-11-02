@@ -18,8 +18,8 @@ Typed numbers are only sent when you press **Send** / **Record** or Enter, so
 
 ## Tank houses
 
-The demo adds **10 crab tanks at Tokeland** and **8 oyster tanks at Goose
-Point**. Each tank has:
+The demo adds two tank houses: **Crab tanks** (10 tanks) and **Oyster tanks**
+(8 tanks). Each tank has:
 
 - a **floating thermometer** (Bluetooth/Zigbee pool thermometer): water
   temperature and battery;
@@ -31,7 +31,7 @@ Point**. Each tank has:
 Click a tank house to see every tank at a glance. A tank with an alert is
 flagged in red; **Open** goes to that tank's own panel.
 
-<img src="images/tank-house.png" width="330" alt="Tokeland crab tanks"> <img src="images/tank-panel.png" width="330" alt="Crab tank 7">
+<img src="images/tank-house.png" width="330" alt="Crab tanks"> <img src="images/tank-panel.png" width="330" alt="Crab tank 7">
 
 Switching a heater on and recording a salinity reading:
 

@@ -34,6 +34,20 @@ vessel jumps back to where its GPS says it is:
 **Override all** ticks every sensor and position in the panel at once, which is
 handy for a demo.
 
+## Moving something for good
+
+Override is for trying things out. When you have dragged something to where it
+really belongs (a dock you placed in the wrong spot, a basket that has been
+moved), press **Keep here** under its position. The new spot becomes its saved
+position, the override ends, and the move is written to Logs.
+
+<img src="images/keep-here.png" width="320" alt="Keep here under a hand-set position">
+
+For a vessel, **Keep here** appears under its GPS's position, because that is
+where a vessel's position comes from. Something whose position comes from live
+GPS telemetry cannot be kept somewhere else: the next GPS reading would move it
+back.
+
 ## Example: testing a capsize
 
 Override *Big Toot*'s roll, set it to 60°, and three seconds later the

@@ -2,8 +2,6 @@
 
 [← Guide](README.md)
 
-<img src="images/old-shucks.svg" width="120" align="right" alt="Old Shucks">
-
 Two jobs done from start to finish, with what Undergrowth decides at each step
 and why. Every picture was taken doing exactly these steps on the demo fleet.
 
@@ -116,13 +114,13 @@ were written to **Logs** (category *mission*), marked as set by hand:
 
 ## 2. A new crab tank
 
-Tokeland has 10 crab tanks. We add an eleventh: the tank, its floating
+The demo's crab tank house has 10 tanks. We add an eleventh: the tank, its floating
 thermometer and its heater plug, and put it in the tank house.
 
 ### Step 1: the tank
 
 On **Clusters**, **+ Add Cluster**: name *Crab tank 11*, type **tank**. For its
-position, press **＋** and tick *Tokeland crab tanks*: the tank is wherever its
+position, press **＋** and tick *Crab tanks*: the tank is wherever its
 tank house is. Untick **Show on Map**; the tank house stands for all its tanks.
 
 <img src="images/scenario-2-tank.png" width="420" alt="Adding the tank">
@@ -141,14 +139,14 @@ For each: position from *Crab tank 11*, **Show on Map** unticked, and under
 
 ### Step 3: into the tank house
 
-On **Clusters**, **Edit / Membership** on *Tokeland crab tanks*, and tick
+On **Clusters**, **Edit / Membership** on *Crab tanks*, and tick
 *Crab tank 11* as a member.
 
 <img src="images/scenario-2-tank-house.png" width="420" alt="Adding the tank to the tank house">
 
 ### Step 4: what each part measures or does
 
-Open the tank's panel (click *Tokeland crab tanks* on the map, then **Open**
+Open the tank's panel (click *Crab tanks* on the map, then **Open**
 next to *Crab tank 11*) and press **Customize**. Under **New value…** add:
 
 | On | Name | Comes from | Kind |
@@ -171,7 +169,7 @@ The tank house now lists Crab tank 11 alongside the others:
 
 <img src="images/scenario-2-in-the-house.png" width="380" alt="Crab tank 11 in the tank house">
 
-> **Decision note:** the *Tokeland crab water temperature*
+> **Decision note:** the *Crab tank water temperature*
 > [safety watch](safety-watches.md) watches every water temperature inside the
 > tank house, so the new tank is covered the moment it joins. Nothing about the
 > watch had to change.
