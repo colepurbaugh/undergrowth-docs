@@ -1,5 +1,7 @@
 # Undergrowth guide
 
+<img src="images/old-shucks.svg" width="110" align="right" alt="Old Shucks, the Undergrowth fisherman">
+
 A short, picture-heavy tour of what the Undergrowth dashboard does today.
 Undergrowth is a working prototype. Every picture comes from its built-in
 **demo fleet**: the vessels, tanks and readings shown are examples, not live
@@ -20,6 +22,8 @@ command, reading and alert is written down with when and why.
 
 | Page | What it covers |
 |---|---|
+| [Getting started](getting-started.md) | The one-page intro: what it is, setting it up, your first five minutes |
+| [Scenarios](scenarios.md) | Building a boat and a crab tank from scratch, and the decisions along the way |
 | [The map and conditions](map-and-conditions.md) | Reading the map, live tide/wind/weather, what the colours mean |
 | [Vessels and missions](vessels-and-missions.md) | Vessels as clusters of parts, routes, keep-outs, navigate missions |
 | [Manual override](manual-override.md) | Setting a position or reading by hand to test things safely |
