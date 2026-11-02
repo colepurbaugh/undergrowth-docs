@@ -1,0 +1,45 @@
+# Manual override
+
+[← Guide](README.md)
+
+Manual override lets a person take over one reading, such as a vessel's
+position, its heading or a tilt sensor's roll, and set it by hand. It is how you
+test what Undergrowth would do in a situation without creating that situation:
+what happens if the boat tips over, without tipping the boat over.
+
+**It is not a simulation.** While a value is overridden:
+
+- the map and missions use what you set;
+- the real sensor keeps reporting, and its readings are still recorded;
+- the value is marked **✋ set by hand** everywhere it appears, including in
+  alerts and logs, so a test can never be mistaken for the real thing.
+
+Untick *Override* and the value goes straight back to the real reading. A
+vessel jumps back to where its GPS says it is:
+
+![Releasing an override](images/release-override.gif)
+
+## How to use it
+
+1. Click a vessel (or anything else) on the map.
+2. In **Controls**, tick **Override** next to the reading you want to set.
+3. Change it:
+   - **Position:** drag the marker on the map, or type `latitude, longitude`
+     and press **Send**.
+   - **Numbers:** drag the slider (it sends when you let go), or type a number
+     and press **Send**. Typed numbers are never sent while you are still
+     typing.
+4. Untick **Override**, or press **Release all**, to go back to real readings.
+
+**Override all** ticks every sensor and position in the panel at once, which is
+handy for a demo.
+
+## Example: testing a capsize
+
+Override *Big Toot*'s roll, set it to 60°, and three seconds later the
+[tipping watch](safety-watches.md) raises an alert, marked *(set by hand)*:
+
+![Setting roll to 60° raises a tip alert](images/tip-alert.gif)
+
+Every override turned on or off is written to [Logs](logs-and-history.md) under
+*override*, and every hand-set value is kept as a reading.
