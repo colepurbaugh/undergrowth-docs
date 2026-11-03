@@ -1,0 +1,15 @@
+{
+  "name": "undergrowth-docs-capture",
+  "private": true,
+  "type": "module",
+  "description": "Takes the screenshots and GIFs used in the guide.",
+  "scripts": {
+    "capture": "node capture.mjs",
+    "capture-scenarios": "node capture.mjs scenarios"
+  },
+  "devDependencies": {
+    "gifenc": "1.0.3",
+    "playwright-core": "1.64.1",
+    "pngjs": "7.0.0"
+  }
+}

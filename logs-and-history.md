@@ -32,4 +32,8 @@ Undergrowth keeps two databases on each computer:
 - **data.db**: what *happened* (logs and every reading).
 
 Changes to configuration and their log entries are written together, so the
-record cannot fall behind what was changed.
+record can't fall behind what was changed.
+
+Logs and readings from other computers are copied in too (see
+[Sharing between computers](sharing.md)), so the shop's Logs page also has
+what happened on each boat once that boat has been in range.

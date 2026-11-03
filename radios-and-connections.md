@@ -3,8 +3,7 @@
 [← Guide](README.md)
 
 Undergrowth shows which radios can talk to each other and how far each one is
-expected to reach. A vessel out of touch with the dock should be obvious at a
-glance.
+expected to reach, so you can see when a vessel is out of touch with the dock.
 
 ![Connections and coverage around the dock and the boats](images/connections.png)
 

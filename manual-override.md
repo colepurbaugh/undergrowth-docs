@@ -2,17 +2,15 @@
 
 [← Guide](README.md)
 
-Manual override lets a person take over one reading, such as a vessel's
-position, its heading or a tilt sensor's roll, and set it by hand. It is how you
-test what Undergrowth would do in a situation without creating that situation:
-what happens if the boat tips over, without tipping the boat over.
+Manual override lets you take over one reading, such as a vessel's position,
+its heading or a tilt sensor's roll, and set it by hand. It's how you find out
+what Undergrowth would do if the boat tipped over, without tipping the boat
+over.
 
-**It is not a simulation.** While a value is overridden:
-
-- the map and missions use what you set;
-- the real sensor keeps reporting, and its readings are still recorded;
-- the value is marked **✋ set by hand** everywhere it appears, including in
-  alerts and logs, so a test can never be mistaken for the real thing.
+Nothing else is faked. While a value is overridden, the map and missions use
+what you set, but the real sensor keeps reporting and its readings are still
+recorded. The value is marked ✋ *set by hand* everywhere it appears, including
+in alerts and logs, so a test can't be mistaken for the real thing.
 
 Untick *Override* and the value goes straight back to the real reading. A
 vessel jumps back to where its GPS says it is:
@@ -31,8 +29,11 @@ vessel jumps back to where its GPS says it is:
      typing.
 4. Untick **Override**, or press **Release all**, to go back to real readings.
 
-**Override all** ticks every sensor and position in the panel at once, which is
-handy for a demo.
+**Override all** ticks every sensor and position in the panel at once.
+
+Only the computer that owns a record can override it. On a copy from another
+computer the override boxes are greyed out (see
+[Sharing between computers](sharing.md)).
 
 ## Moving something for good
 

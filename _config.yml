@@ -2,3 +2,6 @@
 title: Undergrowth
 description: A picture tour of the Undergrowth prototype
 theme: jekyll-theme-cayman
+# The tool that takes the pictures is not part of the website.
+exclude:
+  - capture

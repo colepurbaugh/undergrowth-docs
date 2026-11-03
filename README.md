@@ -1,64 +1,65 @@
 # Undergrowth guide
 
-A short, picture-heavy tour of what the Undergrowth dashboard does today.
-Undergrowth is a working prototype. Every picture comes from its built-in
-**demo fleet**: the vessels, tanks and readings shown are examples, not live
-data.
+Undergrowth keeps track of an oyster farm's boats, baskets, tanks and sensors
+on one map. It works out where boats should go, switches equipment, and raises
+an alarm when something goes wrong. These pages show what it does today. It is
+a prototype, and every picture comes from its built-in demo fleet, not a real
+farm.
 
 ![The Undergrowth map](images/overview.png)
 
-## The idea in one paragraph
+## Nodes, clusters and missions
 
-**Everything is a node.** A GPS, a heater plug, an oyster basket, a dock: each
-is a node. **Clusters** group nodes (and other clusters) into the things people
-talk about: a vessel is a cluster of its parts, a tank is a thermometer plus a
-heater plug, a tank house is a cluster of tanks. **Missions** are goals that
-Undergrowth keeps checking against what is happening now, and every decision,
-command, reading and alert is written down with when and why.
+Everything is a **node**: a GPS, a heater plug, an oyster basket, a dock.
+Nodes are grouped into **clusters**, which can hold other clusters too. A
+vessel is a cluster of its parts, a tank is a thermometer and a heater plug,
+and a tank house is a cluster of tanks. A **mission** is a goal, such as
+"take Big Toot to basket 4" or "keep the crab tanks between 42 and 60 °F".
+Undergrowth keeps checking it against what is happening now, and writes down
+each decision and why it was made.
 
-Something can start simple and gain detail later. A dock might be one node
-until you add its Wi-Fi and its cameras; then **Make it a cluster** (in its
-editor) turns it into a cluster that can hold those parts. It keeps its ID, its
-readings, its missions and its history, and anything already mounted on it
-becomes its first parts.
+You don't have to describe everything up front. A dock can start as one node.
+When you add its Wi-Fi and cameras later, **Make it a cluster** in its editor
+turns it into a cluster that holds them. It keeps its ID, readings, missions
+and history, and anything already mounted on it becomes its first parts.
 
 ## Pages
 
 | Page | What it covers |
 |---|---|
-| [Getting started](getting-started.md) | The one-page intro: what it is, setting it up, your first five minutes |
-| [Scenarios](scenarios.md) | Building a boat and a crab tank from scratch, and the decisions along the way |
-| [The map and conditions](map-and-conditions.md) | Reading the map, map styles (satellite, chart, topo), live tide/wind/weather, what the colours mean |
-| [Vessels and missions](vessels-and-missions.md) | Vessels as clusters of parts, routes, keep-outs, navigate missions |
-| [Radios and connections](radios-and-connections.md) | Which radios can talk to each other, how far each reaches, and showing or hiding them |
-| [Manual override](manual-override.md) | Setting a position or reading by hand to test things safely |
-| [Tanks and controls](tanks-and-controls.md) | The control column: sensors, readings typed in by hand, switches and buttons |
-| [Safety watches](safety-watches.md) | Tipping, proximity, tank temperature and silent-sensor alerts |
-| [Logs and history](logs-and-history.md) | The permanent record of everything that happened |
+| [Getting started](getting-started.md) | Setting it up and a first look around |
+| [Scenarios](scenarios.md) | Building a boat and a crab tank from scratch, step by step |
+| [The map and conditions](map-and-conditions.md) | The map, map styles, and live tide, wind and weather |
+| [Vessels and missions](vessels-and-missions.md) | Vessels and their parts, routes, keep-outs and navigate missions |
+| [Radios and connections](radios-and-connections.md) | Which radios can reach each other, and which are connected |
+| [Manual override](manual-override.md) | Setting a position or reading by hand to test things |
+| [Tanks and controls](tanks-and-controls.md) | Sensor readings, readings typed in by hand, switches and buttons |
+| [Safety watches](safety-watches.md) | Alerts for tipping, getting too close, tank temperature and quiet sensors |
+| [Logs and history](logs-and-history.md) | The record of everything that happened |
+| [Sharing between computers](sharing.md) | Each boat's own computer, read-only copies, and the ESP32 boards |
 
-## What the map symbols mean
+## Map symbols
 
 | Symbol | Meaning |
 |---|---|
-| <img src="images/icon-vessel.png" height="70" alt="Vessel"> | **A vessel.** The arrow points the way it is heading. The small dashed circle is how far other vessels must keep away. |
-| <img src="images/icon-mission-arrow.png" height="70" alt="Mission arrow"> | **Mission advice.** The gold circle shows which way the mission says to go; the gold line is the planned path. |
-| <img src="images/icon-port.png" height="70" alt="Port"> | **A port or dock.** |
-| <img src="images/icon-waypoint.png" height="70" alt="Waypoint"> | **A route waypoint.** Routes are drawn as dashed blue lines between their waypoints. |
-| <img src="images/icon-keepout.png" height="70" alt="Keep-out"> | **A keep-out** (a hazard such as an old piling or a sandbar). Vessels steer around the red circle. |
-| <img src="images/icon-basket.png" height="70" alt="Basket"> | **An oyster basket** (a payload). Vessels not collecting it keep a small distance. |
-| <img src="images/icon-tank-house.png" height="70" alt="Tank house"> | **A tank house**: a group of holding tanks. The pulsing ring means one of its tanks has an alert. |
-| <img src="images/icon-connections.png" height="70" alt="Radio connections"> | **Radio connections.** Solid: connected. Dotted: in range but not connected. The colour is the kind of radio. See [Radios and connections](radios-and-connections.md). |
-| <img src="images/hand-set-label.png" height="70" alt="Set by hand"> | **✋ Set by hand.** An orange name with a hand means part of it is under manual override. |
+| <img src="images/icon-vessel.png" height="70" alt="Vessel"> | A vessel. The arrow points the way it is heading. The small dashed circle is how far other vessels keep away. |
+| <img src="images/icon-mission-arrow.png" height="70" alt="Mission arrow"> | Mission advice. The gold circle shows which way the mission says to go, and the gold line is the planned path. |
+| <img src="images/icon-port.png" height="70" alt="Port"> | A port or dock. |
+| <img src="images/icon-waypoint.png" height="70" alt="Waypoint"> | A route waypoint. Routes are dashed blue lines between their waypoints. |
+| <img src="images/icon-keepout.png" height="70" alt="Keep-out"> | A keep-out, such as an old piling or a sandbar. Vessels steer around the red circle. |
+| <img src="images/icon-basket.png" height="70" alt="Basket"> | An oyster basket. Vessels that aren't collecting it keep a small distance. |
+| <img src="images/icon-tank-house.png" height="70" alt="Tank house"> | A tank house, holding a group of tanks. A pulsing ring means one of its tanks has an alert. |
+| <img src="images/icon-connections.png" height="70" alt="Radio connections"> | Radio connections. Solid is connected, dotted is in range but not connected, and the colour is the kind of radio. See [Radios and connections](radios-and-connections.md). |
+| <img src="images/hand-set-label.png" height="70" alt="Set by hand"> | ✋ Set by hand. An orange name with a hand means part of it is under [manual override](manual-override.md). |
 
 ## Not built yet
 
-These are planned but not part of the prototype today:
+- Boats steering themselves. Missions give advice and a person still drives.
+- Sharing missions between computers. Records, readings and logs are already
+  shared; [Sharing between computers](sharing.md) lists what else is missing.
 
-- vessels steering themselves (missions give advice; a person still drives);
-- vessels and shore computers talking to each other directly, and sharing
-  missions between them.
 
 ---
 
-*This guide is published from the Undergrowth project. The code itself is not
-public. Pictures show the built-in demo fleet, not live data.*
+*Undergrowth's code is not public. Pictures show the built-in demo fleet, not
+live data.*

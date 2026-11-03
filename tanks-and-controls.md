@@ -28,8 +28,8 @@ The demo adds two tank houses: **Crab tanks** (10 tanks) and **Oyster tanks**
   actually heating);
 - readings **typed in by hand**: salinity, pH, and whether bay water is flowing.
 
-Click a tank house to see every tank at a glance. A tank with an alert is
-flagged in red; **Open** goes to that tank's own panel.
+Click a tank house to see all its tanks in one list. A tank with an alert is
+flagged in red, and **Open** goes to that tank's own panel.
 
 <img src="images/tank-house.png" width="330" alt="Crab tanks"> <img src="images/tank-panel.png" width="330" alt="Crab tank 7">
 
@@ -40,7 +40,7 @@ Switching a heater on and recording a salinity reading:
 In the demo no real plug is connected, so the row says *Sent On · device reports
 Off*. With a real plug, the device's report would follow.
 
-## Make a panel your own
+## Changing what a panel shows
 
 A motor controller, a vessel and a tank house each need different things on
 screen. Press **Customize** in any panel to:

@@ -28,8 +28,7 @@ times.
 ### The colours mean "how fresh"
 
 Every value fades from **bright green** (just arrived) to **dull brown** (old).
-A brown reading is still shown, but you can see at a glance not to trust it as
-much. If the service cannot reach NOAA or the Weather Service, the bar says
+A brown reading is still shown, but it's a sign not to trust it as much. If the service cannot reach NOAA or the Weather Service, the bar says
 *Conditions offline* and the last values keep fading.
 
 ## Map styles
@@ -80,3 +79,7 @@ as a mission heading there:
 
 Archived records disappear from the map but nothing is deleted; they can be
 restored from the Nodes, Clusters or Logs pages.
+
+Records copied from another computer show on the map like any other, but
+their panel says which computer they came from, and they can't be dragged,
+edited or archived here. See [Sharing between computers](sharing.md).
