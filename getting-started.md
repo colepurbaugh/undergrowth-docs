@@ -39,8 +39,10 @@ network can use `http://<this computer's address>:3000`.
 
 ## A first look around
 
-1. Press **⚙**, then **Add demo fleet**. You get two boats, a home dock, a
-   route, some keep-outs and baskets, and 18 holding tanks.
+1. Open **Scenarios** and press **Start** on *The whole farm*. You get two
+   boats, a home dock, a route, some keep-outs and baskets, and 18 holding
+   tanks. A scenario has its own records, apart from your real ones, and a
+   yellow bar across the top shows you're in one.
 2. The bar along the top shows the tide, wind, temperature and sky for the
    middle of the map. Each reading fades from green to brown as it gets older.
 3. Click **Big Toot**. Its panel lists its parts, the mission's advice
@@ -53,12 +55,16 @@ network can use `http://<this computer's address>:3000`.
 To make an alert of your own, drag the boat into a sandbar's red circle. The
 alert shows up within a few seconds, marked *set by hand*.
 
-When you're finished, **⚙ → Remove demo fleet** puts it all away. Nothing is
-ever really deleted; it stays in **Logs**.
+When you're finished, press **Leave** on the yellow bar to go back to your own
+records. The scenario stays where you left it until you start another one or
+press **End it** on the Scenarios page. Nothing you did in it touched your real
+records.
 
 ## Where next
 
 - [The guide](README.md) covers every feature, with pictures.
-- [Scenarios](scenarios.md) builds a boat and a crab tank from scratch.
+- [Built-in scenarios](built-in-scenarios.md) are small examples, such as a
+  capsize or a cold crab tank, each with steps to try.
+- [Walkthroughs](scenarios.md) build a boat and a crab tank from scratch.
 - [Sharing between computers](sharing.md) covers running Undergrowth on more
   than one computer, such as a Pi on each boat.

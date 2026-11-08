@@ -3,8 +3,8 @@
 Undergrowth keeps track of an oyster farm's boats, baskets, tanks and sensors
 on one map. It works out where boats should go, switches equipment, and raises
 an alarm when something goes wrong. These pages show what it does today. It is
-a prototype, and every picture comes from its built-in demo fleet, not a real
-farm.
+a prototype, and every picture comes from *The whole farm*, one of its built-in
+scenarios, not a real farm.
 
 ![The Undergrowth map](images/overview.png)
 
@@ -28,7 +28,8 @@ and history, and anything already mounted on it becomes its first parts.
 | Page | What it covers |
 |---|---|
 | [Getting started](getting-started.md) | Setting it up and a first look around |
-| [Scenarios](scenarios.md) | Building a boat and a crab tank from scratch, step by step |
+| [Built-in scenarios](built-in-scenarios.md) | Small ready-made examples to try, apart from your real records |
+| [Walkthroughs](scenarios.md) | Building a boat and a crab tank from scratch, step by step |
 | [The map and conditions](map-and-conditions.md) | The map, map styles, and live tide, wind and weather |
 | [Vessels and missions](vessels-and-missions.md) | Vessels and their parts, routes, keep-outs and navigate missions |
 | [Radios and connections](radios-and-connections.md) | Which radios can reach each other, and which are connected |
@@ -61,5 +62,5 @@ and history, and anything already mounted on it becomes its first parts.
 
 ---
 
-*Undergrowth's code is not public. Pictures show the built-in demo fleet, not
-live data.*
+*Undergrowth's code is not public. Pictures show a built-in scenario, not live
+data.*

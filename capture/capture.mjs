@@ -4,7 +4,7 @@
 //   cd capture
 //   npm run capture
 //
-// It resets the demo fleet first, so the pictures always show the same thing,
+// It starts "The whole farm" scenario first, so the pictures always show the same thing,
 // then drives Microsoft Edge (headless) through each feature and writes
 // images/*.png and *.gif. Pictures are cropped to what they are about.
 //
@@ -19,7 +19,9 @@ import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 const DASHBOARD = 'http://localhost:3000'
-const API = 'http://127.0.0.1:3001/api'
+// Everything happens in the dashboard's scenario, which has its own databases, so the
+// farm's real records never appear in the pictures and are never changed.
+const API = 'http://127.0.0.1:3001/api/scenario'
 const IMAGES = fileURLToPath(new URL('../images/', import.meta.url))
 const VIEWPORT = { width: 1440, height: 1000 }
 
@@ -169,44 +171,21 @@ const where = async name => {
 }
 
 // --- Off camera: a fresh demo ---------------------------------------------------------
-// The pictures are published, so the farm's own records (real docks, keep-outs)
-// are kept out of them: the captured dashboard only ever receives demo records.
-const isDemo = record => record.description?.startsWith('Demo:')
-async function demoOnly(context) {
-  // Saves and other changes pass straight through; only what the page reads is filtered.
-  // Archived lists (?include_archived) are never pictured, and with many old demo
-  // copies they take the service seconds to build, so the live list stands in.
-  const filtered = async (route, change) => {
-    if (route.request().method() !== 'GET') return route.continue()
-    try {
-      const url = new URL(route.request().url())
-      const json = await api(url.pathname.replace(/^\/api/, ''))
-      await route.fulfill({ json: await change(json) })
-    } catch {
-      await route.continue().catch(() => {})   // the page closed, or the reply was not JSON
-    }
-  }
-  await context.route(/\/api\/(nodes|clusters)(\?.*)?$/, route => filtered(route, records => records.filter(isDemo)))
-  await context.route(/\/api\/map\/overlays$/, route => filtered(route, async overlays => {
-    const demoIds = new Set((await api('/nodes')).filter(isDemo).map(n => n.node_id))
-    return { ...overlays, keepouts: overlays.keepouts.filter(k => demoIds.has(k.id)),
-      radios: overlays.radios.filter(r => demoIds.has(r.id)),
-      links: overlays.links.filter(l => l.ids.every(id => demoIds.has(id))) }
-  }))
-}
+// The scenario banner is left out of the pictures, so they look like an ordinary farm.
+const NO_BANNER = `addEventListener('DOMContentLoaded', () => document.head.append(Object.assign(document.createElement('style'), {
+  textContent: '.ug-scenario-banner { display: none !important } .ug-topbar-scenario { border-color: #ffffff25 !important }' })))`
 
 async function resetDemo() {
-  console.log('Resetting the demo fleet...')
+  console.log('Starting The whole farm scenario...')
   await page.goto(DASHBOARD)
-  await page.locator('.ug-gear').waitFor()   // there may be no demo (and so no markers) yet
+  await page.locator('.ug-nav button', { hasText: 'Scenarios' }).click()
   const notice = page.locator('.ug-notice')
-  await page.locator('.ug-gear').click()
-  await page.getByRole('button', { name: 'Remove demo fleet' }).click()
-  await notice.filter({ hasText: /removed|Demo fleet:/ }).waitFor({ timeout: 60000 })
-  await api('/alerts/acknowledge-all', 'POST')
-  await page.getByRole('button', { name: 'Add demo fleet' }).click()
-  await notice.filter({ hasText: /added|Demo fleet:/ }).waitFor({ timeout: 120000 })
-  if (/Demo fleet:/.test(await notice.innerText())) throw new Error(await notice.innerText())
+  await page.locator('.ug-scenario-card', { hasText: 'The whole farm' }).getByRole('button', { name: /^Start/ }).click()
+  // The page reloads into the scenario once it is set up.
+  await Promise.race([
+    page.locator('.ug-topbar-scenario').waitFor({ timeout: 120000 }),
+    notice.waitFor({ timeout: 120000 }).then(async () => { throw new Error(await notice.innerText()) })
+  ])
   await wait(6000)   // the first watch check raises tank 7's alert
   await page.goto(DASHBOARD)
   await page.locator('.ug-map-marker').first().waitFor()
@@ -421,7 +400,7 @@ async function capture() {
 }
 
 // --- Scenarios: done for real through the dashboard's own forms -------------------------------------
-// Everything made here has a description starting "Demo:", so "Remove demo fleet" cleans it up.
+// Everything made here goes into the scenario, so starting it again cleans it up.
 
 const SKIFF = {
   start: [-123.9620, 46.6395],
@@ -655,7 +634,7 @@ const browser = await chromium.launch({ channel: 'msedge', headless: true })
 try {
   const context = await browser.newContext({ viewport: VIEWPORT })
   await context.addInitScript(CURSOR)
-  await demoOnly(context)
+  await context.addInitScript(NO_BANNER)
   page = await context.newPage()
   page.on('pageerror', error => console.log('PAGE ERROR', error.message))
   await resetDemo()

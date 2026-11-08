@@ -1,9 +1,10 @@
-# Scenarios, step by step
+# Walkthroughs
 
 [← Guide](README.md)
 
 Two jobs done from start to finish, with what Undergrowth decides at each step
-and why. Every picture was taken doing exactly these steps on the demo fleet.
+and why. Every picture was taken doing exactly these steps in *The whole farm*
+scenario, so you can follow along there without touching your real records.
 
 1. [A test vessel, a route, and a trip](#1-a-test-vessel-a-route-and-a-trip)
 2. [A new crab tank](#2-a-new-crab-tank)

@@ -58,3 +58,7 @@ Override *Big Toot*'s roll, set it to 60°, and three seconds later the
 
 Every override turned on or off is written to [Logs](logs-and-history.md) under
 *override*, and every hand-set value is kept as a reading.
+
+To try this yourself, open **Scenarios** and start *Capsize test*. It sets up
+one small boat with a tilt sensor and a tipping watch, and lists the steps.
+[Built-in scenarios](built-in-scenarios.md) has the others.
