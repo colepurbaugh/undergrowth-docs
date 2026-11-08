@@ -18,7 +18,7 @@ Typed numbers are only sent when you press **Send** / **Record** or Enter, so
 
 ## Tank houses
 
-The demo adds two tank houses: **Crab tanks** (10 tanks) and **Oyster tanks**
+*The whole farm* scenario has two tank houses: **Crab tanks** (10 tanks) and **Oyster tanks**
 (8 tanks). Each tank has:
 
 - a **floating thermometer** (Bluetooth/Zigbee pool thermometer): water
@@ -37,8 +37,11 @@ Switching a heater on and recording a salinity reading:
 
 ![Heater on and a salinity reading](images/heater-and-reading.gif)
 
-In the demo no real plug is connected, so the row says *Sent On · device reports
+In a scenario no real plug is connected, so the row says *Sent On · device reports
 Off*. With a real plug, the device's report would follow.
+
+The *Crab tank goes cold* [scenario](built-in-scenarios.md) switches a heater off
+and lets a tank go cold, to see what happens on a winter night.
 
 ## Changing what a panel shows
 

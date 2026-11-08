@@ -31,12 +31,12 @@ and history, and anything already mounted on it becomes its first parts.
 | [Built-in scenarios](built-in-scenarios.md) | Small ready-made examples to try, apart from your real records |
 | [Walkthroughs](scenarios.md) | Building a boat and a crab tank from scratch, step by step |
 | [The map and conditions](map-and-conditions.md) | The map, map styles, and live tide, wind and weather |
-| [Vessels and missions](vessels-and-missions.md) | Vessels and their parts, routes, keep-outs and navigate missions |
+| [Vessels and missions](vessels-and-missions.md) | Vessels and their parts, routes, keep-outs, navigate missions, and taking a boat in tow |
 | [Radios and connections](radios-and-connections.md) | Which radios can reach each other, and which are connected |
 | [Manual override](manual-override.md) | Setting a position or reading by hand to test things |
 | [Tanks and controls](tanks-and-controls.md) | Sensor readings, readings typed in by hand, switches and buttons |
 | [Safety watches](safety-watches.md) | Alerts for tipping, getting too close, tank temperature and quiet sensors |
-| [Logs and history](logs-and-history.md) | The record of everything that happened |
+| [Logs and history](logs-and-history.md) | The record of everything that happened, and how to read it |
 | [Sharing between computers](sharing.md) | Each boat's own computer, read-only copies, and the ESP32 boards |
 
 ## Map symbols
@@ -56,6 +56,8 @@ and history, and anything already mounted on it becomes its first parts.
 ## Not built yet
 
 - Boats steering themselves. Missions give advice and a person still drives.
+- A single button for taking a boat in tow. Today it takes
+  [two edits](vessels-and-missions.md#taking-a-boat-in-tow).
 - Sharing missions between computers. Records, readings and logs are already
   shared; [Sharing between computers](sharing.md) lists what else is missing.
 

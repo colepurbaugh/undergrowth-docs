@@ -76,8 +76,8 @@ Wi-Fi hears, as it would once it lost the dock:
 - **Wi-Fi:** the link drops.
 - **LoRa:** reaches much further, so it holds.
 
-Back near the dock, the Wi-Fi link shows as *in range*: the two radios could
-connect, but nothing says they have.
+Back near the dock, the Wi-Fi link comes back as a dotted line, meaning *in
+range*: the two radios could connect, but nothing says they have.
 
 More on this: [Radios and connections](radios-and-connections.md).
 
@@ -98,7 +98,7 @@ Then you join them into one vessel, in two edits:
 2. **Give Lil Toot Big Toot's position.** Wherever Big Toot goes, Lil Toot
    goes too, the way a boat under tow does.
 
-More on this: [Vessels and missions](vessels-and-missions.md),
+More on this: [Taking a boat in tow](vessels-and-missions.md#taking-a-boat-in-tow),
 [Safety watches](safety-watches.md).
 
 ## The whole farm

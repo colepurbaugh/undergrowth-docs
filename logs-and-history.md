@@ -24,6 +24,27 @@ the reading or distance that set it off, and the position at the time:
 
 <img src="images/log-details.png" width="620" alt="Details of a proximity alert">
 
+## Reading the story of an event
+
+The newest entries are at the top, so read from the bottom up. This is a
+[capsize test](built-in-scenarios.md#capsize-test) in the order it happened:
+
+| Category | What the log says |
+|---|---|
+| mission | Safety watch created: *Test Skiff tipping* |
+| override | Manual override on: Test Skiff tilt sensor Roll (real readings still recorded) |
+| safety | ⚠ Test Skiff tilt sensor: Roll 60°, above 35° (set by hand) |
+| safety | Cleared (condition gone): the boat is upright again |
+| safety | Acknowledged: a person has seen the alert |
+| override | Manual override off: Roll back to real readings |
+
+From those few lines, anyone can tell:
+
+- that it was a test, set by hand, not a real capsize;
+- how long the boat was over;
+- that someone saw the alarm, and when;
+- that the real sensor was back in charge afterwards.
+
 ## Where it is stored
 
 Undergrowth keeps two databases on each computer:

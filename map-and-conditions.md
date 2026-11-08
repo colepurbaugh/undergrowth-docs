@@ -60,7 +60,7 @@ Under the zoom buttons, from the top:
 
 A lit button means that layer is showing. Each device remembers its choices.
 
-<img src="images/map-styles.png" width="560" alt="The demo fleet on satellite imagery, with the map style menu open">
+<img src="images/map-styles.png" width="560" alt="The whole farm on satellite imagery, with the map style menu open">
 
 ## Clicking things
 

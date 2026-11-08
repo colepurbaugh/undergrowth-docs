@@ -115,7 +115,7 @@ were written to **Logs** (category *mission*), marked as set by hand:
 
 ## 2. A new crab tank
 
-The demo's crab tank house has 10 tanks. We add an eleventh: the tank, its floating
+The crab tank house in *The whole farm* has 10 tanks. We add an eleventh: the tank, its floating
 thermometer and its heater plug, and put it in the tank house.
 
 ### Step 1: the tank

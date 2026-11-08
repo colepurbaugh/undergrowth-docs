@@ -68,6 +68,9 @@ To see what happens when a link drops or appears, tick **Override** next to
 [manual override](manual-override.md), so the change is marked *set by hand*
 and the real reports keep being recorded.
 
-In the demo, Big Toot hears the dock on both Wi-Fi and LoRa. Lil Toot is within
+In *The whole farm* scenario, Big Toot hears the dock on both Wi-Fi and LoRa. Lil Toot is within
 LoRa range of the dock and of Big Toot but has not connected, so those lines
 are dotted.
+
+The *Out of radio range* [scenario](built-in-scenarios.md) takes a boat out of
+Wi-Fi reach step by step, so you can watch a link drop while LoRa holds.

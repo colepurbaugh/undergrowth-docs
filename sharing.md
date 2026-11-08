@@ -50,6 +50,10 @@ A computer only shares with others if it is listening on the network: start
 its node service with `UG_HOST=0.0.0.0`. There is no password yet, so only do
 that on a network you trust.
 
+While a screen is in a [scenario](built-in-scenarios.md), **⚙** says sharing
+is off. Nothing in a scenario is shared, but the real records on that same
+computer keep sharing as usual underneath.
+
 ## The computers on a boat
 
 A boat carries a Raspberry Pi 4 on a battery pack. The crew's phone is the
