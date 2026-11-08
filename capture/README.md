@@ -17,3 +17,7 @@ It takes about three minutes, uses Microsoft Edge in the background, starts
 the scenario again, and rewrites everything in `images/`. `npm run capture-scenarios`
 does the same for the step-by-step pictures in [Walkthroughs](../scenarios.md),
 by doing each step through the dashboard's own forms.
+
+`npm run capture-charts` retakes only the two nautical chart pictures. The
+chart has real place names printed into it, which, unlike the ordinary map's
+names, cannot be hidden.

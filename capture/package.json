@@ -5,7 +5,8 @@
   "description": "Takes the screenshots and GIFs used in the guide.",
   "scripts": {
     "capture": "node capture.mjs",
-    "capture-scenarios": "node capture.mjs scenarios"
+    "capture-scenarios": "node capture.mjs scenarios",
+    "capture-charts": "node capture.mjs charts"
   },
   "devDependencies": {
     "gifenc": "1.0.3",

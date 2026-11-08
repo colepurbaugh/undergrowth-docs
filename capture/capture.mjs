@@ -201,24 +201,38 @@ async function resetDemo() {
 }
 
 // --- The pictures --------------------------------------------------------------------------
+async function chooseStyle(label) {
+  if (await page.locator('.ug-basemap-menu').isHidden()) await page.locator('.ug-basemap > button').click()
+  await page.locator('.ug-basemap-menu button', { hasText: label }).click()
+}
+
+// The farm on NOAA's nautical chart, for the guide's front page. The chart's own
+// names are printed into it and can't be hidden; they are public chart names.
+async function charts() {
+  console.log('Nautical chart')
+  await chooseStyle('Nautical chart')
+  if (await page.locator('.ug-basemap-menu').isVisible()) await page.locator('.ug-basemap > button').click()
+  await jumpTo([-123.968, 46.6485], 13.0, 7000)
+  await still('chart-farm', { x: 0, y: 130, width: VIEWPORT.width, height: 870 })
+  await jumpTo([-123.9660, 46.6418], 14.6, 7000)
+  await still('chart-channel', { x: 0, y: 130, width: VIEWPORT.width, height: 870 })
+  await chooseStyle('Map')
+  await wait(2500)
+}
+
 async function capture() {
   console.log('Map and conditions')
   await jumpTo([-123.955, 46.668], 11.6, 3500)
   await still('overview')
   await still('conditions-bar', await box(page.locator('.ug-topbar')))
   // Satellite (it has no place names), with the style menu open, then back to the normal map.
-  const chooseStyle = async label => {
-    if (await page.locator('.ug-basemap-menu').isHidden()) await page.locator('.ug-basemap > button').click()
-    await page.locator('.ug-basemap-menu button', { hasText: label }).click()
-  }
   await jumpTo([-123.968, 46.6485], 13.6, 500)
   await chooseStyle('Satellite')
   await wait(5000)
   await page.locator('.ug-basemap > button').click()
   await wait(400)
   await still('map-styles', { x: 560, y: 120, width: 880, height: 640 })
-  await chooseStyle('Map')
-  await wait(2500)
+  await charts()
 
   console.log('Radios')
   await page.keyboard.press('Escape')
@@ -627,8 +641,9 @@ async function scenarios() {
 }
 
 // --- Run ----------------------------------------------------------------------------------------
-// `node capture.mjs` takes the guide's pictures; `node capture.mjs scenarios` the scenario walkthroughs.
-const mode = process.argv[2] === 'scenarios' ? scenarios : capture
+// `node capture.mjs` takes the guide's pictures; `node capture.mjs scenarios` the scenario
+// walkthroughs; `node capture.mjs charts` only the nautical chart pictures.
+const mode = { scenarios, charts }[process.argv[2]] ?? capture
 await mkdir(IMAGES, { recursive: true })
 const browser = await chromium.launch({ channel: 'msedge', headless: true })
 try {

@@ -47,6 +47,8 @@ Markers, routes, keep-outs and mission paths stay on top whichever style is
 chosen. The satellite and topographic maps cover the United States only and
 become slightly blurry at the closest zoom levels.
 
+<img src="images/chart-channel.png" width="560" alt="Big Toot leaving the dock on the nautical chart">
+
 ## Map buttons
 
 <img src="images/map-buttons.png" height="230" align="right" alt="The map buttons">

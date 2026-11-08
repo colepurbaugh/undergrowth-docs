@@ -8,6 +8,23 @@ scenarios, not a real farm.
 
 ![The Undergrowth map](images/overview.png)
 
+## On the nautical chart
+
+The map can also be NOAA's nautical chart, with depth soundings, channels,
+buoys and lights. Boats, routes, keep-outs and mission paths sit on top of it.
+Here the boats are working the channel out from the home dock:
+
+![The farm on the nautical chart](images/chart-farm.png)
+
+Closer in, Big Toot's planned path (gold) follows the channel waypoints past
+the old piling, and the dock's Wi-Fi beam and LoRa link reach out to it:
+
+![Big Toot leaving the dock on the nautical chart](images/chart-channel.png)
+
+Charts are shown for reference only, not for navigation. See
+[map styles](map-and-conditions.md#map-styles) for the satellite and
+topographic maps too.
+
 ## Nodes, clusters and missions
 
 Everything is a **node**: a GPS, a heater plug, an oyster basket, a dock.
