@@ -468,7 +468,7 @@ async function dragTo(name, lonLat, current, gpsName) {
   await wait(3500)
 }
 
-async function scenarios() {
+async function walkthroughs() {
   console.log('Scenario 1: a test vessel, a route, and a trip')
   await jumpTo(SKIFF.view.center, SKIFF.view.zoom, 2000)
 
@@ -476,7 +476,7 @@ async function scenarios() {
   await rightClickAt(SKIFF.start, 'Add Node Here')
   await fillEditor({ name: 'Test Skiff GPS', type: 'gps', icon: 'gps', description: 'GPS on the test skiff.' })
   await setShowOnMap(false)
-  await still('scenario-1-gps', await box(dialog(), 6))
+  await still('walkthrough-1-gps', await box(dialog(), 6))
   await saveEditor()
 
   // 2. The vessel: a cluster that takes its position from the GPS and contains it.
@@ -488,7 +488,7 @@ async function scenarios() {
   await setShowOnMap(true)
   await dialog().locator('.ug-dialog-scroll').evaluate(el => el.scrollTo({ top: 260 }))
   await wait(300)
-  await still('scenario-1-vessel', await box(dialog(), 6))
+  await still('walkthrough-1-vessel', await box(dialog(), 6))
   await saveEditor()
 
   // 3. Three waypoints, right-clicked onto the map.
@@ -497,7 +497,7 @@ async function scenarios() {
   for (const [i, at] of SKIFF.waypoints.entries()) {
     await rightClickAt(at, 'Add Waypoint Here')
     await fillEditor({ name: `Test WP ${i + 1}`, description: 'Waypoint on the test route.' })
-    if (i === 0) await still('scenario-1-waypoint', await box(dialog(), 6))
+    if (i === 0) await still('walkthrough-1-waypoint', await box(dialog(), 6))
     await saveEditor()
   }
 
@@ -508,7 +508,7 @@ async function scenarios() {
   for (let i = 1; i <= 3; i++) await tickLabel(dialog().locator('.ug-membership-options'), `Test WP ${i}`)
   await dialog().locator('.ug-dialog-scroll').evaluate(el => el.scrollTo({ top: 99999 }))
   await wait(300)
-  await still('scenario-1-route', await box(dialog(), 6))
+  await still('walkthrough-1-route', await box(dialog(), 6))
   await saveEditor()
 
   // 5. The mission.
@@ -520,7 +520,7 @@ async function scenarios() {
   await formField('Go to').selectOption({ label: 'Oyster basket 2 (payload)' })
   await formField('Using route').selectOption({ label: 'Test Route (route)' })
   await formField('Name').fill('Demo: Test Skiff to basket 2')
-  await still('scenario-1-mission-form', await box(form, 8))
+  await still('walkthrough-1-mission-form', await box(form, 8))
   await form.locator('button', { hasText: 'Start mission' }).click()
   await wait(1500)
 
@@ -532,10 +532,10 @@ async function scenarios() {
   await jumpTo(SKIFF.view.center, SKIFF.view.zoom, 1500)
   const basket = await where('Oyster basket 2')
   const steps = [
-    ['scenario-1-trip-1-start', null],
-    ['scenario-1-trip-2-waypoint-1', SKIFF.waypoints[0]],
-    ['scenario-1-trip-3-past-waypoint-2', SKIFF.between],
-    ['scenario-1-trip-4-arrived', basket]
+    ['walkthrough-1-trip-1-start', null],
+    ['walkthrough-1-trip-2-waypoint-1', SKIFF.waypoints[0]],
+    ['walkthrough-1-trip-3-past-waypoint-2', SKIFF.between],
+    ['walkthrough-1-trip-4-arrived', basket]
   ]
   let here = SKIFF.start
   for (const [file, to] of steps) {
@@ -550,7 +550,7 @@ async function scenarios() {
   await page.locator('.ug-log-filters select').selectOption('mission')
   await page.locator('.ug-log-filters label', { hasText: 'Search' }).locator('input').fill('Test Skiff')
   await wait(1500)
-  await still('scenario-1-decisions', { x: 0, y: 200, width: VIEWPORT.width, height: 560 })
+  await still('walkthrough-1-decisions', { x: 0, y: 200, width: VIEWPORT.width, height: 560 })
   await page.locator('.ug-log-filters label', { hasText: 'Search' }).locator('input').fill('')
   await page.locator('.ug-log-filters select').selectOption('activity')
 
@@ -561,7 +561,7 @@ async function scenarios() {
   await fillEditor({ name: 'Crab tank 11', type: 'tank', icon: 'package', description: 'Holding tank in Crab tanks.' })
   await chooseSource('Crab tanks')
   await setShowOnMap(false)
-  await still('scenario-2-tank', await box(dialog(), 6))
+  await still('walkthrough-2-tank', await box(dialog(), 6))
   await saveEditor()
 
   // 2. Its parts: a floating thermometer and a heater plug, both inside the tank.
@@ -577,7 +577,7 @@ async function scenarios() {
     if (part === 'thermometer') {
       await dialog().locator('.ug-dialog-scroll').evaluate(el => el.scrollTo({ top: 99999 }))
       await wait(300)
-      await still('scenario-2-thermometer', await box(dialog(), 6))
+      await still('walkthrough-2-thermometer', await box(dialog(), 6))
     }
     await saveEditor()
   }
@@ -588,7 +588,7 @@ async function scenarios() {
   await dialog().waitFor()
   await tickLabel(dialog().locator('.ug-membership-options'), 'Crab tank 11')
   await dialog().locator('label.ug-check-line', { hasText: /^\s*Crab tank 11 \(/ }).first().scrollIntoViewIfNeeded()
-  await still('scenario-2-tank-house', await box(dialog(), 6))
+  await still('walkthrough-2-tank-house', await box(dialog(), 6))
   await saveEditor()
 
   // 4. Give the parts their values from the tank's own panel, then read it.
@@ -619,7 +619,7 @@ async function scenarios() {
     if (name === 'Water temperature') {
       await page.evaluate(() => document.querySelector('.ug-selection').scrollTo({ top: 99999 }))
       await wait(300)
-      await still('scenario-2-new-value', await box(panel()))
+      await still('walkthrough-2-new-value', await box(panel()))
     }
     await button(form, 'Add value').click()
     await wait(1200)
@@ -632,18 +632,18 @@ async function scenarios() {
   await wait(3500)
   await page.evaluate(() => document.querySelector('.ug-selection').scrollTo({ top: 0 }))
   await wait(400)
-  await still('scenario-2-tank-panel', await box(panel()))
+  await still('walkthrough-2-tank-panel', await box(panel()))
   await closePanel()
   await open('Crab tanks')
   await page.evaluate(() => document.querySelector('.ug-selection').scrollTo({ top: 99999 }))
   await wait(600)
-  await still('scenario-2-in-the-house', await box(panel()))
+  await still('walkthrough-2-in-the-house', await box(panel()))
 }
 
 // --- Run ----------------------------------------------------------------------------------------
-// `node capture.mjs` takes the guide's pictures; `node capture.mjs scenarios` the scenario
+// `node capture.mjs` takes the guide's pictures; `node capture.mjs walkthroughs` the
 // walkthroughs; `node capture.mjs charts` only the nautical chart pictures.
-const mode = { scenarios, charts }[process.argv[2]] ?? capture
+const mode = { walkthroughs, charts }[process.argv[2]] ?? capture
 await mkdir(IMAGES, { recursive: true })
 const browser = await chromium.launch({ channel: 'msedge', headless: true })
 try {

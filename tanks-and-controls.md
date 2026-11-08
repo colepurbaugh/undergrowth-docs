@@ -40,7 +40,7 @@ Switching a heater on and recording a salinity reading:
 In a scenario no real plug is connected, so the row says *Sent On · device reports
 Off*. With a real plug, the device's report would follow.
 
-The *Crab tank goes cold* [scenario](built-in-scenarios.md) switches a heater off
+The *Crab tank goes cold* [scenario](scenarios.md) switches a heater off
 and lets a tank go cold, to see what happens on a winter night.
 
 ## Changing what a panel shows

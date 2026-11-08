@@ -27,7 +27,7 @@ the reading or distance that set it off, and the position at the time:
 ## Reading the story of an event
 
 The newest entries are at the top, so read from the bottom up. This is a
-[capsize test](built-in-scenarios.md#capsize-test) in the order it happened:
+[capsize test](scenarios.md#capsize-test) in the order it happened:
 
 | Category | What the log says |
 |---|---|

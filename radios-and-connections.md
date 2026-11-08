@@ -72,5 +72,5 @@ In *The whole farm* scenario, Big Toot hears the dock on both Wi-Fi and LoRa. Li
 LoRa range of the dock and of Big Toot but has not connected, so those lines
 are dotted.
 
-The *Out of radio range* [scenario](built-in-scenarios.md) takes a boat out of
+The *Out of radio range* [scenario](scenarios.md) takes a boat out of
 Wi-Fi reach step by step, so you can watch a link drop while LoRa holds.

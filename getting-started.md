@@ -63,8 +63,8 @@ records.
 ## Where next
 
 - [The guide](README.md) covers every feature, with pictures.
-- [Built-in scenarios](built-in-scenarios.md) are small examples, such as a
+- [Scenarios](scenarios.md) are small examples, such as a
   capsize or a cold crab tank, each with steps to try.
-- [Walkthroughs](scenarios.md) build a boat and a crab tank from scratch.
+- [Walkthroughs](walkthroughs.md) build a boat and a crab tank from scratch.
 - [Sharing between computers](sharing.md) covers running Undergrowth on more
   than one computer, such as a Pi on each boat.

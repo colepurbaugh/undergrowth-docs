@@ -1,176 +1,121 @@
-# Walkthroughs
+# Scenarios
 
 [← Guide](README.md)
 
-Two jobs done from start to finish, with what Undergrowth decides at each step
-and why. Every picture was taken doing exactly these steps in *The whole farm*
-scenario, so you can follow along there without touching your real records.
+A scenario is a small, ready-made example to try things on. Open
+**Scenarios** in the top bar and press **Start** on one. Undergrowth sets it
+up in records of its own, apart from your real ones, and switches this screen
+over to it. A yellow bar across the top shows you're in a scenario.
 
-1. [A test vessel, a route, and a trip](#1-a-test-vessel-a-route-and-a-trip)
-2. [A new crab tank](#2-a-new-crab-tank)
+- **Nothing in a scenario touches your real records,** and nothing in it is
+  shared with other computers. Your real farm keeps running underneath. If it
+  raises an alert while you're in a scenario, the yellow bar says so.
+- **Each scenario lists what to try.** The steps open under the yellow bar
+  when you start it. **Hide steps** tucks them away, and **What to try**
+  brings them back. Each card on the Scenarios page has the same steps.
+- **One scenario runs at a time.** Starting another one, or pressing **Start
+  again**, throws away the last one and starts fresh.
+- **Leave** on the yellow bar goes back to your real records and leaves the
+  scenario where it is, so **Go to it** on its card picks up where you left
+  off. **End it** throws it away.
 
----
+The first five are small, so there is only one thing to look at in each. The
+last one has everything at once. To build a boat or a tank from scratch
+instead, see [Walkthroughs](walkthroughs.md).
 
-## 1. A test vessel, a route, and a trip
+## Capsize test
 
-We build a small boat from nothing, lay out a route up the bay, send it to
-oyster basket 2, and move it along by hand to watch the decisions change.
+One small boat at the dock, with a tilt sensor and a safety watch that raises
+an alarm if the boat rolls past 35° for three seconds.
 
-### Step 1: the GPS
+You set the roll by hand to 60°. Within about ten seconds a red alert comes
+up, marked *set by hand*. Setting the roll back to 0° turns the alert amber:
+the boat is upright again, but someone still has to acknowledge it.
 
-Everything starts as a node. Right-click the water where the boat is and choose
-**＋ Add Node Here**. The coordinates are filled in from where you clicked.
+More on this: [Manual override](manual-override.md),
+[Safety watches](safety-watches.md).
 
-- **Map Name:** Test Skiff GPS · **Node Type:** gps · **Map Icon:** GPS
-- Untick **Show on Map**: we will show the boat, not its parts.
+## Crab tank goes cold
 
-<img src="images/scenario-1-gps.png" width="420" alt="Adding the GPS node">
+A house of three crab tanks. Each has a floating thermometer and a heater on
+a remote plug. A safety watch raises an alarm if any tank drops below 42 °F.
 
-### Step 2: the vessel
+You switch one tank's heater off. The panel shows *Sent Off* while the plug
+still reports *On*, because there is no real plug in a scenario. Then you
+skip ahead a few hours by setting the water temperature to 40 °F, and the
+alarm goes off. Logs show the heater commands and the alert side by side.
 
-A vessel is a cluster of parts. On **Clusters**, press **+ Add Cluster**:
+More on this: [Tanks and controls](tanks-and-controls.md),
+[Safety watches](safety-watches.md).
 
-- **Map Name:** Test Skiff · **Cluster Type:** vessel · **Map Icon:** Triangle
-- **Position:** press **＋** and tick *Test Skiff GPS*. The boat is now wherever
-  its GPS is.
-- **Keep-out distance:** 40 ft, so other vessels give it room.
-- **Cluster Members:** tick *Test Skiff GPS*. **Show on Map:** ticked.
+## Boat to a basket
 
-<img src="images/scenario-1-vessel.png" width="420" alt="Adding the vessel cluster">
+One boat at the dock, a short channel route, a submerged piling beside the
+channel, and three oyster baskets. A mission sends the boat to basket 2.
 
-> **Decision note:** the vessel has no coordinates of its own. If the GPS is
-> replaced or moved, the vessel follows without being edited.
+You move the boat around by hand and watch the plan change:
 
-### Step 3: waypoints
+- **Near the dock:** the plan follows the channel and bends to stay 80 ft
+  from the piling.
+- **Out in open water:** it heads straight for the basket instead.
+- **Within 30 ft of the basket:** the advice changes to *Arrived — hold
+  position*.
 
-Right-click three spots up the bay and choose **⌖ Add Waypoint Here** for each:
-*Test WP 1*, *Test WP 2*, *Test WP 3*.
+Logs show each change of plan and why.
 
-<img src="images/scenario-1-waypoint.png" width="420" alt="Adding a waypoint">
+More on this: [Vessels and missions](vessels-and-missions.md).
 
-### Step 4: the route
+## Out of radio range
 
-A route is a cluster of waypoints. **+ Add Cluster** again: name *Test Route*,
-type **route**, and tick the three waypoints as members.
+A dock with Wi-Fi and a LoRa gateway, and a boat with both radios. Both of
+the boat's radios report hearing the dock.
 
-<img src="images/scenario-1-route.png" width="420" alt="Making the route">
+You take the boat far up the bay, and both links still show as connected. The
+map only knows what the radios last reported. Then you clear what the boat's
+Wi-Fi hears, as it would once it lost the dock:
 
-> **Decision note:** the order you tick them in does not matter. Undergrowth
-> joins waypoints with the shortest set of connections, so a line of waypoints
-> becomes a channel and a branching set becomes a branching channel.
+- **Wi-Fi:** the link drops.
+- **LoRa:** reaches much further, so it holds.
 
-### Step 5: the mission
+Back near the dock, the Wi-Fi link comes back as a dotted line, meaning *in
+range*: the two radios could connect, but nothing says they have.
 
-On **Missions**, choose the vessel, where it is going and the route, and press
-**+ Start mission**.
+More on this: [Radios and connections](radios-and-connections.md).
 
-<img src="images/scenario-1-mission-form.png" alt="Starting the mission">
+## Rescue
 
-### Step 6: the trip
+Lil Toot's engine has failed up the bay, and Big Toot has a mission to reach
+it. A safety watch warns if Big Toot gets within another boat's 40 ft
+keep-out distance.
 
-Click *Test Skiff*, tick **Override** next to its GPS position (this is
-[manual override](manual-override.md), standing in for a real GPS), and move the
-boat along. Each time it moves, the plan is worked out again from where it is
-now.
+You bring Big Toot alongside, and there is no alarm: a boat is never warned
+about the boat it was sent to. Once you mark the rescue complete, they are
+just two boats 30 ft apart, and the alarm goes off.
 
-**At the start.** The route is worth joining, so the advice is to head for its
-nearest waypoint:
+Then you join them into one vessel, in two edits:
 
-> Head 004° toward Oyster basket 2 via route (3 waypoints), next "Test WP 1". 1.42 nm remaining.
+1. **Make Lil Toot part of Big Toot.** A boat is never warned about its own
+   parts, so the alarm clears.
+2. **Give Lil Toot Big Toot's position.** Wherever Big Toot goes, Lil Toot
+   goes too, the way a boat under tow does.
 
-![At the start](images/scenario-1-trip-1-start.png)
+More on this: [Taking a boat in tow](vessels-and-missions.md#taking-a-boat-in-tow),
+[Safety watches](safety-watches.md).
 
-**At waypoint 1.** That waypoint counts as reached, so the advice moves on to
-the next one:
-
-> Head 338° toward Oyster basket 2 via route (2 waypoints), next "Test WP 2". 1.12 nm remaining.
-
-![At waypoint 1](images/scenario-1-trip-2-waypoint-1.png)
-
-**Past waypoint 2.** From here, going straight to the basket is shorter than
-detouring to waypoint 3, so the route is left behind:
-
-> Head 320° toward Oyster basket 2 direct. 0.47 nm remaining.
-
-![Past waypoint 2](images/scenario-1-trip-3-past-waypoint-2.png)
-
-> **Decision note:** travel off the route counts as one and a half times as
-> costly as travel along it. Undergrowth prefers the route, but not at any
-> price: when the route would mean a long way round, it goes direct.
-
-**At the basket.** Within the 30 ft arrival distance:
-
-> Arrived: within 30 ft of Oyster basket 2. Hold position.
-
-![Arrived](images/scenario-1-trip-4-arrived.png)
-
-### Step 7: the record
-
-Every time the decision changed, the reason and the positions it was based on
-were written to **Logs** (category *mission*), marked as set by hand:
-
-![The mission's decisions in Logs](images/scenario-1-decisions.png)
-
----
-
-## 2. A new crab tank
-
-The crab tank house in *The whole farm* has 10 tanks. We add an eleventh: the tank, its floating
-thermometer and its heater plug, and put it in the tank house.
-
-### Step 1: the tank
-
-On **Clusters**, **+ Add Cluster**: name *Crab tank 11*, type **tank**. For its
-position, press **＋** and tick *Crab tanks*: the tank is wherever its
-tank house is. Untick **Show on Map**; the tank house stands for all its tanks.
-
-<img src="images/scenario-2-tank.png" width="420" alt="Adding the tank">
-
-### Step 2: its parts
-
-On **Nodes**, **+ Add Node**, twice:
-
-- *Crab tank 11 thermometer* (type **sensor**), the floating pool thermometer;
-- *Crab tank 11 heater plug* (type **relay**), the remote plug the heater is on.
-
-For each: position from *Crab tank 11*, **Show on Map** unticked, and under
-**Belongs to Clusters** tick *Crab tank 11*.
-
-<img src="images/scenario-2-thermometer.png" width="420" alt="Adding the thermometer">
-
-### Step 3: into the tank house
-
-On **Clusters**, **Edit / Membership** on *Crab tanks*, and tick
-*Crab tank 11* as a member.
-
-<img src="images/scenario-2-tank-house.png" width="420" alt="Adding the tank to the tank house">
-
-### Step 4: what each part measures or does
-
-Open the tank's panel (click *Crab tanks* on the map, then **Open**
-next to *Crab tank 11*) and press **Customize**. Under **New value…** add:
-
-| On | Name | Comes from | Kind |
-|---|---|---|---|
-| Crab tank 11 thermometer | Water temperature | A sensor reports it | Number, °F, 28–90 |
-| Crab tank 11 heater plug | Heater | Undergrowth controls it | On / off |
-| Crab tank 11 | Salinity | Typed in by people | Number, ppt, 0–40 |
-
-<img src="images/scenario-2-new-value.png" width="380" alt="Adding a value">
-
-Once the thermometer sends its first reading, the tank's panel has everything:
-the temperature with its age, a switch for the heater, and a box to record
-salinity by hand.
-
-<img src="images/scenario-2-tank-panel.png" width="380" alt="Crab tank 11's panel">
-
-### Step 5: it is already being watched
-
-The tank house now lists Crab tank 11 alongside the others:
-
-<img src="images/scenario-2-in-the-house.png" width="380" alt="Crab tank 11 in the tank house">
-
-> **Decision note:** the *Crab tank water temperature*
-> [safety watch](safety-watches.md) watches every water temperature inside the
-> tank house, so the new tank is covered the moment it joins. Nothing about the
-> watch had to change.
+## The whole farm
+
+Everything at once:
+
+- two boats with all their parts
+- a home dock
+- a channel route
+- keep-outs
+- a bed of oyster baskets
+- two houses of holding tanks
+- missions and safety watches running
+
+One crab tank has already gone cold, so there is an alert to find straight
+away. Every picture in this guide was taken in this scenario.
+
+More on this: [Getting started](getting-started.md) has a first look around
+it.

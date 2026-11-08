@@ -42,7 +42,7 @@ Use [manual override](manual-override.md): drag a vessel into a keep-out, set a
 roll of 60°, or set a tank's water temperature to 38 °F, and watch the alert
 appear, marked *(set by hand)*. Set it back, or release the override, and the
 alert turns amber until someone acknowledges it. The *Capsize test*, *Crab tank
-goes cold* and *Rescue* [scenarios](built-in-scenarios.md) each set one up to
+goes cold* and *Rescue* [scenarios](scenarios.md) each set one up to
 try.
 
 Every alert, clearing and acknowledgement is written to

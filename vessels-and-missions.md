@@ -53,7 +53,7 @@ avoid, arriving), the reason and the inputs it was based on are written to
 
 ![Missions page](images/missions.png)
 
-The *Boat to a basket* [scenario](built-in-scenarios.md) has one boat, one
+The *Boat to a basket* [scenario](scenarios.md) has one boat, one
 route and one keep-out to try all of this on.
 
 ## Taking a boat in tow
@@ -74,4 +74,4 @@ too-close alarm. To cast off, undo both edits.
 A boat sent on a mission to another boat is never warned about getting close
 to it, so a rescue boat can come alongside without an alarm. Once the mission
 is marked complete, the two are just boats again until they are joined. The
-*Rescue* [scenario](built-in-scenarios.md) walks through all of this.
+*Rescue* [scenario](scenarios.md) walks through all of this.

@@ -5,7 +5,7 @@
   "description": "Takes the screenshots and GIFs used in the guide.",
   "scripts": {
     "capture": "node capture.mjs",
-    "capture-scenarios": "node capture.mjs scenarios",
+    "capture-walkthroughs": "node capture.mjs walkthroughs",
     "capture-charts": "node capture.mjs charts"
   },
   "devDependencies": {
