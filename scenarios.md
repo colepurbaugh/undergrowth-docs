@@ -1,6 +1,6 @@
 # Scenarios
 
-[← Guide](README.md)
+[← Guide](README.md) · [Map](map.md) · [Nodes](nodes.md) · [Clusters](clusters.md) · [Missions](missions.md) · [Logs](logs.md) · **Scenarios**
 
 A scenario is a small, ready-made example to try things on. Open
 **Scenarios** in the top bar and press **Start** on one. Undergrowth sets it
@@ -33,7 +33,7 @@ up, marked *set by hand*. Setting the roll back to 0° turns the alert amber:
 the boat is upright again, but someone still has to acknowledge it.
 
 More on this: [Manual override](manual-override.md),
-[Safety watches](safety-watches.md).
+[Safety watches](missions.md#safety-watches).
 
 ## Crab tank goes cold
 
@@ -45,8 +45,8 @@ still reports *On*, because there is no real plug in a scenario. Then you
 skip ahead a few hours by setting the water temperature to 40 °F, and the
 alarm goes off. Logs show the heater commands and the alert side by side.
 
-More on this: [Tanks and controls](tanks-and-controls.md),
-[Safety watches](safety-watches.md).
+More on this: [Tank houses](clusters.md#tank-houses),
+[Safety watches](missions.md#safety-watches).
 
 ## Boat to a basket
 
@@ -63,7 +63,7 @@ You move the boat around by hand and watch the plan change:
 
 Logs show each change of plan and why.
 
-More on this: [Vessels and missions](vessels-and-missions.md).
+More on this: [Navigate missions](missions.md#navigate-missions).
 
 ## Out of radio range
 
@@ -99,8 +99,8 @@ Then you join them into one vessel, in two edits:
 2. **Give Lil Toot Big Toot's position.** Wherever Big Toot goes, Lil Toot
    goes too, the way a boat under tow does.
 
-More on this: [Taking a boat in tow](vessels-and-missions.md#taking-a-boat-in-tow),
-[Safety watches](safety-watches.md).
+More on this: [Taking a boat in tow](clusters.md#taking-a-boat-in-tow),
+[Safety watches](missions.md#safety-watches).
 
 ## The whole farm
 

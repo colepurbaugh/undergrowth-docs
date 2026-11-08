@@ -52,13 +52,13 @@ back.
 ## Example: testing a capsize
 
 Override *Big Toot*'s roll and set it to 60°. The
-[tipping watch](safety-watches.md) wants the boat over for three seconds and
+[tipping watch](missions.md#safety-watches) wants the boat over for three seconds and
 checks every five, so within about ten seconds it raises an alert, marked
 *(set by hand)*:
 
 ![Setting roll to 60° raises a tip alert](images/tip-alert.gif)
 
-Every override turned on or off is written to [Logs](logs-and-history.md) under
+Every override turned on or off is written to [Logs](logs.md) under
 *override*, and every hand-set value is kept as a reading.
 
 To try this yourself, open **Scenarios** and start *Capsize test*. It sets up

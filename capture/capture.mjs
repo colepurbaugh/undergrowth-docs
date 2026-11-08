@@ -410,7 +410,31 @@ async function capture() {
   await wait(800)
   await still('log-details', await box(page.locator('.ug-log-detail'), 10))
   await page.locator('.ug-log-detail button', { hasText: 'Close' }).click()
+  await listPages()
+}
+
+// The Nodes and Clusters pages, and a node's editor.
+async function listPages() {
+  console.log('Nodes and Clusters pages')
+  const search = () => page.locator('.ug-list-toolbar input[aria-label^="Search"]')
+  await page.locator('.ug-nav button', { hasText: 'Nodes' }).click()
+  await wait(1200)
+  // Big Toot's parts: one boat, many nodes.
+  await search().fill('Big Toot')
+  await wait(600)
+  await still('nodes-page', { x: 0, y: 0, width: VIEWPORT.width, height: 640 })
+  await search().fill('Old piling')
+  await wait(600)
+  await page.locator('.ug-table tbody tr', { hasText: 'Old piling' }).locator('button', { hasText: 'Edit' }).click()
+  await dialog().waitFor()
+  await wait(800)
+  await still('node-editor', await box(dialog(), 6))
+  await dialog().locator('button', { hasText: 'Close' }).click()
+  await page.locator('.ug-nav button', { hasText: 'Clusters' }).click()
+  await wait(1200)
+  await still('clusters-page', { x: 0, y: 0, width: VIEWPORT.width, height: 640 })
   await page.locator('.ug-nav button', { hasText: 'Map' }).click()
+  await wait(1200)
 }
 
 // --- Scenarios: done for real through the dashboard's own forms -------------------------------------
@@ -642,8 +666,9 @@ async function walkthroughs() {
 
 // --- Run ----------------------------------------------------------------------------------------
 // `node capture.mjs` takes the guide's pictures; `node capture.mjs walkthroughs` the
-// walkthroughs; `node capture.mjs charts` only the nautical chart pictures.
-const mode = { walkthroughs, charts }[process.argv[2]] ?? capture
+// walkthroughs; `node capture.mjs charts` the nautical chart pictures; `node capture.mjs pages`
+// the Nodes and Clusters pages.
+const mode = { walkthroughs, charts, pages: listPages }[process.argv[2]] ?? capture
 await mkdir(IMAGES, { recursive: true })
 const browser = await chromium.launch({ channel: 'msedge', headless: true })
 try {

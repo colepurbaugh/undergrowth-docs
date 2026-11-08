@@ -21,3 +21,6 @@ by doing each step through the dashboard's own forms.
 `npm run capture-charts` retakes only the two nautical chart pictures. The
 chart has real place names printed into it, which, unlike the ordinary map's
 names, cannot be hidden.
+
+`npm run capture-pages` retakes only the pictures of the Nodes and Clusters
+pages and the node editor.

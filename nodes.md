@@ -1,0 +1,129 @@
+# Nodes
+
+[← Guide](README.md) · [Map](map.md) · **Nodes** · [Clusters](clusters.md) · [Missions](missions.md) · [Logs](logs.md) · [Scenarios](scenarios.md)
+
+## What a node is
+
+A node is **one thing**: a GPS, a heater plug, a floating thermometer, an
+oyster basket, a dock, a sandbar to stay away from. Everything Undergrowth
+knows about starts as a node.
+
+A node has:
+
+- **a name and an ID.** The name is for people and can change. The ID never
+  changes, so its readings, missions and history stay attached to it.
+- **a place,** if it has one. A dock has coordinates. A heater plug takes its
+  place from the tank it's in. A basket on the bottom has a spot on the map.
+- **values:** things it reports, things people measure and type in, and things
+  Undergrowth can switch or set. A thermometer reports water temperature and
+  battery. A heater plug can be switched on and off, and reports how much power
+  it is drawing.
+
+That's all a node is. Its *type* (gps, relay, keep-out, port…) is a word to help
+people, not a set of rules. Any node can have any values, much like a part with
+inputs and outputs that you wire up however the job needs.
+
+### Why everything starts as a node
+
+A farm changes. A dock starts as a place to tie up. Later it gets Wi-Fi, then a
+camera, then a heater for the holding tanks. Undergrowth doesn't make you
+describe all of that up front.
+
+Add what you have now, as a node. When it grows parts, **Make it a cluster** in
+its editor turns it into a [cluster](clusters.md) that can hold them. It keeps
+its ID, readings, missions and history, and anything already mounted on it
+becomes its first parts.
+
+The computer running Undergrowth is a node too, so it shows up alongside
+everything else. That one can't be archived or made a cluster.
+
+### Every value says how old it is
+
+Every reading keeps the time it was taken. On screen, values fade from **bright
+green** (just arrived) to **dull brown** (old), so a stale reading looks stale.
+A position that stops updating fades the same way, and after a while a node
+whose position comes from GPS is marked as having no position at all, rather
+than pretending to be where it was last seen.
+
+## The Nodes page
+
+**Nodes** in the top bar lists every node, whether it is on the map or hidden
+inside something else.
+
+![The Nodes page, searching for Big Toot's parts](images/nodes-page.png)
+
+- **Search** by name, type or ID. Here, searching *Big Toot* finds the boat's
+  parts: its GPS, radios, computer, latch, motor controller and so on.
+- **Position** says whether its place is known: *✓ Ready*, *⚠ Partial* (some
+  of what it takes its place from is missing; hover for why) or *—
+  Unavailable*.
+- **Show on Map**: tick or untick, then press **Save Map Visibility**. Parts
+  inside a boat or a tank are usually hidden, so the map shows the boat, not
+  its bolts.
+- **Members / Clusters** is how many clusters the node belongs to.
+- **Edit / Membership** opens its editor, **Archive** puts it away, and
+  **Locate** shows it on the map.
+- **Show Archived** brings archived nodes back into the list, with **Restore**.
+
+**+ Add Node** makes a new one. On the map, right-clicking a spot does the same
+with its coordinates already filled in.
+
+## The editor
+
+<img src="images/node-editor.png" width="420" align="right" alt="Editing the Old piling node">
+
+- **Map Name, Node Type, Description, Map Icon.** The type is free text, with
+  the types you've already used offered as you type.
+- **Position**, from one of three places:
+  - **manual coordinates**: type them in, or paste `latitude, longitude`;
+  - **other nodes or clusters**: press **＋** and tick where it gets its place
+    from. A heater plug takes the place of its tank; every part of a boat takes
+    the place of the boat's GPS. Several sources are averaged.
+  - **GPS telemetry**: its own GPS readings, ignored once they are older than
+    you say.
+- **Show on Map.**
+- **Keep-out distance**: how far boats stay away. Anything with a keep-out
+  distance is a keep-out: an old piling, a sandbar, a basket, another boat. See
+  [Missions](missions.md).
+- **Radio**: what kind of radio it is, if any, and how far it reaches. See
+  [Radios and connections](radios-and-connections.md).
+- **Belongs to Clusters**: tick the clusters it is part of. A node can belong to
+  more than one: a thermometer is part of its tank, and the tank is part of the
+  tank house.
+- **Archive** and **Make it a cluster** at the bottom.
+
+Every change is written to [Logs](logs.md).
+
+<br clear="right">
+
+## Values
+
+Each value shows as a row in the node's panel, and works according to where it
+comes from:
+
+| Kind | Example | What the row lets you do |
+|---|---|---|
+| **sensor** | water temperature, GPS heading, heater power draw | Shows the latest reading and how old it is. Tick *Override* to set it by hand for testing. |
+| **entered by hand** | salinity, pH, "bay water flowing" | People measure it and type it in: enter the number and press **Record**. |
+| **control** | heater plug, motor, latch | A switch, a slider with **Send**, or a one-press button. Undergrowth sends the command; the row shows both what was sent and what the device last reported. |
+
+Typed numbers are only sent when you press **Send** / **Record** or Enter, so
+`256` is never sent as `2`, `25`, `256`.
+
+Switching a heater on and recording a salinity reading:
+
+![Heater on and a salinity reading](images/heater-and-reading.gif)
+
+In a scenario no real plug is connected, so the row says *Sent On · device
+reports Off*. With a real plug, the device's report would follow.
+
+New values can be added from any panel with **Customize** (see
+[Clusters](clusters.md#changing-what-a-panel-shows)), and any sensor reading
+or position can be set by hand for testing with
+[manual override](manual-override.md).
+
+## Who can change a node
+
+The computer that created a node owns it. Other computers running Undergrowth
+hold a read-only copy: it looks the same on their map, but its controls are
+greyed out. See [Sharing between computers](sharing.md).

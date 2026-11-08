@@ -1,6 +1,6 @@
-# Logs and history
+# Logs
 
-[← Guide](README.md)
+[← Guide](README.md) · [Map](map.md) · [Nodes](nodes.md) · [Clusters](clusters.md) · [Missions](missions.md) · **Logs** · [Scenarios](scenarios.md)
 
 The **Logs** page is the permanent record. Nothing in it is edited or deleted.
 

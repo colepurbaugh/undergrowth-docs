@@ -172,6 +172,6 @@ The tank house now lists Crab tank 11 alongside the others:
 <img src="images/walkthrough-2-in-the-house.png" width="380" alt="Crab tank 11 in the tank house">
 
 > **Decision note:** the *Crab tank water temperature*
-> [safety watch](safety-watches.md) watches every water temperature inside the
+> [safety watch](missions.md#safety-watches) watches every water temperature inside the
 > tank house, so the new tank is covered the moment it joins. Nothing about the
 > watch had to change.
