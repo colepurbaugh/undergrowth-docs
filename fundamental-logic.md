@@ -23,6 +23,20 @@ There is no fourth kind of thing. A boat, a greenhouse and a tank house are all
 clusters. A safety alarm, a schedule, a navigation plan and a colour on a
 display are all missions.
 
+**One node or a cluster?** Ask what you would replace when it breaks. A phone
+is one node, however many sensors it has inside: if its GPS breaks, you
+replace the phone. Plug the phone into a battery pack and you have the phone,
+the USB cable and the battery pack, three nodes in a "phone charging" cluster,
+because each can be swapped on its own. In the same way, a temperature and
+humidity sensor on one chip is one node with two readings, and a board with
+sensors plugged into it is a cluster.
+
+**How things are connected is separate from what they belong to.** Each node
+can say what it is plugged into, and how: "I2C 0x10", "USB", "Wi-Fi". Its
+panel then shows the whole way its readings travel to the computer you're
+looking at (see [Nodes](nodes.md#how-its-connected)). A sensor wired to a
+board can sit in a greenhouse cluster while the board sits in another.
+
 ## Nothing is guaranteed to answer
 
 - **Every reading carries the time it was taken,** and shows its age. An old
@@ -161,6 +175,7 @@ Nothing in it needs a position, and no mission refers to another.
 | Rule | Status |
 |---|---|
 | Nodes and clusters, clusters inside clusters | Built |
+| How each thing is connected, hop by hop | Built. A board says what is plugged into it, people say how hand-added things are wired, and the last hop comes from sharing. |
 | Every reading shows its age | Built |
 | Positions optional | Built. Displays open from the Nodes and Clusters lists, so nothing needs the map. |
 | One kind of mission: when, do, priority | Built. *When* can be always, between two times of day, a reading out of range, too close to a keep-out, or a sensor gone quiet. *Do* can be set a control, alert people or advise a vessel the way. |

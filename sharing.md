@@ -70,14 +70,31 @@ BNO085 ───┘
 ```
 
 Wired to the Pi, the Pi reads them itself. Wired to an ESP32-S3 Feather, the
-board is a small Undergrowth computer of its own: it owns its GPS and motion
-records, keeps a few hours of readings in memory, and shares them like any
-other computer. The Pi keeps the long history. If the Pi restarts, the board
-still has the readings from while it was down.
+board is a small Undergrowth computer of its own: it owns its records, keeps a
+few hours of readings in memory, and shares them like any other computer. The
+Pi keeps the long history. If the Pi restarts, the board still has the
+readings from while it was down.
 
-The board serves a plain text page with its GPS fix, satellites, heading, roll
-and pitch, and when it last shared. Its screen shows the address to browse to.
-New firmware can be sent to it over Wi-Fi.
+What is soldered onto the Feather is part of the board, so the board is one
+node with its RGB LED (a dimmable light), its red LED (on/off) and its three
+buttons. What plugs into its I2C port is found on its own within a few
+seconds, and each part becomes a node wired to the board:
+
+| Address | Part | Readings |
+|---|---|---|
+| 0x10 | VEML7700 light sensor | light (lux) |
+| 0x38 | AHT10 or AHT20 | temperature (°F), humidity (%) |
+| 0x42 | u-blox GPS | position, speed, satellites, and the time |
+| 0x4A | BNO085 motion sensor | heading, roll, pitch |
+
+The board and its parts make a cluster named after the board. A part that is
+unplugged goes quiet rather than vanishing; **Forget unplugged parts** on the
+board's page removes it.
+
+The board serves a small page in the dashboard's colours: its Wi-Fi, when it
+last shared, what is plugged in and how, and its light, LED and buttons. Its
+screen shows the address to browse to and its readings. New firmware can be
+sent to it over Wi-Fi.
 
 ## Not built yet
 
@@ -88,4 +105,3 @@ New firmware can be sent to it over Wi-Fi.
 - Sharing missions between computers.
 - Calibrating the motion sensor. For now it has to lie flat with its arrow
   toward the bow.
-- The ESP32 firmware has been built but not yet run on a board.

@@ -45,6 +45,29 @@ A position that stops updating fades the same way, and after a while a node
 whose position comes from GPS is marked as having no position at all, rather
 than pretending to be where it was last seen.
 
+### How it's connected
+
+A node can say what it is plugged into, and how. Its display then starts with
+the whole way its readings travel, one hop at a time:
+
+```
+Bench 7330 VEML7700 ─I2C 0x10→ Bench 7330 ESP32-S3 ─Wi-Fi · 3 s ago→ This computer
+```
+
+- **A board says what is plugged into it.** An Undergrowth ESP32 board looks on
+  its I2C port every few seconds. A sensor it knows appears as a node of its
+  own within a few seconds, already wired to the board (see
+  [Sharing](sharing.md#the-computers-on-a-boat)).
+- **For anything else, say it yourself.** In a node's editor, **Connected
+  through** picks what it is plugged into, and **How** says how: I2C, USB, a
+  pin, a cable.
+- **The last hop comes from sharing.** For a board or computer this one shares
+  with, it shows how long ago it last answered, in amber when it has gone quiet.
+
+Being connected is not the same as belonging. A sensor wired to a board can
+sit in a greenhouse cluster, while the board sits in a cluster with everything
+else plugged into it.
+
 ## The Nodes page
 
 **Nodes** in the top bar lists every node, whether it is on the map or hidden

@@ -19,7 +19,7 @@ over to it. A yellow bar across the top shows you're in a scenario.
   scenario where it is, so **Go to it** on its card picks up where you left
   off. **End it** throws it away.
 
-The first five are small, so there is only one thing to look at in each. The
+The first six are small, so there is only one thing to look at in each. The
 last one has everything at once. To build a boat or a tank from scratch
 instead, see [Walkthroughs](walkthroughs.md).
 
@@ -101,6 +101,30 @@ Then you join them into one vessel, in two edits:
 
 More on this: [Taking a boat in tow](clusters.md#taking-a-boat-in-tow),
 [Alerting people](missions.md#alerting-people).
+
+## Greenhouse bench
+
+The bench kit as a greenhouse would use it: an ESP32-S3 board with a light
+sensor and a temperature and humidity sensor plugged into its I2C port,
+sharing with the greenhouse Pi over Wi-Fi. The board's RGB LED stands in for
+the grow light, and its red LED for the fan.
+
+Each sensor's display shows how it's connected: the sensor, I2C to the board,
+Wi-Fi to the Pi. Four missions run the greenhouse:
+
+| Mission | Priority | When | Do |
+|---|---|---|---|
+| Lights on | 2 | 06:00 to 20:00 | Ease the grow light to 80 % over 30 minutes |
+| Lights off | 2 | 20:00 to 06:00 | Ease the grow light to 0 % over 30 minutes |
+| Overheat | 1 | Temperature above 85 °F | Grow light to 0 %; fan on; alert people |
+| Fan off when cool | 2 | Temperature below 75 °F | Fan off |
+
+You set the temperature by hand to 90 °F. *Overheat* takes the grow light and
+the fan, and the lights mission shows it is overruled. At 80 °F the lights come
+back and the fan stays on. At 70 °F the fan goes off.
+
+More on this: [Setting a control](missions.md#setting-a-control),
+[How it's connected](nodes.md#how-its-connected).
 
 ## The whole farm
 
