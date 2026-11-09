@@ -57,6 +57,7 @@ Also:
 
 | Page | What it covers |
 |---|---|
+| [Fundamental logic](fundamental-logic.md) | The rules every feature has to fit: nodes, clusters, missions with priorities, commands, displays |
 | [Walkthroughs](walkthroughs.md) | Building a boat and a crab tank from scratch, step by step |
 | [Manual override](manual-override.md) | Setting a position or reading by hand to test things |
 | [Radios and connections](radios-and-connections.md) | Which radios can reach each other, and which are connected |
