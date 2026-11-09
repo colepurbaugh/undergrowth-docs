@@ -10,7 +10,7 @@ The **Logs** page is the permanent record. Nothing in it is edited or deleted.
 
 | Category | Examples |
 |---|---|
-| **configuration** | A node or cluster created, changed, archived or restored; a value added; a panel customized. |
+| **configuration** | A node or cluster created, changed, archived or restored; a value added; a display changed. |
 | **cluster** | Something added to or removed from a cluster. |
 | **mission** | A mission created, finished or cancelled, and every time its decision changes, with the positions, route and keep-outs it was based on. |
 | **override** | A reading taken over by hand, and given back. |

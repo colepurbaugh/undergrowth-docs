@@ -70,9 +70,10 @@ press **+ Add mission**.
 
 ### Step 6: the trip
 
-Click *Test Skiff*, tick **Override** next to its GPS position (this is
-[manual override](manual-override.md), standing in for a real GPS), and move the
-boat along. Each time it moves, the plan is worked out again from where it is
+Click *Test Skiff*. Its [display](nodes.md#displays) is blank, because every new
+display starts that way, so press **＋** and add *Test Skiff GPS · Position*.
+Tick **Override** next to it (this is [manual override](manual-override.md),
+standing in for a real GPS), and move the boat along. Each time it moves, the plan is worked out again from where it is
 now.
 
 **At the start.** The route is worth joining, so the advice is to head for its
@@ -149,8 +150,8 @@ On **Clusters**, **Edit / Membership** on *Crab tanks*, and tick
 
 ### Step 4: what each part measures or does
 
-Open the tank's panel (click *Crab tanks* on the map, then **Open**
-next to *Crab tank 11*) and press **Customize**. Under **New value…** add:
+Still on **Clusters**, press **▸** beside *Crab tank 11*. Its display opens
+underneath, and it's blank. Press **＋**, and under **New value…** add:
 
 | On | Name | Comes from | Kind |
 |---|---|---|---|
@@ -160,19 +161,22 @@ next to *Crab tank 11*) and press **Customize**. Under **New value…** add:
 
 <img src="images/walkthrough-2-new-value.png" width="380" alt="Adding a value">
 
-Once the thermometer sends its first reading, the tank's panel has everything:
-the temperature with its age, a switch for the heater, and a box to record
-salinity by hand.
+Each new value goes straight onto the display. Once the thermometer sends its
+first reading, the tank's display has everything: the temperature with its
+age, a switch for the heater, and a box to record salinity by hand. None of it
+needed the map.
 
-<img src="images/walkthrough-2-tank-panel.png" width="380" alt="Crab tank 11's panel">
+<img src="images/walkthrough-2-tank-panel.png" width="380" alt="Crab tank 11's display">
 
-### Step 5: it is already covered
+### Step 5: on the tank house's display
 
-The tank house now lists Crab tank 11 alongside the others:
+Press **▸** beside *Crab tanks*, then **＋**, and add *Crab tank 11 · its own
+display*. The tank house now lists it alongside the others:
 
 <img src="images/walkthrough-2-in-the-house.png" width="380" alt="Crab tank 11 in the tank house">
 
 > **Decision note:** the *Crab tank water temperature*
 > [mission](missions.md#alerting-people) looks at every water temperature inside the
-> tank house, so the new tank is covered the moment it joins. Nothing about the
-> mission had to change.
+> tank house, so the new tank was covered the moment it joined in step 3, before
+> it was on any display. What a display shows is up to you; what missions look
+> at follows what is inside what.

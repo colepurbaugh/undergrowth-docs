@@ -61,6 +61,16 @@ async function box(locator, pad = 0) {
   const x = Math.max(0, Math.floor(b.x - pad)), y = Math.max(0, Math.floor(b.y - pad))
   return { x, y, width: Math.min(VIEWPORT.width - x, Math.ceil(b.width + pad * 2)), height: Math.min(VIEWPORT.height - y, Math.ceil(b.height + pad * 2)) }
 }
+// From the top of one element to the bottom of another, after scrolling the first
+// to just below the top bar. For a list row and the display open under it.
+async function span(from, to, width = 660) {
+  await from.evaluate(el => { const page = el.closest('.ug-page'); page.scrollTop += el.getBoundingClientRect().top - 150 })
+  await wait(400)
+  const a = await from.boundingBox(), b = await to.boundingBox()
+  if (!a || !b) throw new Error(`Not visible: ${from} or ${to}`)
+  const x = Math.max(0, Math.floor(a.x)), y = Math.max(0, Math.floor(a.y))
+  return { x, y, width: Math.min(VIEWPORT.width - x, width), height: Math.min(VIEWPORT.height - y, Math.ceil(b.y + b.height - a.y)) }
+}
 async function still(name, clip) {
   await page.screenshot({ path: join(IMAGES, `${name}.png`), clip })
   console.log(`  ${name}.png`)
@@ -186,7 +196,7 @@ async function resetDemo() {
     page.locator('.ug-topbar-scenario').waitFor({ timeout: 120000 }),
     notice.waitFor({ timeout: 120000 }).then(async () => { throw new Error(await notice.innerText()) })
   ])
-  await wait(6000)   // the first watch check raises tank 7's alert
+  await wait(6000)   // the first mission check raises tank 7's alert
   await page.goto(DASHBOARD)
   await page.locator('.ug-map-marker').first().waitFor()
   await page.waitForFunction(() => window.ugMap?.loaded())
@@ -358,8 +368,8 @@ async function capture() {
     await click(button(salinity, 'Record'), 300)
   }, { tail: 1800 })
 
-  console.log('Customizing a panel')
-  await click(button(panel(), 'Customize'), 900)
+  console.log('Adding to a display')
+  await click(panel().locator('.ug-controls:not(.ug-controls-nested) > .ug-add-row'), 900)
   await click(panel().locator('.ug-new-value summary'), 500)
   const form = panel().locator('.ug-new-value')
   await form.locator('label', { hasText: 'Name' }).locator('input').fill('Dissolved oxygen')
@@ -426,6 +436,18 @@ async function listPages() {
   await page.locator('.ug-nav button', { hasText: 'Clusters' }).click()
   await wait(1200)
   await still('clusters-page', { x: 0, y: 0, width: VIEWPORT.width, height: 640 })
+  // A display open under its row, with a tank opened inside it.
+  await search().fill('Crab tanks')
+  await wait(600)
+  const house = page.locator('.ug-table tbody tr:not(.ug-display-row)', { hasText: 'Crab tanks' }).first()
+  await click(house.locator('.ug-expand-list'), 600)
+  const display = house.locator('xpath=following-sibling::tr[1]')
+  const tank7 = display.locator('.ug-control-member', { hasText: 'Crab tank 7' }).first()
+  await click(tank7.locator('.ug-expand').first(), 600)
+  await still('list-display', await span(house, tank7, 760))
+  await click(tank7.locator('.ug-expand').first(), 300)
+  await click(house.locator('.ug-expand-list'), 300)
+  await search().fill('')
   await page.locator('.ug-nav button', { hasText: 'Map' }).click()
   await wait(1200)
 }
@@ -545,6 +567,11 @@ async function walkthroughs() {
   await goTo('Map')
   await jumpTo(SKIFF.view.center, SKIFF.view.zoom, 1800)
   await open('Test Skiff')
+  // A new vessel's display starts blank: put the GPS position on it first.
+  await click(panel().locator('.ug-controls:not(.ug-controls-nested) > .ug-add-row'), 500)
+  await panel().locator('.ug-panel-editor select').first().selectOption({ label: 'Test Skiff GPS · Position' })
+  await click(button(panel().locator('.ug-panel-editor'), 'Add'), 1200)
+  await click(button(panel().locator('.ug-panel-editor'), 'Done'), 500)
   await click(tick(control('Position', 'Test Skiff GPS')), 1500)
   await jumpTo(SKIFF.view.center, SKIFF.view.zoom, 1500)
   const basket = await where('Oyster basket 2')
@@ -608,20 +635,23 @@ async function walkthroughs() {
   await still('walkthrough-2-tank-house', await box(dialog(), 6))
   await saveEditor()
 
-  // 4. Give the parts their values from the tank's own panel, then read it.
-  await goTo('Map')
-  await jumpTo(await where('Crab tanks'), 15.5, 1800)
-  await open('Crab tanks')
-  await click(button(panel().locator('.ug-control-member', { hasText: 'Crab tank 11' }), 'Open'), 1200)
-  await click(button(panel(), 'Customize'), 800)
+  // 4. Open the tank's display on the Clusters page (it starts blank), and give
+  //    the parts their values from there. Each new value lands on the display.
+  const clusterRow = name => page.locator('.ug-table tbody tr:not(.ug-display-row)').filter({ has: page.locator('strong', { hasText: new RegExp(`^${name}$`) }) })
+  const displayOf = name => clusterRow(name).locator('xpath=following-sibling::tr[1]')
+  await page.locator('input[aria-label="Search clusters"]').fill('Crab tank')
+  await wait(500)
+  await click(clusterRow('Crab tank 11').locator('.ug-expand-list'), 600)
+  const tankDisplay = () => displayOf('Crab tank 11')
+  await click(tankDisplay().locator('.ug-add-row'), 600)
   const values = [
     ['Crab tank 11 thermometer', 'Water temperature', 'sensor', 'number', '°F', '28', '90'],
     ['Crab tank 11 heater plug', 'Heater', 'command', 'on_off'],
     ['Crab tank 11', 'Salinity', 'hand', 'number', 'ppt', '0', '40']
   ]
   for (const [owner, name, source, kind, unit, min, max] of values) {
-    const form = panel().locator('.ug-new-value')
-    if ((await form.getAttribute('open')) === null) await panel().locator('.ug-new-value summary').click()
+    const form = tankDisplay().locator('.ug-new-value')
+    if ((await form.getAttribute('open')) === null) await tankDisplay().locator('.ug-new-value summary').click()
     // Labels are matched by how they start ("On" also appears inside "On / off").
     const input = start => form.locator('label').filter({ hasText: new RegExp(`^${start}`) }).locator('select, input').first()
     await input('On').selectOption({ label: owner })
@@ -634,27 +664,34 @@ async function walkthroughs() {
       await input('Max').fill(max)
     }
     if (name === 'Water temperature') {
-      await page.evaluate(() => document.querySelector('.ug-selection').scrollTo({ top: 99999 }))
+      await tankDisplay().locator('.ug-panel-editor').scrollIntoViewIfNeeded()
       await wait(300)
-      await still('walkthrough-2-new-value', await box(panel()))
+      await still('walkthrough-2-new-value', await span(clusterRow('Crab tank 11'), tankDisplay(), 620))
     }
     await button(form, 'Add value').click()
     await wait(1200)
   }
-  await click(button(panel(), 'Done'), 600)
+  await click(button(tankDisplay(), 'Done'), 600)
   // The thermometer's first report arrives (as a real device would send it).
   const thermometer = (await api('/nodes')).find(n => n.map_name === 'Crab tank 11 thermometer')
   await fetch(`${API}/values/${thermometer.node_id}/water_temperature/readings`, { method: 'POST',
     headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ value: 46.5 }) })
   await wait(3500)
-  await page.evaluate(() => document.querySelector('.ug-selection').scrollTo({ top: 0 }))
-  await wait(400)
-  await still('walkthrough-2-tank-panel', await box(panel()))
-  await closePanel()
-  await open('Crab tanks')
-  await page.evaluate(() => document.querySelector('.ug-selection').scrollTo({ top: 99999 }))
-  await wait(600)
-  await still('walkthrough-2-in-the-house', await box(panel()))
+  // Close the "saved" notices first, so they don't sit over the picture.
+  for (const close of await page.locator('.ug-notice button').all()) await close.click().catch(() => {})
+  await still('walkthrough-2-tank-panel', await span(clusterRow('Crab tank 11'), tankDisplay(), 620))
+  await click(clusterRow('Crab tank 11').locator('.ug-expand-list'), 400)
+
+  // 5. Put the new tank on the tank house's display too.
+  await click(clusterRow('Crab tanks').locator('.ug-expand-list'), 600)
+  await click(displayOf('Crab tanks').locator('.ug-controls:not(.ug-controls-nested) > .ug-add-row'), 500)
+  const picker = displayOf('Crab tanks').locator('.ug-panel-editor select').first()
+  await picker.selectOption({ label: 'Crab tank 11 · its own display, opening underneath' })
+  await click(button(displayOf('Crab tanks').locator('.ug-panel-editor'), 'Add'), 1200)
+  await click(button(displayOf('Crab tanks').locator('.ug-panel-editor'), 'Done'), 500)
+  // The last few tanks, ending with the new one.
+  await still('walkthrough-2-in-the-house', await span(displayOf('Crab tanks').locator('.ug-control-member').nth(7),
+    displayOf('Crab tanks').locator('.ug-control-member', { hasText: 'Crab tank 11' }), 600))
 }
 
 // --- Run ----------------------------------------------------------------------------------------

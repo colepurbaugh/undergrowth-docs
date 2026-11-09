@@ -20,7 +20,7 @@ vessel jumps back to where its GPS says it is:
 ## How to use it
 
 1. Click a vessel (or anything else) on the map.
-2. In **Controls**, tick **Override** next to the reading you want to set.
+2. In its **Display**, tick **Override** next to the reading you want to set.
 3. Change it:
    - **Position:** drag the marker on the map, or type `latitude, longitude`
      and press **Send**.

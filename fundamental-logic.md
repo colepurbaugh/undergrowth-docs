@@ -128,7 +128,12 @@ someone."
 
 - **Every node and cluster has one display, blank to start.**
 - **＋ under it adds a row:** a reading or a control, from the node itself or
-  from anything inside the cluster. Each row can be collapsed or expanded.
+  from anything inside the cluster, or something inside it, which opens with
+  ▸ to show its own display underneath. Displays can be opened and closed;
+  each device remembers which are open.
+- **What a display shows is separate from what is inside what.** Putting a tank
+  in a tank house doesn't change the house's display. Missions follow what is
+  inside what; displays follow what you chose to show.
 - **The display is the same everywhere.** It looks the same whether it's opened
   from the map, the Nodes list or the Clusters list. Changing it in one place
   changes it in all of them.
@@ -157,12 +162,12 @@ Nothing in it needs a position, and no mission refers to another.
 |---|---|
 | Nodes and clusters, clusters inside clusters | Built |
 | Every reading shows its age | Built |
-| Positions optional | Built for nodes and clusters; the panel still has to be opened from the map |
+| Positions optional | Built. Displays open from the Nodes and Clusters lists, so nothing needs the map. |
 | One kind of mission: when, do, priority | Built. *When* can be always, a reading out of range, too close to a keep-out, or a sensor gone quiet. *Do* can be alert people or advise a vessel the way. |
 | Clock times as a *when* | Planned |
 | Priorities choosing between missions | Planned. Every mission has a priority, shown on the Missions page, but nothing competes for an output until missions send commands. |
 | The control node choosing and sending commands | Planned. Today, only people send commands. |
 | Easing, confirmations | Planned |
-| One blank display per node and cluster, rows nested under it in the lists | Planned. Today, panels are customized from the map, and clusters list their members automatically. |
+| One blank display per node and cluster, the same on the map and in the lists | Built. ▸ opens it under its row in the Nodes and Clusters lists, and things inside a cluster open inside its display. Records from before keep what they showed. |
 | Colour missions | Planned. Today, only alerts colour things red. |
 | Time zone shown | Planned |

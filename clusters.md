@@ -54,8 +54,8 @@ The panel shows:
 - **Mission advice** in the gold box: which way to head, how far to go, and why
   ("Head 291° toward Oyster basket 4 via route, next Channel 1, steering around
   Old piling"). See [Missions](missions.md).
-- **Controls**: one row per value from any of its parts, described under
-  [Nodes](nodes.md#values).
+- **Display**: the rows chosen for it, here a row per value from its parts.
+  See [Displays](nodes.md#displays) and [Values](nodes.md#values).
 
 ## Tank houses
 
@@ -70,26 +70,27 @@ The panel shows:
 - readings **typed in by hand**: salinity, pH, and whether bay water is flowing.
 
 Click a tank house to see all its tanks in one list. A tank with an alert is
-flagged in red, and **Open** goes to that tank's own panel.
+flagged in red. **▸** opens a tank's display right there, and **Open** goes
+to that tank's own panel.
 
 <img src="images/tank-house.png" width="330" alt="Crab tanks"> <img src="images/tank-panel.png" width="330" alt="Crab tank 7">
 
 The *Crab tank goes cold* [scenario](scenarios.md) switches a heater off and
 lets a tank go cold, to see what happens on a winter night.
 
-## Changing what a panel shows
+## A cluster's display
 
-A motor controller, a vessel and a tank house each need different things on
-screen. Press **Customize** in any panel to:
+A cluster has a [display](nodes.md#displays) like any node, starting blank.
+Besides readings and controls, it can hold the things inside it: each one
+shows its name and a few readings, and **▸** opens its own display
+underneath, nested inside. A tank house can list its tanks, each tank can open
+to show its thermometer and heater, and none of it needs the map:
 
-- move rows up and down (↑ ↓) or remove them (✕);
-- add a row for any value of anything inside it;
-- add a **new value**: give it a name, say whether people type it in, a sensor
-  reports it, or Undergrowth controls it, and give a unit and range.
+![The Crab tanks display open in the Clusters list, with Crab tank 7 opened inside it](images/list-display.png)
 
-Changes save immediately. **Back to automatic column** undoes them.
-
-<img src="images/customize.png" width="330" alt="Customizing a tank's panel">
+Adding something to a cluster doesn't change its display. The new tank is part
+of the tank house straight away, and any mission looking at the tank house
+covers it, but it only appears on the display when you add it with **＋**.
 
 ## Making a node a cluster
 

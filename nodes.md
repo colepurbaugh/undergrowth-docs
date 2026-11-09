@@ -64,6 +64,8 @@ inside something else.
 - **Edit / Membership** opens its editor, **Archive** puts it away, and
   **Locate** shows it on the map.
 - **Show Archived** brings archived nodes back into the list, with **Restore**.
+- **▸** beside a name opens its [display](#displays) underneath, the same
+  one the map shows.
 
 **+ Add Node** makes a new one. On the map, right-clicking a spot does the same
 with its coordinates already filled in.
@@ -98,8 +100,8 @@ Every change is written to [Logs](logs.md).
 
 ## Values
 
-Each value shows as a row in the node's panel, and works according to where it
-comes from:
+A value can be shown as a row on a [display](#displays). Each row works
+according to where the value comes from:
 
 | Kind | Example | What the row lets you do |
 |---|---|---|
@@ -117,10 +119,36 @@ Switching a heater on and recording a salinity reading:
 In a scenario no real plug is connected, so the row says *Sent On · device
 reports Off*. With a real plug, the device's report would follow.
 
-New values can be added from any panel with **Customize** (see
-[Clusters](clusters.md#changing-what-a-panel-shows)), and any sensor reading
-or position can be set by hand for testing with
+Any sensor reading or position can be set by hand for testing with
 [manual override](manual-override.md).
+
+## Displays
+
+Every node and cluster has a **display**: the rows shown under it. It is the
+same display wherever you look, whether you click it on the map or open it
+with **▸** in the Nodes or Clusters list, so something with no position at all
+can still be watched and controlled from the lists.
+
+A display **starts blank**. You decide what each thing shows: a GPS might show
+just its position and heading, a motor controller what the motor is doing, and
+the boat both.
+
+**＋** at the bottom of a display:
+
+- **Add a row**: a reading or control from the node itself, or from anything
+  inside it. For a cluster, it can also be another cluster or node inside it,
+  which opens underneath with its own display (see
+  [Clusters](clusters.md#a-clusters-display)).
+- **Add everything inside**: everything at once, to trim down afterwards.
+- **New value…**: give it a name, say whether people type it in, a sensor
+  reports it, or Undergrowth controls it, and give a unit and range. It goes
+  straight onto the display.
+
+**Arrange** moves rows up and down (↑ ↓) or removes them (✕). Removing a row
+only takes it off the display: the value and its readings stay. Changes save
+straight away, and which displays are open is remembered on each device.
+
+<img src="images/customize.png" width="330" alt="Adding a new value to a tank's display">
 
 ## Who can change a node
 
