@@ -158,8 +158,9 @@ Nothing in it needs a position, and no mission refers to another.
 | Nodes and clusters, clusters inside clusters | Built |
 | Every reading shows its age | Built |
 | Positions optional | Built for nodes and clusters; the panel still has to be opened from the map |
-| Navigate missions, safety watches | Built, but still separate. They will become missions with priorities. |
-| One kind of mission with priorities | Planned |
+| One kind of mission: when, do, priority | Built. *When* can be always, a reading out of range, too close to a keep-out, or a sensor gone quiet. *Do* can be alert people or advise a vessel the way. |
+| Clock times as a *when* | Planned |
+| Priorities choosing between missions | Planned. Every mission has a priority, shown on the Missions page, but nothing competes for an output until missions send commands. |
 | The control node choosing and sending commands | Planned. Today, only people send commands. |
 | Easing, confirmations | Planned |
 | One blank display per node and cluster, rows nested under it in the lists | Planned. Today, panels are customized from the map, and clusters list their members automatically. |

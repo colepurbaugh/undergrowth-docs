@@ -52,7 +52,7 @@ back.
 ## Example: testing a capsize
 
 Override *Big Toot*'s roll and set it to 60°. The
-[tipping watch](missions.md#safety-watches) wants the boat over for three seconds and
+[tipping mission](missions.md#alerting-people) wants the boat over for three seconds and
 checks every five, so within about ten seconds it raises an alert, marked
 *(set by hand)*:
 
@@ -62,5 +62,5 @@ Every override turned on or off is written to [Logs](logs.md) under
 *override*, and every hand-set value is kept as a reading.
 
 To try this yourself, open **Scenarios** and start *Capsize test*. It sets up
-one small boat with a tilt sensor and a tipping watch, and lists the steps.
+one small boat with a tilt sensor and a mission that alerts on tipping, and lists the steps.
 [Scenarios](scenarios.md) has the others.

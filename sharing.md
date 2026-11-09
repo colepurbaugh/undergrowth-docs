@@ -5,7 +5,7 @@
 There is no central server. Every computer running Undergrowth, whether a PC
 at the shop, a Raspberry Pi on a boat or a small ESP32 board, keeps its own
 records and serves its own dashboard. A boat with no signal still records its
-position, checks its watches and shows its map. When two computers can reach
+position, checks its missions and shows its map. When two computers can reach
 each other, they share what they know.
 
 ## Who can change what
@@ -85,7 +85,7 @@ New firmware can be sent to it over Wi-Fi.
 - Setting the clock from GPS. At sea there is no internet time, and the board
   doesn't record readings until its clock is set.
 - A fleet key, so only the farm's own computers can share.
-- Sharing missions and watches between computers.
+- Sharing missions between computers.
 - Calibrating the motion sensor. For now it has to lie flat with its arrow
   toward the bow.
 - The ESP32 firmware has been built but not yet run on a board.

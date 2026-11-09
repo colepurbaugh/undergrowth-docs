@@ -19,7 +19,7 @@ The **Logs** page is the permanent record. Nothing in it is edited or deleted.
 | **measurement** | Every raw reading: from sensors, typed in by hand, or set by hand during an override. (Hidden from *Activity* because there are so many; choose *measurement* or *All including measurements* to see them.) |
 
 Filter by category, search for a name or ID, or limit to a date range.
-**Details** shows exactly what was recorded. For an alert, that is the watch,
+**Details** shows exactly what was recorded. For an alert, that is the mission,
 the reading or distance that set it off, and the position at the time:
 
 <img src="images/log-details.png" width="620" alt="Details of a proximity alert">
@@ -31,7 +31,7 @@ The newest entries are at the top, so read from the bottom up. This is a
 
 | Category | What the log says |
 |---|---|
-| mission | Safety watch created: *Test Skiff tipping* |
+| mission | Mission created: *Test Skiff tipping* |
 | override | Manual override on: Test Skiff tilt sensor Roll (real readings still recorded) |
 | safety | ⚠ Test Skiff tilt sensor: Roll 60°, above 35° (set by hand) |
 | safety | Cleared (condition gone): the boat is upright again |
@@ -49,7 +49,7 @@ From those few lines, anyone can tell:
 
 Undergrowth keeps two databases on each computer:
 
-- **config.db**: what *should* be (nodes, clusters, missions, watches, panels).
+- **config.db**: what *should* be (nodes, clusters, missions, panels).
 - **data.db**: what *happened* (logs and every reading).
 
 Changes to configuration and their log entries are written together, so the

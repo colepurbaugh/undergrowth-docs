@@ -25,7 +25,7 @@ instead, see [Walkthroughs](walkthroughs.md).
 
 ## Capsize test
 
-One small boat at the dock, with a tilt sensor and a safety watch that raises
+One small boat at the dock, with a tilt sensor and a mission that raises
 an alarm if the boat rolls past 35° for three seconds.
 
 You set the roll by hand to 60°. Within about ten seconds a red alert comes
@@ -33,12 +33,12 @@ up, marked *set by hand*. Setting the roll back to 0° turns the alert amber:
 the boat is upright again, but someone still has to acknowledge it.
 
 More on this: [Manual override](manual-override.md),
-[Safety watches](missions.md#safety-watches).
+[Alerting people](missions.md#alerting-people).
 
 ## Crab tank goes cold
 
 A house of three crab tanks. Each has a floating thermometer and a heater on
-a remote plug. A safety watch raises an alarm if any tank drops below 42 °F.
+a remote plug. A mission raises an alarm if any tank drops below 42 °F.
 
 You switch one tank's heater off. The panel shows *Sent Off* while the plug
 still reports *On*, because there is no real plug in a scenario. Then you
@@ -46,7 +46,7 @@ skip ahead a few hours by setting the water temperature to 40 °F, and the
 alarm goes off. Logs show the heater commands and the alert side by side.
 
 More on this: [Tank houses](clusters.md#tank-houses),
-[Safety watches](missions.md#safety-watches).
+[Alerting people](missions.md#alerting-people).
 
 ## Boat to a basket
 
@@ -63,7 +63,7 @@ You move the boat around by hand and watch the plan change:
 
 Logs show each change of plan and why.
 
-More on this: [Navigate missions](missions.md#navigate-missions).
+More on this: [Advising a vessel](missions.md#advising-a-vessel).
 
 ## Out of radio range
 
@@ -85,7 +85,7 @@ More on this: [Radios and connections](radios-and-connections.md).
 ## Rescue
 
 Lil Toot's engine has failed up the bay, and Big Toot has a mission to reach
-it. A safety watch warns if Big Toot gets within another boat's 40 ft
+it. A mission warns if Big Toot gets within another boat's 40 ft
 keep-out distance.
 
 You bring Big Toot alongside, and there is no alarm: a boat is never warned
@@ -100,7 +100,7 @@ Then you join them into one vessel, in two edits:
    goes too, the way a boat under tow does.
 
 More on this: [Taking a boat in tow](clusters.md#taking-a-boat-in-tow),
-[Safety watches](missions.md#safety-watches).
+[Alerting people](missions.md#alerting-people).
 
 ## The whole farm
 
@@ -112,7 +112,7 @@ Everything at once:
 - keep-outs
 - a bed of oyster baskets
 - two houses of holding tanks
-- missions and safety watches running
+- missions running, both advising and alerting
 
 One crab tank has already gone cold, so there is an alert to find straight
 away. Every picture in this guide was taken in this scenario.

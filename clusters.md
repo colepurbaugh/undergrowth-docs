@@ -18,7 +18,7 @@ more than one cluster. A cluster can have values of its own too: a tank has
 salinity and pH, which belong to the tank rather than to any one part.
 
 Treating a group as one thing is what lets Undergrowth say "Big Toot is here,
-heading 300°" instead of listing eight parts, and lets one safety watch cover
+heading 300°" instead of listing eight parts, and lets one mission cover
 every tank in a house.
 
 ## The Clusters page
@@ -109,7 +109,7 @@ a barge is pushed along by a skiff. Undergrowth does this with two edits:
    **Edit**, press **＋** next to **Position**, tick the boat doing the towing,
    untick the towed boat's own GPS, and save.
 
-Now the towed boat goes wherever the other goes. Safety watches treat it as a
+Now the towed boat goes wherever the other goes. Alerting missions treat it as a
 part of the boat doing the towing, so being alongside doesn't set off a
 too-close alarm. To cast off, undo both edits.
 

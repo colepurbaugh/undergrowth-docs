@@ -49,7 +49,7 @@ Then one page for each section in the top bar, in the same order:
 | [Map](map.md) | The map and its symbols, live tide, wind and weather, map styles and the nautical chart |
 | [Nodes](nodes.md) | What a node is and why everything starts as one; positions, values, keep-outs and the editor |
 | [Clusters](clusters.md) | Groups of things: vessels, tank houses, routes; customizing panels; taking a boat in tow |
-| [Missions](missions.md) | Navigate missions, routes and keep-outs, and safety watches and alerts |
+| [Missions](missions.md) | One kind of mission (when, do, priority): advising a vessel the way, routes and keep-outs, and alerts |
 | [Logs](logs.md) | The record of everything that happened, and how to read it |
 | [Scenarios](scenarios.md) | Small ready-made examples to try, apart from your real records |
 

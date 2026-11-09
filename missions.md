@@ -3,23 +3,44 @@
 [← Guide](README.md) · [Map](map.md) · [Nodes](nodes.md) · [Clusters](clusters.md) · **Missions** · [Logs](logs.md) · [Scenarios](scenarios.md)
 
 A mission is **a goal**, not a list of steps. "Take Big Toot to basket 4."
-"Keep the crab tanks between 42 and 60 °F." Every few seconds, Undergrowth
-checks each goal against what is happening right now and decides what to do
-about it, and it writes down each decision and why.
+"Tell someone if a crab tank drops below 42 °F." Every 5 seconds, whether or
+not anyone has the dashboard open, Undergrowth checks each mission against what
+is happening right now, and writes each change of decision to [Logs](logs.md)
+with the reason.
 
-There are two kinds, both on the **Missions** page:
+There is only one kind of mission. Every mission has three parts:
 
-- **Navigate missions** get a vessel somewhere.
-- **Safety watches** never finish: they keep checking for trouble and raise an
-  alarm.
+| Part | What it is | Examples |
+|---|---|---|
+| **When** | What has to be true for the mission to be in effect. | Always. A reading goes out of range. A vessel gets too close to a keep-out. A sensor stops reporting. |
+| **Do** | What it does while in effect. | Alert people. Advise a vessel the way somewhere. |
+| **Priority** | How urgent it is. **1 is the most urgent.** | Alarms are 1 unless you choose otherwise. Everything else is 2. |
 
-## Navigate missions
+An alarm isn't a separate feature. It's a mission whose *do* is "alert
+people", and the same goes for navigation. See
+[Fundamental logic](fundamental-logic.md) for why it works this way, and what
+comes next.
 
-A navigate mission says "get this vessel to that place", optionally by way of a
-route, and how close counts as arrived. Create one at the top of the Missions
-page.
+## The Missions page
+
+The form at the top builds a mission. Choose the **When**, tick what to
+**Do**, and the fields for each appear. The list below shows every mission,
+most urgent first, with its priority in a small box, its *when* and its *do*,
+and whether it's in effect right now.
 
 ![Missions page](images/missions.png)
+
+- **Pause** stops a mission without losing it, and **Resume** starts it again.
+- **Mark complete** and **Cancel** finish it. The most recent finished
+  missions are listed at the bottom with **Reactivate**. Everything any
+  mission did stays in [Logs](logs.md).
+- **Show on map** goes to the vessel or thing the mission is about.
+
+## Advising a vessel
+
+A mission that advises a vessel says "get this vessel to that place",
+optionally by way of a route, and how close counts as arrived. Its *when* is
+usually *Always*.
 
 The advice shows in the vessel's panel and on the map: a gold circle pointing
 the way to go and a gold line for the planned path.
@@ -49,8 +70,7 @@ vessel up, put it down anywhere, and the advice follows:
 
 When the vessel is close enough, the advice changes to **Arrived — hold
 position**. The mission doesn't finish by itself: press **Mark complete** when
-the job is done. **Cancel** stops it, and finished missions can be
-reactivated.
+the job is done.
 
 When the decision changes (a new heading, a new next waypoint, a keep-out to
 avoid, arriving), the reason and the inputs it was based on are written to
@@ -59,22 +79,19 @@ avoid, arriving), the reason and the inputs it was based on are written to
 The *Boat to a basket* [scenario](scenarios.md) has one boat, one route and one
 keep-out to try all of this on.
 
-## Safety watches
+## Alerting people
 
-A safety watch is a mission that never finishes. Every 5 seconds, whether or not
-anyone has the dashboard open, it checks one condition and raises an alert for
-each thing that breaks it.
+A mission that alerts people raises an alert for each thing that makes its
+*when* true. A tank house with two cold tanks gets two alerts, one per tank.
 
-| Watch | Raises an alert when | Example in *The whole farm* |
+| When | Is true when | Example in *The whole farm* |
 |---|---|---|
 | **A reading goes out of range** | a number goes below a low limit or above a high limit. Pointed at a cluster, it covers every part inside that has that reading. | Water temperature outside 42–60 °F in every crab tank; roll beyond ±35° on each vessel. |
-| **Too close** | a vessel comes inside any keep-out distance: hazards, baskets, and other vessels. It ignores the vessel's own parts and wherever its mission is sending it. | Lil Toot too close to a sandbar. |
+| **Gets too close** | a vessel comes inside any keep-out distance: hazards, baskets, and other vessels. It ignores the vessel's own parts and wherever a mission is sending it. | Lil Toot too close to a sandbar. |
 | **A sensor stops reporting** | real readings stop arriving for a number of minutes (a dead thermometer battery). An override never hides a silent sensor. | Tank thermometers silent for 3 hours. |
 
-**Only if it lasts** makes a watch wait a few seconds before alerting, so a wave
-rocking the boat for a moment is not a capsize.
-
-![Safety watches on the Missions page](images/safety-watches.png)
+**Only if it lasts** makes the *when* wait a few seconds before it counts, so a
+wave rocking the boat for a moment is not a capsize.
 
 ### What an alert looks like
 
@@ -91,11 +108,13 @@ rocking the boat for a moment is not a capsize.
 a tank's thermometer, it opens the tank.
 
 An alert stays until a person presses **Acknowledge**, even after the problem
-has gone away, so nothing is missed because it fixed itself.
+has gone away, so nothing is missed because it fixed itself. Pausing or
+finishing the mission clears its alerts, and they still wait to be
+acknowledged.
 
 <img src="images/proximity-alert.png" width="560" alt="Lil Toot inside a sandbar's keep-out circle">
 
-### Testing a watch
+### Testing an alert
 
 Use [manual override](manual-override.md): drag a vessel into a keep-out, set a
 roll of 60°, or set a tank's water temperature to 38 °F, and watch the alert
@@ -104,5 +123,4 @@ alert turns amber until someone acknowledges it. The *Capsize test*, *Crab tank
 goes cold* and *Rescue* [scenarios](scenarios.md) each set one up to try.
 
 Every alert, clearing and acknowledgement is written to [Logs](logs.md) under
-*safety* with the readings that caused it. Watches can be paused or removed
-from the Missions page.
+*safety*, with the readings that caused it.

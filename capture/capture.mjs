@@ -389,18 +389,11 @@ async function capture() {
   await still('archive-dialog', await box(page.locator('.ug-confirm'), 10))
   await page.locator('.ug-confirm button', { hasText: 'Cancel' }).click()
 
-  console.log('Missions, watches and logs')
+  console.log('Missions and logs')
   await page.locator('.ug-nav button', { hasText: 'Missions' }).click()
   await wait(1500)
-  await still('missions', await box(page.locator('.ug-mission-list').first(), 12))
-  const watchesHeading = page.locator('.ug-section-heading', { hasText: 'Safety watches' })
-  // Scroll so the heading sits just below the top bar, then take the heading, form and first watches.
-  await watchesHeading.evaluate(el => {
-    const scroller = el.closest('.ug-page')
-    scroller.scrollTop += el.getBoundingClientRect().top - 150
-  })
-  await wait(800)
-  await still('safety-watches', { x: 0, y: 140, width: VIEWPORT.width, height: 760 })
+  // The form, then the first missions: alerts at priority 1 come first.
+  await still('missions', { x: 0, y: 140, width: VIEWPORT.width, height: 820 })
   await page.locator('.ug-nav button', { hasText: 'Logs' }).click()
   await wait(1500)
   await page.locator('.ug-log-filters select').selectOption('safety')
@@ -537,7 +530,7 @@ async function walkthroughs() {
 
   // 5. The mission.
   await goTo('Missions')
-  // The first form is navigate missions (the watches form below it looks the same).
+  // When stays on Always, and "Advise a vessel the way somewhere" is ticked to start with.
   const form = page.locator('.ug-mission-form').first()
   const formField = start => form.locator('label').filter({ hasText: new RegExp(`^${start}`) }).locator('select, input').first()
   await formField('Vessel').selectOption({ label: 'Test Skiff (vessel)' })
@@ -545,7 +538,7 @@ async function walkthroughs() {
   await formField('Using route').selectOption({ label: 'Test Route (route)' })
   await formField('Name').fill('Demo: Test Skiff to basket 2')
   await still('walkthrough-1-mission-form', await box(form, 8))
-  await form.locator('button', { hasText: 'Start mission' }).click()
+  await form.locator('button', { hasText: 'Add mission' }).click()
   await wait(1500)
 
   // 6. The trip: take over the GPS position and move the skiff along, one step at a time.

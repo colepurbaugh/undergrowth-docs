@@ -62,8 +62,9 @@ type **route**, and tick the three waypoints as members.
 
 ### Step 5: the mission
 
-On **Missions**, choose the vessel, where it is going and the route, and press
-**+ Start mission**.
+On **Missions**, leave **When** on *Always* and **Advise a vessel the way
+somewhere** ticked. Choose the vessel, where it is going and the route, and
+press **+ Add mission**.
 
 <img src="images/walkthrough-1-mission-form.png" alt="Starting the mission">
 
@@ -165,13 +166,13 @@ salinity by hand.
 
 <img src="images/walkthrough-2-tank-panel.png" width="380" alt="Crab tank 11's panel">
 
-### Step 5: it is already being watched
+### Step 5: it is already covered
 
 The tank house now lists Crab tank 11 alongside the others:
 
 <img src="images/walkthrough-2-in-the-house.png" width="380" alt="Crab tank 11 in the tank house">
 
 > **Decision note:** the *Crab tank water temperature*
-> [safety watch](missions.md#safety-watches) watches every water temperature inside the
+> [mission](missions.md#alerting-people) looks at every water temperature inside the
 > tank house, so the new tank is covered the moment it joins. Nothing about the
-> watch had to change.
+> mission had to change.
