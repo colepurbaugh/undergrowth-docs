@@ -107,7 +107,7 @@ according to where the value comes from:
 |---|---|---|
 | **sensor** | water temperature, GPS heading, heater power draw | Shows the latest reading and how old it is. Tick *Override* to set it by hand for testing. |
 | **entered by hand** | salinity, pH, "bay water flowing" | People measure it and type it in: enter the number and press **Record**. |
-| **control** | heater plug, motor, latch | A switch, a slider with **Send**, or a one-press button. Undergrowth sends the command; the row shows both what was sent and what the device last reported. |
+| **control** | heater plug, motor, latch, grow light | A switch, a slider with **Send**, or a one-press button. Undergrowth sends the command; the row shows what was sent, whether the device confirmed it, and what the device last reported. A number can be [eased](#easing-and-confirming). |
 
 Typed numbers are only sent when you press **Send** / **Record** or Enter, so
 `256` is never sent as `2`, `25`, `256`.
@@ -118,6 +118,35 @@ Switching a heater on and recording a salinity reading:
 
 In a scenario no real plug is connected, so the row says *Sent On · device
 reports Off*. With a real plug, the device's report would follow.
+
+### Easing and confirming
+
+A number control, such as a throttle or a grow light's brightness, has an
+**over … s** box beside **Send**. Leave it empty to set the new value at once,
+or give a time to ease to it gradually: a motor that spins up gently, lights
+that fade up like a sunrise.
+
+Easing is **one message**: "ease from 0% to 60% over 30 seconds". Undergrowth
+doesn't send 1%, 2%, 3%… The device (an ESP32, or the computer's own pins)
+works out the steps itself, along one smooth curve that starts and ends
+gently. A new command always takes over straight away, even halfway through
+an ease, so a stop is never held up. An ease starts from wherever the last one
+should have got to.
+
+While it eases, a thin gold bar and the line under the control show where it
+should have got to by now. That's what was asked for, not a reading: what the
+device actually reports is shown after it.
+
+![Big Toot's throttle easing up to 60% over 30 seconds](images/ease.png)
+
+A device can **confirm** each command. The line under the control says
+*waiting for the device to confirm*, then *confirmed*, or *not confirmed* if
+nothing comes back. Nothing ever waits for an answer: a missing confirmation
+is information, which a mission could act on. Every command and confirmation
+is written to [Logs](logs.md) under *command*. In a scenario no real device is
+connected, so commands stay *not confirmed*.
+
+Switches, text and buttons can't be eased; they change at once.
 
 Any sensor reading or position can be set by hand for testing with
 [manual override](manual-override.md).

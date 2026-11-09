@@ -16,6 +16,7 @@ follow.
 
 | Reading | Where it comes from |
 |---|---|
+| **Clock** | The time at the Undergrowth computer, with its time zone (*PST*). Clock times in missions use this zone. If your device is in another zone, hovering over the clock says so. |
 | **Tide** | NOAA tide predictions for the nearest tide station, with the next high or low. |
 | **Wind** | Measured at the nearest NOAA station when there is one within 50 km, otherwise the National Weather Service forecast. |
 | **Temp** | Same as wind: measured if possible, forecast if not. |

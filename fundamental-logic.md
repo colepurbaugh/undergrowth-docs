@@ -167,7 +167,7 @@ Nothing in it needs a position, and no mission refers to another.
 | Clock times as a *when* | Planned |
 | Priorities choosing between missions | Planned. Every mission has a priority, shown on the Missions page, but nothing competes for an output until missions send commands. |
 | The control node choosing and sending commands | Planned. Today, only people send commands. |
-| Easing, confirmations | Planned |
+| Easing, confirmations | Built for commands people send: a number eases as one message, and a device can confirm each command. |
 | One blank display per node and cluster, the same on the map and in the lists | Built. ▸ opens it under its row in the Nodes and Clusters lists, and things inside a cluster open inside its display. Records from before keep what they showed. |
 | Colour missions | Planned. Today, only alerts colour things red. |
-| Time zone shown | Planned |
+| Time zone shown | Built. The clock in the top bar shows the Undergrowth computer's time zone, the one clock times in missions will use. |

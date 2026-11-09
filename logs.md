@@ -14,7 +14,7 @@ The **Logs** page is the permanent record. Nothing in it is edited or deleted.
 | **cluster** | Something added to or removed from a cluster. |
 | **mission** | A mission created, finished or cancelled, and every time its decision changes, with the positions, route and keep-outs it was based on. |
 | **override** | A reading taken over by hand, and given back. |
-| **command** | A heater switched, a throttle set, a button pressed. |
+| **command** | A heater switched, a throttle set or eased, a button pressed, and each confirmation a device sends back. |
 | **safety** | An alert raised, cleared, or acknowledged. |
 | **measurement** | Every raw reading: from sensors, typed in by hand, or set by hand during an override. (Hidden from *Activity* because there are so many; choose *measurement* or *All including measurements* to see them.) |
 

@@ -448,6 +448,22 @@ async function listPages() {
   await click(tank7.locator('.ug-expand').first(), 300)
   await click(house.locator('.ug-expand-list'), 300)
   await search().fill('')
+
+  // Easing: Big Toot's throttle, eased up over 30 seconds from the Nodes list.
+  await page.locator('.ug-nav button', { hasText: 'Nodes' }).click()
+  await wait(1200)
+  await search().fill('Big Toot motor')
+  await wait(600)
+  const motor = page.locator('.ug-table tbody tr:not(.ug-display-row)', { hasText: 'Big Toot motor controller' }).first()
+  await click(motor.locator('.ug-expand-list'), 600)
+  const motorDisplay = motor.locator('xpath=following-sibling::tr[1]')
+  const throttle = motorDisplay.locator('.ug-control', { has: page.locator('.ug-control-label', { hasText: /^Throttle/ }) }).first()
+  await throttle.locator('.ug-entry > input[type=number]').fill('60')
+  await throttle.locator('.ug-ease-over input').fill('30')
+  await click(button(throttle, 'Send'), 9000)
+  await still('ease', await span(motor, motorDisplay, 620))
+  await click(motor.locator('.ug-expand-list'), 300)
+  await search().fill('')
   await page.locator('.ug-nav button', { hasText: 'Map' }).click()
   await wait(1200)
 }
