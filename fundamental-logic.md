@@ -163,11 +163,12 @@ Nothing in it needs a position, and no mission refers to another.
 | Nodes and clusters, clusters inside clusters | Built |
 | Every reading shows its age | Built |
 | Positions optional | Built. Displays open from the Nodes and Clusters lists, so nothing needs the map. |
-| One kind of mission: when, do, priority | Built. *When* can be always, a reading out of range, too close to a keep-out, or a sensor gone quiet. *Do* can be alert people or advise a vessel the way. |
-| Clock times as a *when* | Planned |
-| Priorities choosing between missions | Planned. Every mission has a priority, shown on the Missions page, but nothing competes for an output until missions send commands. |
-| The control node choosing and sending commands | Planned. Today, only people send commands. |
-| Easing, confirmations | Built for commands people send: a number eases as one message, and a device can confirm each command. |
+| One kind of mission: when, do, priority | Built. *When* can be always, between two times of day, a reading out of range, too close to a keep-out, or a sensor gone quiet. *Do* can be set a control, alert people or advise a vessel the way. |
+| Clock times as a *when* | Built: between two times of day, past midnight too. A *when* that combines a time and a reading ("the lights should be on but the sensor sees nothing") is planned. |
+| Priorities choosing between missions | Built. For each control, the most urgent mission in effect gets it; at the same priority, the one in effect first, with the clash written to Logs. |
+| The control node choosing and sending commands | Built. A command goes out once, when the decision changes, including to a device another computer owns, such as an ESP32's light. |
+| Easing, confirmations | Built, for commands from missions and from people: a number eases as one message, and a device can confirm each command. |
+| "For 1 minute" in a *do* | Planned. Today a pump runs while its mission is in effect. |
 | One blank display per node and cluster, the same on the map and in the lists | Built. ▸ opens it under its row in the Nodes and Clusters lists, and things inside a cluster open inside its display. Records from before keep what they showed. |
 | Colour missions | Planned. Today, only alerts colour things red. |
-| Time zone shown | Built. The clock in the top bar shows the Undergrowth computer's time zone, the one clock times in missions will use. |
+| Time zone shown | Built. The clock in the top bar shows the Undergrowth computer's time zone, the one clock times in missions use. |

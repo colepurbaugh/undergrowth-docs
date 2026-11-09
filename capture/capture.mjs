@@ -568,8 +568,9 @@ async function walkthroughs() {
 
   // 5. The mission.
   await goTo('Missions')
-  // When stays on Always, and "Advise a vessel the way somewhere" is ticked to start with.
+  // When stays on Always; tick "Advise a vessel the way somewhere".
   const form = page.locator('.ug-mission-form').first()
+  await form.locator('label.ug-check', { hasText: 'Advise a vessel' }).locator('input').check()
   const formField = start => form.locator('label').filter({ hasText: new RegExp(`^${start}`) }).locator('select, input').first()
   await formField('Vessel').selectOption({ label: 'Test Skiff (vessel)' })
   await formField('Go to').selectOption({ label: 'Oyster basket 2 (payload)' })

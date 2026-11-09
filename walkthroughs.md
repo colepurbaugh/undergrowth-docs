@@ -62,9 +62,9 @@ type **route**, and tick the three waypoints as members.
 
 ### Step 5: the mission
 
-On **Missions**, leave **When** on *Always* and **Advise a vessel the way
-somewhere** ticked. Choose the vessel, where it is going and the route, and
-press **+ Add mission**.
+On **Missions**, leave **When** on *Always* and tick **Advise a vessel the way
+somewhere**. Choose the vessel, where it is going and the route, and press
+**+ Add mission**.
 
 <img src="images/walkthrough-1-mission-form.png" alt="Starting the mission">
 

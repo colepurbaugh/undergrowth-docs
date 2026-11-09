@@ -12,8 +12,8 @@ There is only one kind of mission. Every mission has three parts:
 
 | Part | What it is | Examples |
 |---|---|---|
-| **When** | What has to be true for the mission to be in effect. | Always. A reading goes out of range. A vessel gets too close to a keep-out. A sensor stops reporting. |
-| **Do** | What it does while in effect. | Alert people. Advise a vessel the way somewhere. |
+| **When** | What has to be true for the mission to be in effect. | Always. Between two times of day. A reading goes out of range. A vessel gets too close to a keep-out. A sensor stops reporting. |
+| **Do** | What it does while in effect. | Set a control (a light, a pump, a fan). Alert people. Advise a vessel the way somewhere. |
 | **Priority** | How urgent it is. **1 is the most urgent.** | Alarms are 1 unless you choose otherwise. Everything else is 2. |
 
 An alarm isn't a separate feature. It's a mission whose *do* is "alert
@@ -35,6 +35,57 @@ and whether it's in effect right now.
   missions are listed at the bottom with **Reactivate**. Everything any
   mission did stays in [Logs](logs.md).
 - **Show on map** goes to the vessel or thing the mission is about.
+
+## Setting a control
+
+A control is a value Undergrowth sets: a light's brightness, a pump or a fan
+switched on or off (see [Nodes](nodes.md#easing-and-confirming)). A mission can
+set one or more of them while it is in effect. Pointed at a cluster, it sets
+every part inside that has that control: "everything in the greenhouse,
+brightness to 0 %".
+
+A number can **ease** over some minutes: "ease the lights to 20 % over 60
+minutes". The command is one message, and the device does the easing itself.
+On/off controls just switch.
+
+**Between two times of day** is a *when* for schedules: "06:00 to 18:00" is in
+effect all day, and "18:00 to 06:00" runs past midnight. The times are the
+Undergrowth computer's, in the time zone shown by the clock in the top bar.
+
+### Which mission gets a control
+
+When several missions in effect want the same control, the **most urgent**
+(the lowest priority number) gets it. Each mission's card says, for each
+control, whether it is **in charge**, **overruled** by another mission, or not
+in effect.
+
+| Mission | Priority | When | Do |
+|---|---|---|---|
+| Overheat | 1 | Temperature above 85 °F | Everything in the greenhouse to 0 %; fan on; alert people |
+| Lights on | 2 | 06:00 to 18:00 | Ease the lights to 20 % over 60 minutes |
+| Lights off | 2 | 18:00 to 06:00 | Ease the lights to 0 % over 60 minutes |
+
+At 14:00 the greenhouse overheats: *Overheat* gets the lights and they go
+off. At 14:20 it has cooled down, *Overheat* ends, and *Lights on* gets the
+lights back, easing them up to 20 %. Nothing had to remember what the lights
+were before.
+
+- **A command goes out once,** when the decision changes: a different mission
+  in charge, or a mission wanting something different. Undergrowth doesn't
+  keep repeating it.
+- **When no mission wants a control any more, it stays as it is.** Above, the
+  fan stays on after *Overheat* ends. A mission that switches the fan off (say,
+  "temperature below 75 °F") would turn it off.
+- **A person's command stands** until the missions decide something new. The
+  card shows the mission is in charge but the control was set by hand since.
+- **Two missions at the same priority** that want a control set differently:
+  the one in effect first keeps it, and the clash is written to
+  [Logs](logs.md), so one of them can be given another priority.
+- **If a device can't be reached,** the mission says why on its card, writes it
+  to Logs once, and tries again every minute.
+
+Every command a mission sends is written to [Logs](logs.md) with the
+mission's name.
 
 ## Advising a vessel
 
