@@ -62,6 +62,7 @@ Also:
 | [Manual override](manual-override.md) | Setting a position or reading by hand to test things |
 | [Radios and connections](radios-and-connections.md) | Which radios can reach each other, and which are connected |
 | [Sharing between computers](sharing.md) | Each boat's own computer, read-only copies, and the ESP32 boards |
+| [Undergrowth versions](undergrowth-versions.md) | Undergrowth, Undergrowth Lite and Undergrowth Micro; the current version and earlier ones |
 
 ## Not built yet
 

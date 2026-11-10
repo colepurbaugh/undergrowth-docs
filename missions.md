@@ -144,6 +144,12 @@ A mission that alerts people raises an alert for each thing that makes its
 **Only if it lasts** makes the *when* wait a few seconds before it counts, so a
 wave rocking the boat for a moment is not a capsize.
 
+**Only between two times of day** limits it to part of the day. "Between 06:00
+and 18:00, the light sensor reads below 50 lux for 15 seconds" alerts someone
+when the grow lights should be on but nothing sees them: a blown bulb, a
+tripped breaker, a command that never arrived. At night the same darkness is
+expected, so it stays quiet.
+
 ### What an alert looks like
 
 - **Top bar:** a red **⚠ alerts** button. It flashes until someone acknowledges

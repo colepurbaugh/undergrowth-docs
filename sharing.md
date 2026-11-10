@@ -87,14 +87,44 @@ seconds, and each part becomes a node wired to the board:
 | 0x42 | u-blox GPS | position, speed, satellites, and the time |
 | 0x4A | BNO085 motion sensor | heading, roll, pitch |
 
-The board and its parts make a cluster named after the board. A part that is
-unplugged goes quiet rather than vanishing; **Forget unplugged parts** on the
-board's page removes it.
+The board and its parts make a cluster named after the board. Parts can be
+plugged in and unplugged while it runs: within a second or two they appear on
+its page and screen, and disappear again. In Undergrowth an unplugged part
+goes quiet rather than vanishing, so a mission can notice a sensor that fell
+off; **Forget them** on the board's page removes it for good.
 
-The board serves a small page in the dashboard's colours: its Wi-Fi, when it
-last shared, what is plugged in and how, and its light, LED and buttons. Its
-screen shows the address to browse to and its readings. New firmware can be
-sent to it over Wi-Fi.
+### The board's own page
+
+The board runs **Undergrowth Lite** (see
+[Undergrowth versions](undergrowth-versions.md)). Browse to the address on its
+screen for a page in the dashboard's colours. There is no map on it. Once a
+computer running Undergrowth has pulled from it, the page links to that
+computer's map. The page shows:
+
+- **Time:** the board's date and time, and where it came from, for example
+  `time.google.com ─NTP over Wi-Fi→ this board`. The best source wins: a GPS,
+  then internet time, then the computer that pulls from the board, so a board
+  on a boat with no internet still gets the right time. The time zone comes
+  from that computer too.
+- **Plugged in:** each part, how it is wired, and its readings, live.
+- **Calibration:** an offset for light, temperature and humidity, added to
+  every reading before it is recorded. Hold a trusted thermometer next to the
+  sensor and enter the difference.
+- **On the board:** set the RGB LED and red LED by hand, right there. If they
+  work from here but not from a mission, the hardware is fine and the problem
+  is elsewhere.
+- **Recent activity:** joining Wi-Fi, each computer that pulls from it, every
+  command and who sent it, parts plugged and unplugged, calibration changes and
+  the clock.
+- **Firmware update:** upload a new firmware file from the browser. No
+  programming tools needed.
+
+Its screen shows its name and address, the time, three tiles at a time (each
+reading of what is plugged in, then its RGB LED and red LED), whether it is
+sharing, and its edition and version in the corner. Buttons **D1** and **D2**
+step the tiles back and on, as the arrows beside them say; a row of dots shows
+which tiles are on screen. D0 is left alone, because holding it while the board
+starts puts it into boot mode.
 
 ## Not built yet
 
