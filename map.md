@@ -83,8 +83,37 @@ Under the zoom buttons, from the top:
 - **Routes**: show or hide every route, with its waypoints.
 - **Connections**: show or hide radio connections and how far each radio
   reaches (see [Radios and connections](radios-and-connections.md)).
+- **Wind**: show or hide wind barbs across the map (below).
+- **Rain radar**: show or hide the latest rain radar (below).
 
 A lit button means that layer is showing. Each device remembers its choices.
+
+## Wind and rain radar
+
+![Wind barbs and rain radar over the Washington coast during a storm](images/map-wind-radar.png)
+
+**Wind** draws a barb on an even grid across the map, from the National
+Weather Service's forecast for the hour nearest now. Each barb follows the
+marine and aviation standard:
+
+- The staff points into the wind, the way it is coming from. A south wind's
+  staff points south.
+- Each long feather is 10 knots, a short one 5, and a filled flag 50. A
+  circle on its own is calm.
+- The colour is the strength in mph: blue under 8, then green, yellow from 16,
+  orange from 25, red from 35, and magenta from 45.
+
+Hover a barb for the speed and gusts in mph, the direction, and the hour the
+forecast is for. Zoom in and the barbs get closer together. They fill in as
+they arrive, and the box in the bottom corner says which hour they are for.
+
+**Rain radar** lays NOAA's latest radar picture, from nowCOAST, over the map,
+under your own markers and routes. The box in the corner says when it was
+taken; it is updated every few minutes.
+
+Both come through the Undergrowth computer, so a phone on its Wi-Fi gets them
+as long as that computer has internet. If the connection drops, the last ones
+stay on the map and the time in the corner turns yellow once they're old.
 
 ## Clicking things
 

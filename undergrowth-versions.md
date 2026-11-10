@@ -14,7 +14,7 @@ them, not for any job they do. One release number covers all three.
 Each one says which it is:
 
 - **Undergrowth** shows its version beside the name in the top bar. Hover it to
-  see what it's running on, such as *Undergrowth 3.6.0 · Windows PC*.
+  see what it's running on, such as *Undergrowth 3.7.0 · Windows PC*.
 - **Undergrowth Lite** shows it at the top of its page, at the bottom right of
   its screen, and full-screen for a moment when it starts. Its page says the
   map is elsewhere, and once a computer running Undergrowth has connected, it
@@ -26,36 +26,35 @@ Computers share with each other as long as they speak the same sharing
 protocol (see [Sharing between computers](sharing.md)), whatever their
 editions and versions.
 
-## Current version: 3.6.0
+## Current version: 3.7.0
 
 *10 November 2026*
 
 | Edition | Version | Status |
 |---|---|---|
-| Undergrowth | 3.6.0 | In use |
-| Undergrowth Lite | 3.4.0 | In use on the bench board (nothing new for Lite in 3.5.0 or 3.6.0) |
+| Undergrowth | 3.7.0 | In use |
+| Undergrowth Lite | 3.4.0 | In use on the bench board (nothing new for Lite since) |
 | Undergrowth Micro | — | Not built yet |
 
-New in 3.6.0:
+New in 3.7.0:
 
-- A [Data](data.md) page, after Logs. It shows the drive's free space, how
-  much Undergrowth uses and how fast it grows, and each database on its own.
-- An **Archive now** button, or archiving on a schedule, moves everything
-  older than the days you choose into a zip beside data.db. The zip is checked
-  before anything is removed, and Graphs reads archives when a range reaches
-  back into them.
-- A **Store** box for every reading and every log category, to stop keeping
-  what isn't needed.
-- Disk free, data size, config size and archive size are readings of the
-  computer's own node, so they can be graphed and watched by missions.
-- config.db no longer keeps a second copy of every log entry once it is in
-  data.db. On this PC that took it from 18 MB to 4 MB.
+- [Wind and rain radar](map.md#wind-and-rain-radar) on the map, each with its
+  own button. Wind is drawn as standard barbs across the map from the National
+  Weather Service forecast, coloured by strength. Radar is NOAA nowCOAST's
+  latest picture.
+- Wind in the top bar is in mph, with an arrow pointing the way it blows.
 
 <div style="page-break-after: always"></div>
 
 ---
 
 ## Earlier versions
+
+**3.6.0** · *10 November 2026* · A [Data](data.md) page: how much room
+Undergrowth takes and how fast it grows, archiving old data into checked zips
+(by button or on a schedule) that Graphs can still read, a Store box for every
+reading and log category, and disk space as readings. config.db no longer
+keeps every log entry twice.
 
 **3.5.0** · *9 November 2026* · A [Graphs](graphs.md) page: readings as dots
 so gaps show, saved graphs, readings stacked on left and right axes or put
