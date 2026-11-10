@@ -1,6 +1,6 @@
 # Nodes
 
-[← Guide](README.md) · [Map](map.md) · **Nodes** · [Clusters](clusters.md) · [Missions](missions.md) · [Logs](logs.md) · [Scenarios](scenarios.md)
+[← Guide](README.md) · [Map](map.md) · **Nodes** · [Clusters](clusters.md) · [Missions](missions.md) · [Scenarios](scenarios.md) · [Graphs](graphs.md) · [Logs](logs.md)
 
 ## What a node is
 

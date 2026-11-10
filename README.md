@@ -34,6 +34,8 @@ Charts are shown for reference only, not for navigation. See
 - A **[mission](missions.md)** is a goal, such as "take Big Toot to basket 4"
   or "keep the crab tanks between 42 and 60 °F". Undergrowth keeps checking it
   against what is happening now.
+- **[Graphs](graphs.md)** draw readings as dots, with alerts and commands
+  laid over them, so you can see what happened when.
 - **[Logs](logs.md)** write down every reading, command and decision, with when
   and why.
 
@@ -50,8 +52,9 @@ Then one page for each section in the top bar, in the same order:
 | [Nodes](nodes.md) | What a node is and why everything starts as one; positions, values, displays, keep-outs and the editor |
 | [Clusters](clusters.md) | Groups of things: vessels, tank houses, routes; displays that open inside each other; taking a boat in tow |
 | [Missions](missions.md) | One kind of mission (when, do, priority): advising a vessel the way, routes and keep-outs, and alerts |
-| [Logs](logs.md) | The record of everything that happened, and how to read it |
 | [Scenarios](scenarios.md) | Small ready-made examples to try, apart from your real records |
+| [Graphs](graphs.md) | Readings as dots over time or against each other, in bands of colour, with alerts and commands laid over them |
+| [Logs](logs.md) | The record of everything that happened, and how to read it |
 
 Also:
 

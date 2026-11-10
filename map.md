@@ -1,6 +1,6 @@
 # Map
 
-[← Guide](README.md) · **Map** · [Nodes](nodes.md) · [Clusters](clusters.md) · [Missions](missions.md) · [Logs](logs.md) · [Scenarios](scenarios.md)
+[← Guide](README.md) · **Map** · [Nodes](nodes.md) · [Clusters](clusters.md) · [Missions](missions.md) · [Scenarios](scenarios.md) · [Graphs](graphs.md) · [Logs](logs.md)
 
 The map is the main screen. Everything with a position and *Show on map* ticked
 appears on it: ports, vessels, waypoints, keep-outs, baskets and tank houses.

@@ -1,6 +1,6 @@
 # Missions
 
-[← Guide](README.md) · [Map](map.md) · [Nodes](nodes.md) · [Clusters](clusters.md) · **Missions** · [Logs](logs.md) · [Scenarios](scenarios.md)
+[← Guide](README.md) · [Map](map.md) · [Nodes](nodes.md) · [Clusters](clusters.md) · **Missions** · [Scenarios](scenarios.md) · [Graphs](graphs.md) · [Logs](logs.md)
 
 A mission is **a goal**, not a list of steps. "Take Big Toot to basket 4."
 "Tell someone if a crab tank drops below 42 °F." Every 5 seconds, whether or

@@ -7,14 +7,14 @@ them, not for any job they do. One release number covers all three.
 
 | Edition | What you can open | Runs on |
 |---|---|---|
-| **Undergrowth** | The full dashboard: map, nodes, clusters, missions, logs, history | A PC or a Raspberry Pi |
+| **Undergrowth** | The full dashboard: map, nodes, clusters, missions, scenarios, graphs, logs | A PC or a Raspberry Pi |
 | **Undergrowth Lite** | A plain status page: its readings, what is plugged into it, when it last shared, and a link to the map | A small board with Wi-Fi, such as an ESP32-S3 |
 | **Undergrowth Micro** | No web page at all. It shows up as a node in Undergrowth, with how it's connected. | A microcontroller with no Wi-Fi |
 
 Each one says which it is:
 
 - **Undergrowth** shows its version beside the name in the top bar. Hover it to
-  see what it's running on, such as *Undergrowth 3.4.0 · Windows PC*.
+  see what it's running on, such as *Undergrowth 3.5.0 · Windows PC*.
 - **Undergrowth Lite** shows it at the top of its page, at the bottom right of
   its screen, and full-screen for a moment when it starts. Its page says the
   map is elsewhere, and once a computer running Undergrowth has connected, it
@@ -26,39 +26,43 @@ Computers share with each other as long as they speak the same sharing
 protocol (see [Sharing between computers](sharing.md)), whatever their
 editions and versions.
 
-## Current version: 3.4.0
+## Current version: 3.5.0
 
 *9 November 2026*
 
 | Edition | Version | Status |
 |---|---|---|
-| Undergrowth | 3.4.0 | In use |
-| Undergrowth Lite | 3.4.0 | In use on the bench board |
+| Undergrowth | 3.5.0 | In use |
+| Undergrowth Lite | 3.4.0 | In use on the bench board (nothing new for Lite in 3.5.0) |
 | Undergrowth Micro | — | Not built yet |
 
-New in 3.4.0:
+New in 3.5.0:
 
-- Missions can run between two times of day, and set controls (a light's
-  brightness, a fan) with the most urgent mission getting each one.
-- A reading, keep-out or silent sensor can be limited to a time of day, such as
-  "between 06:00 and 18:00, the light is below 50 lux".
-- Undergrowth Lite finds sensors plugged into its I2C port by itself (a
-  VEML7700 light sensor, an AHT10 or AHT20, a u-blox GPS, a BNO085), and each
-  becomes a node.
-- Every node can show how it's connected, hop by hop, all the way to the
-  computer you're looking at.
-- The three editions, with the name and version shown on every screen.
-- Undergrowth Lite's page fills itself in live: parts appear and disappear as
-  they are plugged in and unplugged, on the page and the screen. It shows the
-  time and where it came from, recent activity, calibration offsets, and
-  controls for testing the board's own LEDs by hand.
-- A *Greenhouse bench* scenario.
+- A [Graphs](graphs.md) page. Readings are drawn as dots, so gaps in the data
+  show. Graphs are saved, can stack readings on left and right axes, or put one
+  reading against another (temperature against humidity).
+- Each reading can be coloured in bands (blue too cold, green right, red too
+  hot), blended between colours, or by time.
+- Anything from Logs can be laid over a graph: alerts as shaded spans from
+  raised to cleared, commands, mission decisions, overrides and more.
+- The range can be moved back and forward, and the graph says how many dots it
+  drew and how long it took, so a slow one never looks stuck.
+- The pages are now in the order Map, Nodes, Clusters, Missions, Scenarios,
+  Graphs, Logs.
 
 <div style="page-break-after: always"></div>
 
 ---
 
 ## Earlier versions
+
+**3.4.0** · *9 November 2026* · Missions can run between two times of day and
+set controls, the most urgent mission getting each one. Undergrowth Lite finds
+plug-in sensors by itself, each becoming a node, and its page fills itself in
+live: parts coming and going, the time and where it came from, recent
+activity, calibration offsets and the board's LEDs by hand. Every node shows
+how it's connected. The three editions, with name and version on every
+screen. A *Greenhouse bench* scenario.
 
 **3.3.0** · *7–8 November 2026* · Navigation and safety alarms became one kind
 of mission, with when, do and priority. Every node and cluster got one display,
