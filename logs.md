@@ -1,8 +1,11 @@
 # Logs
 
-[← Guide](README.md) · [Map](map.md) · [Nodes](nodes.md) · [Clusters](clusters.md) · [Missions](missions.md) · [Scenarios](scenarios.md) · [Graphs](graphs.md) · **Logs**
+[← Guide](README.md) · [Map](map.md) · [Nodes](nodes.md) · [Clusters](clusters.md) · [Missions](missions.md) · [Scenarios](scenarios.md) · [Graphs](graphs.md) · **Logs** · [Data](data.md)
 
 The **Logs** page is the permanent record. Nothing in it is edited or deleted.
+Old entries can be moved into a zip on the [Data](data.md) page, where they
+are kept unchanged, and a category can be set not to be stored at all. The
+Logs page does not show archived entries yet.
 
 ![Safety entries in Logs](images/logs.png)
 

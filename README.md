@@ -38,6 +38,8 @@ Charts are shown for reference only, not for navigation. See
   laid over them, so you can see what happened when.
 - **[Logs](logs.md)** write down every reading, command and decision, with when
   and why.
+- **[Data](data.md)** shows how much room all of that takes, what is kept,
+  and the archives old data has been zipped into.
 
 ## The guide
 
@@ -55,6 +57,7 @@ Then one page for each section in the top bar, in the same order:
 | [Scenarios](scenarios.md) | Small ready-made examples to try, apart from your real records |
 | [Graphs](graphs.md) | Readings as dots over time or against each other, in bands of colour, with alerts and commands laid over them |
 | [Logs](logs.md) | The record of everything that happened, and how to read it |
+| [Data](data.md) | How much room Undergrowth takes, choosing what to store, and archiving old data into zips |
 
 Also:
 

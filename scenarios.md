@@ -1,6 +1,6 @@
 # Scenarios
 
-[← Guide](README.md) · [Map](map.md) · [Nodes](nodes.md) · [Clusters](clusters.md) · [Missions](missions.md) · **Scenarios** · [Graphs](graphs.md) · [Logs](logs.md)
+[← Guide](README.md) · [Map](map.md) · [Nodes](nodes.md) · [Clusters](clusters.md) · [Missions](missions.md) · **Scenarios** · [Graphs](graphs.md) · [Logs](logs.md) · [Data](data.md)
 
 A scenario is a small, ready-made example to try things on. Open
 **Scenarios** in the top bar and press **Start** on one. Undergrowth sets it
