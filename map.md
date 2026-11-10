@@ -18,7 +18,7 @@ follow.
 |---|---|
 | **Clock** | The time at the Undergrowth computer, with its time zone (*PST*). Clock times in missions use this zone. If your device is in another zone, hovering over the clock says so. |
 | **Tide** | NOAA tide predictions for the nearest tide station, with the next high or low. |
-| **Wind** | Measured at the nearest NOAA station when there is one within 50 km, otherwise the National Weather Service forecast. |
+| **Wind** | Speed and gusts in mph, with an arrow pointing the way the wind blows (a south wind points north). Hover for the direction it comes from and the speed in knots. Measured at the nearest NOAA station when there is one within 50 km, otherwise the National Weather Service forecast. |
 | **Temp** | Same as wind: measured if possible, forecast if not. |
 | **Sky** | National Weather Service hourly forecast. |
 
