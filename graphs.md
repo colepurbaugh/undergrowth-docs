@@ -1,6 +1,6 @@
 # Graphs
 
-[← Guide](README.md) · [Map](map.md) · [Nodes](nodes.md) · [Clusters](clusters.md) · [Missions](missions.md) · [Scenarios](scenarios.md) · **Graphs** · [Logs](logs.md) · [Data](data.md)
+[← Guide](README.md) · [Map](map.md) · [Nodes](nodes.md) · [Clusters](clusters.md) · [Missions](missions.md) · [Scenarios](scenarios.md) · **Graphs** · [Logs](logs.md) · [Data](data.md) · [Reports](reports.md)
 
 The **Graphs** page draws readings over time, or one reading against another,
 with whatever happened at the time laid over them. Graphs are saved with a name

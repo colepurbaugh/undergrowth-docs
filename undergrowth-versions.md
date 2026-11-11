@@ -7,14 +7,14 @@ them, not for any job they do. One release number covers all three.
 
 | Edition | What you can open | Runs on |
 |---|---|---|
-| **Undergrowth** | The full dashboard: map, nodes, clusters, missions, scenarios, graphs, logs, data | A PC or a Raspberry Pi |
+| **Undergrowth** | The full dashboard: map, nodes, clusters, missions, scenarios, graphs, logs, data, reports | A PC or a Raspberry Pi |
 | **Undergrowth Lite** | A plain status page: its readings, what is plugged into it, when it last shared, and a link to the map | A small board with Wi-Fi, such as an ESP32-S3 |
 | **Undergrowth Micro** | No web page at all. It shows up as a node in Undergrowth, with how it's connected. | A microcontroller with no Wi-Fi |
 
 Each one says which it is:
 
 - **Undergrowth** shows its version beside the name in the top bar. Hover it to
-  see what it's running on, such as *Undergrowth 3.7.0 · Windows PC*.
+  see what it's running on, such as *Undergrowth 3.8.0 · Windows PC*.
 - **Undergrowth Lite** shows it at the top of its page, at the bottom right of
   its screen, and full-screen for a moment when it starts. Its page says the
   map is elsewhere, and once a computer running Undergrowth has connected, it
@@ -26,29 +26,37 @@ Computers share with each other as long as they speak the same sharing
 protocol (see [Sharing between computers](sharing.md)), whatever their
 editions and versions.
 
-## Current version: 3.7.0
+## Current version: 3.8.0
 
 *10 November 2026*
 
 | Edition | Version | Status |
 |---|---|---|
-| Undergrowth | 3.7.0 | In use |
+| Undergrowth | 3.8.0 | In use |
 | Undergrowth Lite | 3.4.0 | In use on the bench board (nothing new for Lite since) |
 | Undergrowth Micro | — | Not built yet |
 
-New in 3.7.0:
+New in 3.8.0:
 
-- [Wind and rain radar](map.md#wind-and-rain-radar) on the map, each with its
-  own button. Wind is drawn as standard barbs across the map from the National
-  Weather Service forecast, coloured by strength. Radar is NOAA nowCOAST's
-  latest picture.
-- Wind in the top bar is in mph, with an arrow pointing the way it blows.
+- A [Reports](reports.md) page: Letter pages that fill themselves in from the
+  readings and logs, live, built from tiles you size by dragging and set up
+  inside the tile. Tiles can be a figure, a graph, a table of readings, a
+  temperature log with limits checked, sudden changes, outages, events from
+  Logs, or text, form fields and lines to write on.
+- Print or save as a PDF, in colour or black and white, each page stamped
+  with when it was printed and the newest reading on it.
 
 <div style="page-break-after: always"></div>
 
 ---
 
 ## Earlier versions
+
+**3.7.0** · *10 November 2026* · [Wind and rain radar](map.md#wind-and-rain-radar)
+on the map, each with its own button: standard wind barbs across the map from
+the National Weather Service forecast, coloured by strength, and NOAA
+nowCOAST's latest radar picture. Wind in the top bar in mph, with an arrow
+pointing the way it blows.
 
 **3.6.0** · *10 November 2026* · A [Data](data.md) page: how much room
 Undergrowth takes and how fast it grows, archiving old data into checked zips

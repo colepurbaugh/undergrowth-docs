@@ -3,8 +3,9 @@
 Undergrowth keeps track of an oyster farm's boats, baskets, tanks and sensors
 on one map. It works out where boats should go, switches equipment, and raises
 an alarm when something goes wrong. These pages show what it does today. It is
-a prototype, and every picture comes from *The whole farm*, one of its built-in
-scenarios, not a real farm.
+a prototype, and the pictures come from *The whole farm*, one of its built-in
+scenarios, not a real farm. The Data and Reports pages show the computer and
+bench board they were taken on.
 
 ![The Undergrowth map](images/overview.png)
 
@@ -40,6 +41,8 @@ Charts are shown for reference only, not for navigation. See
   and why.
 - **[Data](data.md)** shows how much room all of that takes, what is kept,
   and the archives old data has been zipped into.
+- **[Reports](reports.md)** are Letter pages that fill themselves in from the
+  readings, to print or save as a PDF.
 
 ## The guide
 
@@ -58,6 +61,7 @@ Then one page for each section in the top bar, in the same order:
 | [Graphs](graphs.md) | Readings as dots over time or against each other, in bands of colour, with alerts and commands laid over them |
 | [Logs](logs.md) | The record of everything that happened, and how to read it |
 | [Data](data.md) | How much room Undergrowth takes, choosing what to store, and archiving old data into zips |
+| [Reports](reports.md) | Live Letter pages built from tiles (figures, graphs, tables, logs, outages, sudden changes), printed in colour or black and white |
 
 Also:
 

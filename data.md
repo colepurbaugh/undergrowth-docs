@@ -1,6 +1,6 @@
 # Data
 
-[← Guide](README.md) · [Map](map.md) · [Nodes](nodes.md) · [Clusters](clusters.md) · [Missions](missions.md) · [Scenarios](scenarios.md) · [Graphs](graphs.md) · [Logs](logs.md) · **Data**
+[← Guide](README.md) · [Map](map.md) · [Nodes](nodes.md) · [Clusters](clusters.md) · [Missions](missions.md) · [Scenarios](scenarios.md) · [Graphs](graphs.md) · [Logs](logs.md) · **Data** · [Reports](reports.md)
 
 The **Data** page shows how much room Undergrowth takes on this computer, what
 it keeps, and the archives it has made.
