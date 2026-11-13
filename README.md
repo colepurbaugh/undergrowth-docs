@@ -47,7 +47,8 @@ Charts are shown for reference only, not for navigation. See
 ## The guide
 
 Start with **[Getting started](getting-started.md)**: setting it up and a first
-look around.
+look around. On a Linux computer, **[Installing on Linux](install-on-linux.md)**
+goes through it one step at a time.
 
 Then one page for each section in the top bar, in the same order:
 
@@ -71,6 +72,7 @@ Also:
 | [Walkthroughs](walkthroughs.md) | Building a boat and a crab tank from scratch, step by step |
 | [Manual override](manual-override.md) | Setting a position or reading by hand to test things |
 | [Radios and connections](radios-and-connections.md) | Which radios can reach each other, and which are connected |
+| [Installing on Linux](install-on-linux.md) | Putting Undergrowth on a Linux computer step by step, updating it, and fixing common problems |
 | [Sharing between computers](sharing.md) | Each boat's own computer, read-only copies, and the ESP32 boards |
 | [Undergrowth versions](undergrowth-versions.md) | Undergrowth, Undergrowth Lite and Undergrowth Micro; the current version and earlier ones |
 
