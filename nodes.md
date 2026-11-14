@@ -58,6 +58,8 @@ Bench 7330 VEML7700 ─I2C 0x10→ Bench 7330 ESP32-S3 ─Wi-Fi · 3 s ago→ Th
   its I2C port every few seconds. A sensor it knows appears as a node of its
   own within a few seconds, already wired to the board (see
   [Sharing](sharing.md#the-computers-on-a-boat)).
+- **A Bluetooth sensor is wired to the computer that hears it,** once it is
+  added (see [Bluetooth sensors](#bluetooth-sensors)).
 - **For anything else, say it yourself.** In a node's editor, **Connected
   through** picks what it is plugged into, and **How** says how: I2C, USB, a
   pin, a cable.
@@ -90,13 +92,40 @@ inside something else.
 - **▸** beside a name opens its [display](#displays) underneath, the same
   one the map shows.
 
-**+ Add Node** makes a new one. On the map, right-clicking a spot does the same
-with its coordinates already filled in.
+**+ Add Node** makes a new one. It starts by scanning: boards plugged in by USB
+or heard on Wi-Fi, and Bluetooth sensors in range, in one list, each with
+**Add**. Only what isn't added yet is listed.
+
+Beside each name are the ways to reach it: a USB, Wi-Fi or Bluetooth icon, or
+a short name such as I2C where there's no icon. Green means it's used, grey
+means it isn't. When there's a choice, press an icon to use it (it turns
+green) or press it again to stop. Something with only one way to reach it has
+that one green already.
+
+The one exception is a board that is added but that nothing has come from
+yet. It stays, marked *Added · nothing from it reaches this computer yet*,
+with **Change** to choose Wi-Fi. Anything else is **Custom node**, described
+by hand. On the map, right-clicking a spot adds a node there, with its
+coordinates already filled in.
+
+### Bluetooth sensors
+
+A sensor that broadcasts its readings, such as the Govee H5075 thermometer,
+shows up in **+ Add Node** with how strong its signal is and when it was last
+heard. **Add** asks for a name and makes it a node with its temperature,
+humidity and battery already on its display, wired to this computer over
+Bluetooth. Its readings are recorded whenever this computer hears it. Which
+sensors and computers work is on
+[Hardware compatibility](hardware-compatibility.md#bluetooth-sensors).
 
 ## The editor
 
 <img src="images/node-editor.png" width="420" align="right" alt="Editing the Old piling node">
 
+- **How it talks to this computer**, for a board or computer that's been
+  added: its USB and Wi-Fi icons, green for the ones in use. **Change** lets
+  you press them to choose again. That goes over the cable, so the board has to
+  be plugged in by USB.
 - **Map Name, Node Type, Description, Map Icon.** The type is free text, with
   the types you've already used offered as you type.
 - **Position**, from one of three places:
