@@ -18,7 +18,8 @@ Three words come up everywhere:
 
 New to terminals, or setting up a Linux computer? Follow
 [Installing on Linux](install-on-linux.md) instead; it goes one step at a
-time.
+time. For an Android phone or tablet, see
+[Installing on Android](install-on-android.md).
 
 You need Node.js (the LTS version from nodejs.org) and a copy of the
 Undergrowth code. Open two terminal windows. In the first, start the node

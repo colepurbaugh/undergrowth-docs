@@ -33,7 +33,7 @@ its web browser.
 
 | Phone or tablet | Status | Notes |
 |---|---|---|
-| Google Pixel 2 (Android 11) | Tested | The Undergrowth app. Its GPS places it on the map, and its compass points its arrow to true north. |
+| Google Pixel 2 (Android 11) | Tested | The Undergrowth app, installed by following [Installing on Android](install-on-android.md). Its GPS places it on the map, and its compass points its arrow to true north. |
 | Other Android phones and tablets, Android 8 or newer | Should work | The same app. |
 | iPhone and iPad | Planned | Until then, they work as a screen for another Undergrowth computer, in Safari. |
 
