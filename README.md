@@ -75,6 +75,7 @@ Also:
 | [Radios and connections](radios-and-connections.md) | Which radios can reach each other, and which are connected |
 | [Installing on Linux](install-on-linux.md) | Putting Undergrowth on a Linux computer step by step, updating it, and fixing common problems |
 | [Installing on Android](install-on-android.md) | Putting the Undergrowth app on an Android phone or tablet, updating it, and fixing common problems |
+| [Setting up a greenhouse](setup-greenhouse.md) | For installers: a Linux computer, two Bluetooth thermometers in two grow rooms, alerts, and an Android tablet as the screen |
 | [Hardware compatibility](hardware-compatibility.md) | Which computers, phones, boards and sensors Undergrowth runs on or reads from, and how far each has been tried |
 | [Sharing between computers](sharing.md) | Each boat's own computer, read-only copies, and the ESP32 boards |
 | [Undergrowth versions](undergrowth-versions.md) | Undergrowth, Undergrowth Lite and Undergrowth Micro; the current version and earlier ones |

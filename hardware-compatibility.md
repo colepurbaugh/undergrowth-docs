@@ -78,10 +78,15 @@ wrong.
 | Sensor | Reads | Heard by | Status |
 |---|---|---|---|
 | Govee H5075 thermometer | Temperature, humidity, battery | Windows PC | Tested |
-| Govee H5075 thermometer | | Android phone, ESP32-S3 board, Linux | Planned |
-| Govee H5072 thermometer | Temperature, humidity, battery | Windows PC | Should work: it broadcasts the same way |
+| Govee H5075 thermometer | Temperature, humidity, battery | Linux | Should work: built, not tried on a real sensor yet |
+| Govee H5075 thermometer | | Android phone, ESP32-S3 board | Planned |
+| Govee H5072 thermometer | Temperature, humidity, battery | Windows PC, Linux | Should work: it broadcasts the same way |
 
 A Windows PC listens with its own Bluetooth. The first time Undergrowth
 starts, it builds a small listener with a tool that comes with Windows, so
 there is nothing extra to install. If Bluetooth is turned off, **+ Add Node**
 says so.
+
+A Linux computer listens through BlueZ, Linux's own Bluetooth service, which
+[Installing on Linux](install-on-linux.md) sets up. If **+ Add Node** says
+something is wrong with Bluetooth, it also says what to type to fix it.

@@ -66,8 +66,9 @@ records stay as they are.
 - `git`, `gh` (GitHub's tool), `curl`, the build tools, and Node.js, if they
   weren't there already.
 - The code, in the `undergrowth` folder in your home folder.
-- Permission to use USB boards such as an ESP32. It takes effect after you
-  log out and back in.
+- Permission to use USB boards such as an ESP32, and to listen for Bluetooth
+  thermometers. It takes effect after you log out and back in.
+- BlueZ, Linux's Bluetooth service, if it wasn't there already, switched on.
 - The two icons. They run `start.sh` and `update.sh` in
   `~/undergrowth/linux/`.
 
