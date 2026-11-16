@@ -72,20 +72,22 @@ records stay as they are.
 - The two icons. They run `start.sh` and `update.sh` in
   `~/undergrowth/linux/`.
 
-## Using it from a phone or another computer
+## Sharing with a phone or another computer
 
-Undergrowth only answers this computer at first. To reach it from a phone on
-the same Wi-Fi, make a settings file:
+Undergrowth only answers this computer at first. To share with a phone or
+another computer on the same Wi-Fi, make a settings file:
 
 ```bash
-mkdir -p ~/.config/undergrowth && printf 'UG_HOST=0.0.0.0\nUG_NAME=greenhouse-pc\n' > ~/.config/undergrowth/settings
+mkdir -p ~/.config/undergrowth && printf 'UG_HOST=0.0.0.0\n' > ~/.config/undergrowth/settings
 ```
 
-`UG_NAME` is the name other computers see, so pick your own. Stop and start
-Undergrowth, then find this computer's address with `hostname -I`. The first
-number, such as `192.168.1.50`, is the address, and on the phone you go to
-`http://192.168.1.50:3001`. Undergrowth has no login yet, so only do this on
-your own Wi-Fi.
+Stop and start Undergrowth. The phone runs the
+[Undergrowth app](install-on-android.md), and the two are introduced from
+**Nodes → + Add Node**, which puts them in an authentication cluster
+together. Until then they share nothing. A web browser on another device
+can't open this computer's map yet.
+[Setting up a greenhouse](setup-greenhouse.md#4-let-them-trust-each-other)
+goes through it.
 
 ## If something goes wrong
 
