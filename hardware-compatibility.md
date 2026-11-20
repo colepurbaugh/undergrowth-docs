@@ -90,3 +90,23 @@ says so.
 A Linux computer listens through BlueZ, Linux's own Bluetooth service, which
 [Installing on Linux](install-on-linux.md) sets up. If **+ Add Node** says
 something is wrong with Bluetooth, it also says what to type to fix it.
+
+## Sensors Undergrowth can't hear yet
+
+| Sensor | Reads | Status | Notes |
+|---|---|---|---|
+| GoveeLife Smart Thermometer P1 (Govee H5109), floating pool thermometer | Water temperature, battery | Not yet | See below. |
+
+The P1 floats only talk to their Smart Gateway (H5042), over 433 MHz. They
+don't broadcast over Bluetooth themselves: a Windows PC next to two of them
+heard nothing from them.
+
+The gateway does broadcast the floats' latest readings over Bluetooth, and
+Undergrowth can read those. But it only does so while Govee's app is asking for
+them, through Govee's online service. With the app closed, it broadcasts
+nothing, and with no internet it can't be asked. Readings that only come in
+when someone opens Govee's app would look like a broken sensor, so Undergrowth
+doesn't use them. Tried on 19 November 2026 with two floats.
+
+Next to try: hearing the floats' own 433 MHz signal with an RTL-SDR radio
+stick, with no gateway, app or internet.
