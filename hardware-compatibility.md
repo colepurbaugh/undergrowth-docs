@@ -43,22 +43,22 @@ A board runs **Undergrowth Lite**: a small node with a plain status page, that
 owns the sensors plugged into it and shares their readings over Wi-Fi. See
 [Sharing between computers](sharing.md#the-computers-on-a-boat).
 
-| Board | Status | Notes |
-|---|---|---|
-| [Adafruit ESP32-S3 Reverse TFT Feather](https://learn.adafruit.com/esp32-s3-reverse-tft-feather/overview) | Tested | Wi-Fi, USB, its screen, buttons and light. Added from **+ Add Node** over USB. |
-| Other ESP32-S3 boards | Not tried | The firmware is built for the Reverse TFT Feather's screen and buttons. |
+| | Board | Status | Notes |
+|---|---|---|---|
+| <img src="images/hardware/esp32-s3-reverse-tft-feather.png" width="80" alt="ESP32-S3 Reverse TFT Feather"> | [Adafruit ESP32-S3 Reverse TFT Feather](https://learn.adafruit.com/esp32-s3-reverse-tft-feather/overview) | Tested | Wi-Fi, USB, its screen, buttons and light. Added from **+ Add Node** over USB. |
+| | Other ESP32-S3 boards | Not tried | The firmware is built for the Reverse TFT Feather's screen and buttons. |
 
 ## Sensors on a board
 
 Plugged into a board's I2C port (STEMMA QT). The board notices one within a few
 seconds and it appears as a node of its own, already wired to the board.
 
-| Sensor | Reads | Status |
-|---|---|---|
-| VEML7700 | Light | Tested |
-| AHT10 / AHT20 | Temperature and humidity | Tested |
-| BNO08x | Heading, roll and pitch | Should work |
-| GPS | Position, speed, course and time | Should work |
+| | Sensor | Reads | Status |
+|---|---|---|---|
+| <img src="images/hardware/veml7700.png" width="80" alt="VEML7700 light sensor"> | VEML7700 | Light | Tested |
+| <img src="images/hardware/aht10.png" width="80" alt="AHT10 temperature and humidity sensor"> | AHT10 / AHT20 | Temperature and humidity | Tested |
+| <img src="images/hardware/bno08x.png" width="80" alt="BNO08x 9-DoF sensor"> | BNO08x | Heading, roll and pitch | Should work |
+| <img src="images/hardware/gps-breakout.png" width="80" alt="Adafruit Ultimate GPS breakout"> | GPS | Position, speed, course and time | Should work |
 
 ## Bluetooth sensors
 
@@ -75,12 +75,10 @@ Anyone nearby can read what these sensors broadcast, and someone could send
 fake readings, so use them for watching, not for anything that must not be
 wrong.
 
-| Sensor | Reads | Heard by | Status |
+| | Sensor | Reads | Status |
 |---|---|---|---|
-| Govee H5075 thermometer | Temperature, humidity, battery | Windows PC | Tested |
-| Govee H5075 thermometer | Temperature, humidity, battery | Linux | Should work: built, not tried on a real sensor yet |
-| Govee H5075 thermometer | | Android phone, ESP32-S3 board | Planned |
-| Govee H5072 thermometer | Temperature, humidity, battery | Windows PC, Linux | Should work: it broadcasts the same way |
+| <img src="images/hardware/govee-h5075.png" width="80" alt="Govee H5075 thermometer"> | Govee H5075 thermometer | Temperature, humidity, battery | **Tested** on a Windows PC. **Should work** on Linux: built, not tried on a real sensor yet. **Planned** for Android phones and ESP32-S3 boards. |
+| | Govee H5072 thermometer | Temperature, humidity, battery | **Should work** on a Windows PC or Linux: it broadcasts the same way as the H5075. |
 
 A Windows PC listens with its own Bluetooth. The first time Undergrowth
 starts, it builds a small listener with a tool that comes with Windows, so
@@ -91,22 +89,45 @@ A Linux computer listens through BlueZ, Linux's own Bluetooth service, which
 [Installing on Linux](install-on-linux.md) sets up. If **+ Add Node** says
 something is wrong with Bluetooth, it also says what to type to fix it.
 
-## Sensors Undergrowth can't hear yet
+## Pool floats through their gateway
 
-| Sensor | Reads | Status | Notes |
+The GoveeLife Smart Thermometer P1 (Govee H5109) floating pool thermometers
+only talk to their own Smart Gateway (H5042), over 433 MHz. They don't
+broadcast over Bluetooth themselves.
+
+The gateway passes their readings on over Bluetooth, but only while it has
+**no Wi-Fi**. On Wi-Fi it keeps quiet unless Govee's app asks it to, through
+Govee's online service. So:
+
+1. Set up the gateway and pair the floats in Govee's app, once. On a phone
+   without Google Play, the Govee Home app comes from
+   [Govee's own download page](https://app-h5.govee.com/common/app-download).
+2. Then take the gateway off Wi-Fi for good: change the Wi-Fi it joined, or
+   turn that network off. Its light turns red. A few minutes later it starts
+   broadcasting the floats' readings by itself, with no Wi-Fi, internet,
+   account or app.
+
+Each float then shows up in **+ Add Node** as **Pool float, slot 1**,
+**slot 2** and so on, in the order they were paired with the gateway, with its
+temperature now, so you can tell which is which. **Add** makes it a node, and
+the first one also makes a node for the gateway:
+
+```
+Pool float 1 ─433 MHz→ Govee gateway 3F77 ─Bluetooth→ This computer
+```
+
+A float takes a reading every 10 minutes, and every few seconds while its
+temperature is changing fast. Each one is recorded once, as of when the float
+took it.
+
+| | Sensor | Reads | Status |
 |---|---|---|---|
-| GoveeLife Smart Thermometer P1 (Govee H5109), floating pool thermometer | Water temperature, battery | Not yet | See below. |
+| <img src="images/hardware/goveelife-h5109.png" width="80" alt="GoveeLife H5109 pool thermometer"><br><img src="images/hardware/govee-h5042-gateway.png" width="80" alt="Govee H5042 Smart Gateway"> | GoveeLife H5109 pool thermometer, through a Govee H5042 gateway kept off Wi-Fi | Water temperature, battery | **Tested** on a Windows PC with two floats. **Should work** on Linux: built, not tried yet. |
 
-The P1 floats only talk to their Smart Gateway (H5042), over 433 MHz. They
-don't broadcast over Bluetooth themselves: a Windows PC next to two of them
-heard nothing from them.
+Tested overnight: with the gateway off Wi-Fi for 17 hours, two floats sent 84
+readings each, one every 10 minutes, and none went missing. Each was heard
+within seconds of the float taking it, and the gateway's clock stayed right.
 
-The gateway does broadcast the floats' latest readings over Bluetooth, and
-Undergrowth can read those. But it only does so while Govee's app is asking for
-them, through Govee's online service. With the app closed, it broadcasts
-nothing, and with no internet it can't be asked. Readings that only come in
-when someone opens Govee's app would look like a broken sensor, so Undergrowth
-doesn't use them. Tried on 19 November 2026 with two floats.
-
-Next to try: hearing the floats' own 433 MHz signal with an RTL-SDR radio
-stick, with no gateway, app or internet.
+The battery reading is the one byte that looks like battery: it reads 100 %
+on new batteries, and hasn't been seen lower yet. Not tried yet: whether the
+gateway goes back to broadcasting by itself after a power cut with no Wi-Fi.
