@@ -14,7 +14,7 @@ them, not for any job they do. One release number covers all three.
 Each one says which it is:
 
 - **Undergrowth** shows its version beside the name in the top bar. Hover it to
-  see what it's running on, such as *Undergrowth 3.8.0 · Windows PC*.
+  see what it's running on, such as *Undergrowth 3.9.0 · Windows PC*.
 - **Undergrowth Lite** shows it at the top of its page, at the bottom right of
   its screen, and full-screen for a moment when it starts. Its page says the
   map is elsewhere, and once a computer running Undergrowth has connected, it
@@ -26,31 +26,53 @@ Computers share with each other as long as they speak the same sharing
 protocol (see [Sharing between computers](sharing.md)), whatever their
 editions and versions.
 
-## Current version: 3.8.0
+## Current version: 3.9.0
 
-*10 November 2026*
+*21 November 2026*
 
 | Edition | Version | Status |
 |---|---|---|
-| Undergrowth | 3.8.0 | In use |
-| Undergrowth Lite | 3.4.0 | In use on the bench board (nothing new for Lite since) |
+| Undergrowth | 3.9.0 | In use |
+| Undergrowth Lite | 3.9.0 | Built, for the ESP32-S3 Feathers |
 | Undergrowth Micro | — | Not built yet |
 
-New in 3.8.0:
+New in 3.9.0:
 
-- A [Reports](reports.md) page: Letter pages that fill themselves in from the
-  readings and logs, live, built from tiles you size by dragging and set up
-  inside the tile. Tiles can be a figure, a graph, a table of readings, a
-  temperature log with limits checked, sudden changes, outages, events from
-  Logs, or text, form fields and lines to write on.
-- Print or save as a PDF, in colour or black and white, each page stamped
-  with when it was printed and the newest reading on it.
+- **Trust between nodes.** Every node has its own key. A new node joins a
+  cluster with authentication turned on by being introduced, over USB or over
+  Wi-Fi with the same six-digit number on both screens, and every conversation
+  starts with a handshake. Anything that hasn't been introduced gets only the
+  hello. Any cluster can turn authentication on. See
+  [Let them trust each other](setup-greenhouse.md#4-let-them-trust-each-other).
+- **+ Add Node** lists everything heard on Wi-Fi, over USB and over Bluetooth
+  while scanning, and asks for a new board's Wi-Fi details right where Wi-Fi is
+  ticked.
+- **The Android app:** the full Undergrowth on a phone, using the phone's own
+  GPS and compass, with the dashboard laid out for phones. See
+  [Installing on Android](install-on-android.md).
+- **Installing on Linux** with one pasted line and desktop icons. See
+  [Installing on Linux](install-on-linux.md).
+- **Bluetooth sensors:** Govee H5075 thermometers on Windows and Linux, and
+  GoveeLife pool floats heard through their gateway kept off Wi-Fi. See
+  [Hardware compatibility](hardware-compatibility.md).
+- **Changes passed on.** A change made to another node's record is sent to the
+  node that owns it, which makes it and logs who asked. The editor starts using
+  it next.
+- **A Raspberry Pi card** that installs Undergrowth with no internet, on
+  Raspberry Pi OS Lite. It is being tried; its guide page comes next.
+- **Undergrowth Lite 3.9.0:** boards have their own key, are introduced over
+  USB, answer hellos on Wi-Fi, and shake hands before sharing.
 
 <div style="page-break-after: always"></div>
 
 ---
 
 ## Earlier versions
+
+**3.8.0** · *10 November 2026* · A [Reports](reports.md) page: Letter pages
+that fill themselves in from the readings and logs, live, built from tiles you
+size by dragging. Print or save as a PDF, in colour or black and white, each
+page stamped with when it was printed and the newest reading on it.
 
 **3.7.0** · *10 November 2026* · [Wind and rain radar](map.md#wind-and-rain-radar)
 on the map, each with its own button: standard wind barbs across the map from

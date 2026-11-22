@@ -14,9 +14,11 @@ Whoever creates a record owns it. If the boat's Pi made the boat's GPS node,
 only the boat's Pi can change it. Every other computer holds a copy.
 
 A copy looks like everything else on the map, but its panel says where it
-came from, its controls are greyed out, and it can't be dragged. To change it,
-open the dashboard on the computer that owns it. That way two computers can
-never disagree about what a record says.
+came from. Commands still work: switching a relay or pressing a button on a
+copy is passed on to the computer that owns it. The record itself can't be
+edited or dragged here yet; to change it, open the dashboard on the computer
+that owns it. That way two computers can never disagree about what a record
+says.
 
 Readings and log entries are shared the same way. Each one stays with the time
 it was taken, so a copy of a two-hour-old position fades just like the
@@ -38,17 +40,20 @@ arrives by two routes is only stored once.
 
 ## Adding a computer
 
-Open **⚙** and look under **Sharing**. Computers on the same network announce
-themselves and appear there by themselves, marked *found on the network*. That
-matters on a phone hotspot, where addresses change every time.
+Two computers share only once they have been introduced into the same cluster
+with authentication turned on. On one of them, open **Nodes → + Add Node**:
+anything running Undergrowth nearby shows up under **Scanning…**, found on
+Wi-Fi or over USB, even on a phone hotspot where addresses change every time.
+Tick how to reach it, press **Add**, and check that both screens show the same
+six-digit number. [Let them trust each other](setup-greenhouse.md#4-let-them-trust-each-other)
+goes through it step by step.
 
-To add one by hand, type its address and port (such as `192.168.0.3:3001`) and
-press **Add**. Each computer in the list shows whether it is up to date or why
-it can't be reached. **Remove** stops pulling from it.
+**⚙ → Sharing** then lists every computer this one shares with, and whether
+each is up to date or why it can't be reached. Anything on the network that
+hasn't been introduced gets this computer's hello and nothing else.
 
 A computer only shares with others if it is listening on the network: start
-its node service with `UG_HOST=0.0.0.0`. There is no password yet, so only do
-that on a network you trust.
+its node service with `UG_HOST=0.0.0.0`.
 
 While a screen is in a [scenario](scenarios.md), **⚙** says sharing
 is off. Nothing in a scenario is shared, but the real records on that same
@@ -57,7 +62,10 @@ computer keep sharing as usual underneath.
 ## The computers on a boat
 
 A boat carries a Raspberry Pi 4 on a battery pack. The crew's phone is the
-hotspot and the screen: it browses to the Pi and gets the full dashboard.
+hotspot, and runs the [Undergrowth app](install-on-android.md) as a node of
+its own, introduced into the boat's cluster with the Pi. A phone without the
+app will be able to use the Pi's dashboard in its browser once screens are
+built.
 
 The GPS and motion sensor can be wired two ways, and either works:
 
@@ -131,7 +139,8 @@ starts puts it into boot mode.
 - The Pi side of the USB link to an ESP32. For now the board shares over Wi-Fi.
 - Setting the clock from GPS. At sea there is no internet time, and the board
   doesn't record readings until its clock is set.
-- A fleet key, so only the farm's own computers can share.
+- Letting a browser on another device in as a screen, so a phone without the
+  app can use a Pi's dashboard.
 - Sharing missions between computers.
 - Calibrating the motion sensor. For now it has to lie flat with its arrow
   toward the bow.
