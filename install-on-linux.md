@@ -84,8 +84,9 @@ mkdir -p ~/.config/undergrowth && printf 'UG_HOST=0.0.0.0\n' > ~/.config/undergr
 Stop and start Undergrowth. The phone runs the
 [Undergrowth app](install-on-android.md), and the two are introduced from
 **Nodes → + Add Node**, which puts them in an authentication cluster
-together. Until then they share nothing. A web browser on another device
-can't open this computer's map yet.
+together. Until then they share nothing. A web browser on another device can
+open this computer's map once it is
+[let in as a screen](sharing.md#letting-a-screen-in).
 [Setting up a greenhouse](setup-greenhouse.md#4-let-them-trust-each-other)
 goes through it.
 

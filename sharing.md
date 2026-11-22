@@ -59,13 +59,54 @@ While a screen is in a [scenario](scenarios.md), **⚙** says sharing
 is off. Nothing in a scenario is shared, but the real records on that same
 computer keep sharing as usual underneath.
 
+## Letting a screen in
+
+Any phone, tablet or laptop can use an Undergrowth computer's dashboard in its
+web browser, with nothing installed on it. That makes it a **screen**: it isn't
+a node and joins nothing. A browser on the computer itself always works. Any
+other has to be let in first, either to change things or to look only.
+
+1. On the new device, open the computer's address in the browser, such as
+   `http://192.168.0.12:3001`, or `http://boat-pi.local` for a Pi. It shows
+   *This screen isn't let in yet* and a six-digit code.
+2. On a screen that is let in already, or on the computer itself, open
+   **⚙ → Screens → Let a screen in** and type the code. It says which browser
+   is waiting, such as *Chrome on Android*.
+3. Give it a name, such as *Deck tablet*, and choose:
+   - **Can change things:** controls, readings, missions and settings, and
+     letting more screens in.
+   - **Look only:** it sees everything and changes nothing. Its switches and
+     buttons are greyed out or hidden, and *Look only* shows at the top.
+4. Press **Let it in**. The new screen opens the dashboard by itself.
+
+It stays let in until it is removed. **⚙ → Screens** lists every screen, who
+let it in and when, with **Remove**, and a removed screen goes straight back to
+showing a code. Anything changed from a screen is logged with its name, such as
+*Graph saved: Pool, from Deck tablet*.
+
+Use the same address on that device each time: a browser is let in for the
+address it used, so `boat-pi.local` and the Pi's number count as two screens.
+The computer has to be listening on the network. A Pi always is; a PC needs
+`UG_HOST=0.0.0.0`, as in [Installing on Linux](install-on-linux.md).
+
+**The first screen on a Pi.** A Pi has no screen of its own to let the first
+browser in from, so its card carries a **setup code**, shown when the card was
+made. Type it on the waiting page under *Setting this node up?*, with a name for
+the screen, and that browser is let in, able to change things. **⚙ → Screens**
+can change the setup code or turn it off. After five wrong codes it makes
+everyone wait a minute.
+
+On plain Wi-Fi, someone else on the same network could watch what a screen
+sends and pretend to be it. Let screens in on a network you trust, and remove
+any you no longer trust.
+
 ## The computers on a boat
 
 A boat carries a Raspberry Pi 4 on a battery pack. The crew's phone is the
 hotspot, and runs the [Undergrowth app](install-on-android.md) as a node of
 its own, introduced into the boat's cluster with the Pi. A phone without the
-app will be able to use the Pi's dashboard in its browser once screens are
-built.
+app can use the Pi's dashboard in its browser once it is
+[let in](#letting-a-screen-in).
 
 The GPS and motion sensor can be wired two ways, and either works:
 
@@ -139,8 +180,10 @@ starts puts it into boot mode.
 - The Pi side of the USB link to an ESP32. For now the board shares over Wi-Fi.
 - Setting the clock from GPS. At sea there is no internet time, and the board
   doesn't record readings until its clock is set.
-- Letting a browser on another device in as a screen, so a phone without the
-  app can use a Pi's dashboard.
+- Adding nodes and Bluetooth sensors, or Wi-Fi details for new boards, from a
+  screen on another device. For now they are done on the computer itself.
+- Screens for the board's own page: any browser nearby can still open it and
+  change things on it.
 - Sharing missions between computers.
 - Calibrating the motion sensor. For now it has to lie flat with its arrow
   toward the bow.

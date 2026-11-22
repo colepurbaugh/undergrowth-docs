@@ -29,7 +29,7 @@ reports. See [Undergrowth versions](undergrowth-versions.md) for the editions.
 
 A phone runs the full **Undergrowth** as an app, with its own GPS and compass.
 Any phone or tablet can also be a screen for another Undergrowth computer, in
-its web browser.
+its web browser, once it is [let in](sharing.md#letting-a-screen-in).
 
 | Phone or tablet | Status | Notes |
 |---|---|---|

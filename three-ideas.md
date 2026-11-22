@@ -84,7 +84,9 @@ can join a rescue and share where they are, and nothing else.
 it works today: see
 [Let them trust each other](setup-greenhouse.md#4-let-them-trust-each-other).
 For now, every member of a locked cluster can see and change everything in it.
-Different rights for different members are planned.*
+Different rights for different members are planned. A guest's phone can already
+be let in to look only, in its web browser: see
+[Letting a screen in](sharing.md#letting-a-screen-in).*
 
 ## Why it helps
 
