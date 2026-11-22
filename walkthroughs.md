@@ -70,9 +70,9 @@ somewhere**. Choose the vessel, where it is going and the route, and press
 
 ### Step 6: the trip
 
-Click *Test Skiff*. Its [display](nodes.md#displays) is blank, because every new
-display starts that way, so press **＋** and add *Test Skiff GPS · Position*.
-Tick **Override** next to it (this is [manual override](manual-override.md),
+Click *Test Skiff*. Its [display](nodes.md#displays) already has a tile for
+each value inside it, including *Position* from *Test Skiff GPS*.
+Tick **Override** on that tile (this is [manual override](manual-override.md),
 standing in for a real GPS), and move the boat along. Each time it moves, the plan is worked out again from where it is
 now.
 
@@ -151,7 +151,8 @@ On **Clusters**, **Edit / Membership** on *Crab tanks*, and tick
 ### Step 4: what each part measures or does
 
 Still on **Clusters**, press **▸** beside *Crab tank 11*. Its display opens
-underneath, and it's blank. Press **＋**, and under **New value…** add:
+underneath, with a tile for each value inside it: none yet. Press **＋ Tile**,
+and under **New value…** add:
 
 | On | Name | Comes from | Kind |
 |---|---|---|---|
@@ -170,8 +171,9 @@ needed the map.
 
 ### Step 5: on the tank house's display
 
-Press **▸** beside *Crab tanks*, then **＋**, and add *Crab tank 11 · its own
-display*. The tank house now lists it alongside the others:
+Press **▸** beside *Crab tanks*, click *Crab tank 11* among the members across
+the top of its display, and choose **Add a tile summing it up**. The tank house
+now shows it alongside the others:
 
 <img src="images/walkthrough-2-in-the-house.png" width="380" alt="Crab tank 11 in the tank house">
 

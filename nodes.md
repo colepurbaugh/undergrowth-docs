@@ -152,14 +152,14 @@ Every change is written to [Logs](logs.md).
 
 ## Values
 
-A value can be shown as a row on a [display](#displays). Each row works
+A value can be shown as a tile on a [display](#displays). Each tile works
 according to where the value comes from:
 
-| Kind | Example | What the row lets you do |
+| Kind | Example | What the tile lets you do |
 |---|---|---|
 | **sensor** | water temperature, GPS heading, heater power draw | Shows the latest reading and how old it is. Tick *Override* to set it by hand for testing. |
 | **entered by hand** | salinity, pH, "bay water flowing" | People measure it and type it in: enter the number and press **Record**. |
-| **control** | heater plug, motor, latch, grow light | A switch, a slider with **Send**, or a one-press button. Undergrowth sends the command; the row shows what was sent, whether the device confirmed it, and what the device last reported. A number can be [eased](#easing-and-confirming). |
+| **control** | heater plug, motor, latch, grow light | A switch, a slider with **Send**, or a one-press button. Undergrowth sends the command; the tile shows what was sent, whether the device confirmed it, and what the device last reported. A number can be [eased](#easing-and-confirming). |
 
 Typed numbers are only sent when you press **Send** / **Record** or Enter, so
 `256` is never sent as `2`, `25`, `256`.
@@ -168,7 +168,7 @@ Switching a heater on and recording a salinity reading:
 
 ![Heater on and a salinity reading](images/heater-and-reading.gif)
 
-In a scenario no real plug is connected, so the row says *Sent On · device
+In a scenario no real plug is connected, so the tile says *Sent On · device
 reports Off*. With a real plug, the device's report would follow.
 
 ### Easing and confirming
@@ -205,31 +205,104 @@ Any sensor reading or position can be set by hand for testing with
 
 ## Displays
 
-Every node and cluster has a **display**: the rows shown under it. It is the
-same display wherever you look, whether you click it on the map or open it
+Every node and cluster has a **display**: a grid of tiles shown under it. It is
+the same display wherever you look, whether you click it on the map or open it
 with **▸** in the Nodes or Clusters list, so something with no position at all
-can still be watched and controlled from the lists.
+can still be watched and controlled from the lists. It looks the same on every
+computer too, because the display belongs to whoever owns the node (see
+[Sharing between computers](sharing.md)).
 
-A display **starts blank**. You decide what each thing shows: a GPS might show
-just its position and heading, a motor controller what the motor is doing, and
-the boat both.
+![Bench Pi's display: its pin header on top, then tiles for what it is, a heater under glass that a mission is in charge of, a grow light, a float switch, a door, a pump, a dump button under glass and a temperature graph](images/tiles-pi.png)
 
-**＋** at the bottom of a display:
+**One job per tile.** A tile is one switch, one reading or one graph. To see a
+button and its graph side by side, add both and move them next to each other.
 
-- **Add a row**: a reading or control from the node itself, or from anything
-  inside it. For a cluster, it can also be another cluster or node inside it,
-  which opens underneath with its own display (see
+Something new shows **a tile for each value** inside it, so it can be tried
+straight away. Move or change anything, and the display keeps your arrangement
+from then on.
+
+### Arranging tiles
+
+- **Move** a tile by dragging **⠿** beside its name, and **resize** it by
+  dragging its bottom right corner. Tiles snap to a grid 8 cells wide and
+  never overlap.
+- **＋ Tile** adds one: a reading or control from the node itself or from
+  anything inside it, a graph of a reading, a tile saying what something is
+  (its type, what it runs on, how it's connected), or, in a cluster,
+  something inside it, summed up, whose own display opens underneath (see
   [Clusters](clusters.md#a-clusters-display)).
-- **Add everything inside**: everything at once, to trim down afterwards.
-- **New value…**: give it a name, say whether people type it in, a sensor
-  reports it, or Undergrowth controls it, and give a unit and range. It goes
-  straight onto the display.
+- **New value…** under **＋ Tile**: give it a name, say whether people type it
+  in, a sensor reports it, or Undergrowth controls it, and give a unit and
+  range. It goes straight onto the display.
+- **Add everything inside** adds the rest at once, **Start again with a tile
+  for each value** goes back to the start, and **Remove every tile** empties
+  the display.
 
-**Arrange** moves rows up and down (↑ ↓) or removes them (✕). Removing a row
-only takes it off the display: the value and its readings stay. Changes save
-straight away, and which displays are open is remembered on each device.
+Removing a tile only takes it off the display: the value and its readings
+stay. Changes save straight away, and which displays are open is remembered on
+each device.
 
-<img src="images/customize.png" width="330" alt="Adding a new value to a tank's display">
+On a phone, or in the map's panel, there isn't room for 8 cells, so the tiles
+stack in one column, in the same order.
+
+### A tile's settings
+
+<img src="images/tiles-settings.png" width="300" align="right" alt="Tile settings for a door sensor: name, tile colour, lamp or words only, HIGH and LOW colours, what it says when HIGH and LOW, override, and the glass safety cover">
+
+Right-click a tile, or press **⋯** on it:
+
+- **Name** and **tile colour**.
+- **Looks like**: a switch can be a toggle, a rocker, a lit button, or *hold to
+  run*, which is on only while it is held down. An on/off reading can be a lamp
+  or just words.
+- **Colours and words** for on and off, such as a door that says *Open* and
+  *Closed*.
+- **Override**: set a sensor's reading by hand to test what would happen. See
+  [Manual override](manual-override.md).
+- **Glass safety cover**, and **when a mission is in charge of this** (below).
+- **Remove tile**.
+
+<br clear="right">
+
+### Glass covers and missions
+
+Any tile can have a **glass safety cover**: a clear pane on two hinges, with a
+caution stripe round the tile, so a button like *Dump cargo* can't be pressed
+by accident. Click the tile to lift the glass, and its top edge to close it. It
+closes again by itself after 3, 5, 10 or 30 seconds, or only by hand, and the
+stripe's colour can be changed.
+
+A control that a [mission](missions.md) sets gets glass by itself, and a gold
+line saying which mission is in charge. Untick the glass in the tile's settings
+to take it off. Changing the control by hand asks first:
+
+<img src="images/tiles-take-over.png" width="300" alt="Keep the bedroom warm is in charge of this. Take over by hand? It stays yours until the mission decides something new, or you give it back. Take over, or Leave it.">
+
+After **Take over**, the tile says *By hand · Keep the bedroom warm waits*. The
+mission takes the control back the next time it decides something new, and
+**Give back** hands it back straight away. Both are written to
+[Logs](logs.md). A tile's settings can instead say **never** let a person take
+over, or let them take over **straight away**, without asking.
+
+The glass and these rules belong to the display, to stop slips on it. They
+don't lock the device itself.
+
+### A Raspberry Pi's pins
+
+A Raspberry Pi's display has its 40-pin header across the top, locked in place
+as the reference, with pin 1 at the bottom left. Each pin shows what it is:
+power, ground, I2C, free, an input (●) or an output (■), with a gold ring when
+a mission sets it. Point at a pin for its name, such as *Pin 11 · GPIO17 ·
+Heater relay*, and point at a tile to light up its pin.
+
+Click a pin for more. A free pin can become a switch, a hold button, a dimmer
+(on the pins that can dim) or a reading lamp. A pin in use can show its tiles,
+add a graph of itself, or stop being used.
+
+![Pin 7's menu: free, can be an input or an output, with add a switch, add a hold button and add a reading lamp](images/tiles-pin-menu.png)
+
+*Undergrowth doesn't read or drive the Pi's pins yet. Tiles added from the
+header are ready for when it does.*
 
 ## Who can change a node
 

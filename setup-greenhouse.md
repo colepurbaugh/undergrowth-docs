@@ -240,9 +240,10 @@ Now group the nodes. On the computer:
 3. **Edit / Membership** on *Greenhouse*, and tick both rooms.
 4. On **Nodes**, edit each thermometer: position from its room, **Show on
    Map** unticked, and under **Belongs to Clusters** tick its room.
-5. On **Clusters**, press **▸** beside each room, **＋**, and add its
-   thermometer's temperature, humidity and battery. Then **▸** beside
-   *Greenhouse* and add both rooms' displays, so one screen shows both.
+5. On **Clusters**, press **▸** beside each room: its display already has a
+   tile for its thermometer's temperature, humidity and battery. Then **▸**
+   beside *Greenhouse*: it has a tile for each room, and **Its display** on
+   each opens that room's tiles, so one screen shows both.
 
 *Greenhouse* is an ordinary cluster: it says how things are arranged, and
 grants nothing. *Greenhouse crew* is the one that decides who sees what.

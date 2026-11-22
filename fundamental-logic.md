@@ -140,17 +140,23 @@ someone."
 
 ## Displays
 
-- **Every node and cluster has one display, blank to start.**
-- **＋ under it adds a row:** a reading or a control, from the node itself or
-  from anything inside the cluster, or something inside it, which opens with
-  ▸ to show its own display underneath. Displays can be opened and closed;
+- **Every node and cluster has one display: a grid of tiles, one job each.** A
+  tile is one reading, one control, one graph, or something inside it, summed
+  up, which opens to show its own display underneath. Two things side by side
+  are two tiles moved next to each other. Displays can be opened and closed;
   each device remembers which are open.
-- **What a display shows is separate from what is inside what.** Putting a tank
-  in a tank house doesn't change the house's display. Missions follow what is
-  inside what; displays follow what you chose to show.
+- **Something new can be tried at once.** Until someone arranges it, a display
+  shows a tile for each value inside it.
+- **What a display shows is separate from what is inside what.** Once a display
+  is arranged, putting a tank in a tank house doesn't change the house's
+  display. Missions follow what is inside what; displays follow what you chose
+  to show.
 - **The display is the same everywhere.** It looks the same whether it's opened
-  from the map, the Nodes list or the Clusters list. Changing it in one place
-  changes it in all of them.
+  from the map, the Nodes list or the Clusters list, and on every computer: it
+  belongs to the record's owner. Changing it in one place changes it in all of
+  them.
+- **A mission's controls are guarded.** A control a mission sets gets a glass
+  cover, and a person is asked before taking it over by hand.
 - **Colour is set by missions.** A low-priority mission can fade a display
   between two or three colours: blue when too cold, green when right, red when
   too hot. Or no colour to yellow, as more light is sensed.
@@ -184,6 +190,6 @@ Nothing in it needs a position, and no mission refers to another.
 | The control node choosing and sending commands | Built. A command goes out once, when the decision changes, including to a device another computer owns, such as an ESP32's light. |
 | Easing, confirmations | Built, for commands from missions and from people: a number eases as one message, and a device can confirm each command. |
 | "For 1 minute" in a *do* | Planned. Today a pump runs while its mission is in effect. |
-| One blank display per node and cluster, the same on the map and in the lists | Built. ▸ opens it under its row in the Nodes and Clusters lists, and things inside a cluster open inside its display. Records from before keep what they showed. |
+| One display of tiles per node and cluster, the same on the map, in the lists and on every computer | Built. ▸ opens it under its row in the Nodes and Clusters lists, and things inside a cluster open inside its display. A Raspberry Pi shows its pin header on top, and a cluster its members. Displays arranged before tiles kept what they showed. |
 | Colour missions | Planned. Today, only alerts colour things red. |
 | Time zone shown | Built. The clock in the top bar shows the Undergrowth computer's time zone, the one clock times in missions use. |

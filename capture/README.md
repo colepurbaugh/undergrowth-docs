@@ -25,6 +25,20 @@ names, cannot be hidden.
 `npm run capture-pages` retakes only the pictures of the Nodes and Clusters
 pages and the node editor.
 
+`npm run capture-tiles` takes the pictures of tile displays (`images/tiles-*.png`)
+for [Nodes](../nodes.md#displays) and [Clusters](../clusters.md#a-clusters-display).
+They come from a throwaway node service with an empty database of its own, which
+the script fills with a made-up Raspberry Pi, thermometer, Bedroom cluster and
+mission. From the Undergrowth repository, build the dashboard
+(`cd dashboard && npm run build`) and start one on port 3011
+(`cd node-service && UG_PORT=3011 UG_RUNTIME=runtime-tiles UG_DISCOVERY=off npm run dev`),
+then run it here. Delete `runtime-tiles` afterwards.
+
+The steps in `capture.mjs` that add rows to a display (`customize`,
+`list-display`, and the walkthroughs' tank displays) were written for the
+displays before tiles, and need updating before `npm run capture` runs right
+through again.
+
 `npm run capture-three-ideas` redraws the pictures for
 [Three ideas](../three-ideas.md): a looping GIF and a still PNG of each, in
 light and dark. They are drawn in `three-ideas.html`, not taken from the

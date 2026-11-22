@@ -54,7 +54,7 @@ The panel shows:
 - **Mission advice** in the gold box: which way to head, how far to go, and why
   ("Head 291° toward Oyster basket 4 via route, next Channel 1, steering around
   Old piling"). See [Missions](missions.md).
-- **Display**: the rows chosen for it, here a row per value from its parts.
+- **Display**: the tiles chosen for it, here a tile per value from its parts.
   See [Displays](nodes.md#displays) and [Values](nodes.md#values).
 
 ## Tank houses
@@ -70,8 +70,8 @@ The panel shows:
 - readings **typed in by hand**: salinity, pH, and whether bay water is flowing.
 
 Click a tank house to see all its tanks in one list. A tank with an alert is
-flagged in red. **▸** opens a tank's display right there, and **Open** goes
-to that tank's own panel.
+flagged in red. **Its display** on a tank's tile opens that tank's display right
+there, and **Open** goes to that tank's own panel.
 
 <img src="images/tank-house.png" width="330" alt="Crab tanks"> <img src="images/tank-panel.png" width="330" alt="Crab tank 7">
 
@@ -80,17 +80,26 @@ lets a tank go cold, to see what happens on a winter night.
 
 ## A cluster's display
 
-A cluster has a [display](nodes.md#displays) like any node, starting blank.
-Besides readings and controls, it can hold the things inside it: each one
-shows its name and a few readings, and **▸** opens its own display
-underneath, nested inside. A tank house can list its tanks, each tank can open
-to show its thermometer and heater, and none of it needs the map:
+A cluster has a [display](nodes.md#displays) like any node: a grid of tiles,
+starting with a tile for each value of the things inside it. Each tile says
+whose value it is.
 
-![The Crab tanks display open in the Clusters list, with Crab tank 7 opened inside it](images/list-display.png)
+Across the top, locked in place as the reference, are the cluster's
+**members**. Point at one to light up its tiles. Click one to add a tile for
+any of its values, a graph of one, a tile summing it up, or a tile saying what
+it is.
 
-Adding something to a cluster doesn't change its display. The new tank is part
-of the tank house straight away, and any mission looking at the tank house
-covers it, but it only appears on the display when you add it with **＋**.
+![The Bedroom cluster's display in the Clusters list: its members, Bench Pi and Bedroom thermometer, on top, then tiles for the heater relay under glass, a float switch, a door, a pump, a grow light, a dump button and the temperature](images/tiles-cluster.png)
+
+A tile summing up something inside shows its name and a few readings, and
+**Its display** opens that thing's own display underneath, nested inside. A
+tank house can list its tanks, each tank can open to show its thermometer and
+heater, and none of it needs the map.
+
+Once a display has been arranged, adding something to the cluster doesn't
+change it. The new tank is part of the tank house straight away, and any
+mission looking at the tank house covers it, but it only appears on the display
+when you add it from the members strip or with **＋ Tile**.
 
 ## Making a node a cluster
 
