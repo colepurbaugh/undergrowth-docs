@@ -8,7 +8,7 @@ these three ideas.
 
 ## Node: one thing
 
-A phone, a laptop, a light. Even a rock you steer around.
+A phone, a laptop, a light. Even a rock your boat has to avoid.
 
 <picture>
   <source media="(prefers-reduced-motion: reduce) and (prefers-color-scheme: dark)" srcset="images/three-ideas-node-dark.png">
