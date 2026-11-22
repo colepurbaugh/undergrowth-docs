@@ -11,8 +11,10 @@ these three ideas.
 A phone, a laptop, a light. Even a rock you steer around.
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="images/three-ideas-node-dark.png">
-  <img src="images/three-ideas-node.png" width="344" alt="Four separate nodes: a phone, a laptop, a light and a rock">
+  <source media="(prefers-reduced-motion: reduce) and (prefers-color-scheme: dark)" srcset="images/three-ideas-node-dark.png">
+  <source media="(prefers-reduced-motion: reduce)" srcset="images/three-ideas-node.png">
+  <source media="(prefers-color-scheme: dark)" srcset="images/three-ideas-node-dark.gif">
+  <img src="images/three-ideas-node.gif" width="344" alt="Four separate nodes, a phone, a laptop, a light and a rock, each lighting up in turn">
 </picture>
 
 ## Cluster: things that belong together
@@ -21,8 +23,10 @@ A bedroom is its heater, thermometer and window. A boat is its GPS, motor and
 radio.
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="images/three-ideas-cluster-dark.png">
-  <img src="images/three-ideas-cluster.png" width="344" alt="A cluster called Bedroom: a heater, a thermometer and a window, linked together">
+  <source media="(prefers-reduced-motion: reduce) and (prefers-color-scheme: dark)" srcset="images/three-ideas-cluster-dark.png">
+  <source media="(prefers-reduced-motion: reduce)" srcset="images/three-ideas-cluster.png">
+  <source media="(prefers-color-scheme: dark)" srcset="images/three-ideas-cluster-dark.gif">
+  <img src="images/three-ideas-cluster.gif" width="344" alt="A heater, a thermometer and a window move together and become a cluster called Bedroom">
 </picture>
 
 ## Mission: a job for them, once or over and over
@@ -31,23 +35,19 @@ Over and over: when the bedroom drops below 62 °F, turn the heater on. Once:
 bring the boat home.
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="images/three-ideas-mission-dark.png">
-  <img src="images/three-ideas-mission.png" width="344" alt="A mission called Keep the bedroom warm: when the thermometer reads below 62 °F, the heater is turned on">
+  <source media="(prefers-reduced-motion: reduce) and (prefers-color-scheme: dark)" srcset="images/three-ideas-mission-dark.png">
+  <source media="(prefers-reduced-motion: reduce)" srcset="images/three-ideas-mission.png">
+  <source media="(prefers-color-scheme: dark)" srcset="images/three-ideas-mission-dark.gif">
+  <img src="images/three-ideas-mission.gif" width="344" alt="The mission Keep the bedroom warm: the thermometer drops to 61 °F, below 62 °F, and the heater is on until the bedroom is back to 62 °F">
 </picture>
 
 ## A node can become a cluster, and a cluster can become a node
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="images/three-ideas-grow-1-dark.png">
-  <img src="images/three-ideas-grow-1.png" width="260" alt="Step 1: a phone on its own, one node">
-</picture>
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="images/three-ideas-grow-2-dark.png">
-  <img src="images/three-ideas-grow-2.png" width="260" alt="Step 2: a cluster called Charging, a phone, a cable and a battery pack, linked">
-</picture>
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="images/three-ideas-grow-3-dark.png">
-  <img src="images/three-ideas-grow-3.png" width="260" alt="Step 3: a cluster called Desk, a laptop, a lamp and the whole Charging cluster as one thing">
+  <source media="(prefers-reduced-motion: reduce) and (prefers-color-scheme: dark)" srcset="images/three-ideas-grow-dark.png">
+  <source media="(prefers-reduced-motion: reduce)" srcset="images/three-ideas-grow.png">
+  <source media="(prefers-color-scheme: dark)" srcset="images/three-ideas-grow-dark.gif">
+  <img src="images/three-ideas-grow.gif" width="344" alt="A phone on its own. A cable and a battery pack join it in a cluster called Charging. Stepping back, the Charging cluster becomes one thing on a desk, beside a laptop and a lamp.">
 </picture>
 
 1. A phone is one node.
@@ -64,12 +64,16 @@ A locked cluster only trusts what has been let in, and can give each member
 different rights.
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="images/three-ideas-lock-home-dark.png">
-  <img src="images/three-ideas-lock-home.png" width="384" alt="A locked cluster called Home. Your phone and the laptop can change anything. A guest's phone can only look. An unknown phone outside is not let in.">
+  <source media="(prefers-reduced-motion: reduce) and (prefers-color-scheme: dark)" srcset="images/three-ideas-lock-home-dark.png">
+  <source media="(prefers-reduced-motion: reduce)" srcset="images/three-ideas-lock-home.png">
+  <source media="(prefers-color-scheme: dark)" srcset="images/three-ideas-lock-home-dark.gif">
+  <img src="images/three-ideas-lock-home.gif" width="384" alt="A locked cluster called Home. Your phone and the laptop can change anything, and a guest's phone can only look. An unknown phone bounces off it.">
 </picture>
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="images/three-ideas-lock-rescue-dark.png">
-  <img src="images/three-ideas-lock-rescue.png" width="384" alt="Farm A and Farm B are locked clusters that each share everything inside. A third locked cluster, Rescue, overlaps both and holds only their two boats, which share only their position.">
+  <source media="(prefers-reduced-motion: reduce) and (prefers-color-scheme: dark)" srcset="images/three-ideas-lock-rescue-dark.png">
+  <source media="(prefers-reduced-motion: reduce)" srcset="images/three-ideas-lock-rescue.png">
+  <source media="(prefers-color-scheme: dark)" srcset="images/three-ideas-lock-rescue-dark.gif">
+  <img src="images/three-ideas-lock-rescue.gif" width="384" alt="Farm A and Farm B are locked clusters that share everything inside. A red locked cluster called Rescue forms around one boat from each, and the boats share only their position.">
 </picture>
 
 Each member has its own rights, and a phone that hasn't been let in gets
@@ -95,10 +99,11 @@ Every part, and the whole, then gets the same kind of oversight.
 - **Readable by anyone.** Every reading, change and decision is written down in
   plain words, with when and why.
 
-| Time | From the log |
-|---|---|
-| 7:02 PM | **Heater on.** The bedroom was 61 °F, below 62 °F. Mission: *Keep the bedroom warm*. |
-| 7:38 PM | **Heater off.** The bedroom is back to 62 °F. |
-| 9:15 PM | **Set by hand.** The bedroom reading was set to 55 °F to test the heater. Real readings were still recorded. |
+<picture>
+  <source media="(prefers-reduced-motion: reduce) and (prefers-color-scheme: dark)" srcset="images/three-ideas-log-dark.png">
+  <source media="(prefers-reduced-motion: reduce)" srcset="images/three-ideas-log.png">
+  <source media="(prefers-color-scheme: dark)" srcset="images/three-ideas-log-dark.gif">
+  <img src="images/three-ideas-log.gif" width="344" alt="An example log, newest entry on top. 7:02 PM, Heater on, Keep the bedroom warm: bedroom 61 °F, below 62 °F. 7:38 PM, Heater off: bedroom back to 62 °F. 9:15 PM, Set by hand: bedroom set to 55 °F, as a test. 9:15 PM, Heater on: 55 °F, set by hand. 9:20 PM, Back to real readings. 10:05 PM, Alert: the window sensor went quiet. 10:07 PM, Alert seen.">
+</picture>
 
 For the rules behind all of this, see [Fundamental logic](fundamental-logic.md).

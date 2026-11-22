@@ -24,3 +24,9 @@ names, cannot be hidden.
 
 `npm run capture-pages` retakes only the pictures of the Nodes and Clusters
 pages and the node editor.
+
+`npm run capture-three-ideas` redraws the pictures for
+[Three ideas](../three-ideas.md): a looping GIF and a still PNG of each, in
+light and dark. They are drawn in `three-ideas.html`, not taken from the
+dashboard, so Undergrowth doesn't need to be running. To watch one play, open
+`three-ideas.html#grow` (or another figure's name) in a browser.

@@ -1,0 +1,546 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Three ideas: pictures</title>
+<!-- The pictures and GIFs for three-ideas.md. Each figure is drawn for a moment in time
+     by seek(t), in seconds, so three-ideas.mjs can record every frame exactly.
+     Open it with ?theme=dark for the dark versions. -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:wght@400;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Mono:wght@400;600&display=swap">
+<style>
+:root {
+  --plate: #E5EBE2;
+  --dot: #C5D0C3;
+  --surface: #FBFCF9;
+  --hull: #D9E7DA;
+  --ink: #16221A;
+  --ink-2: #4E5D52;
+  --line: #C9D4C8;
+  --moss: #2E7346;
+  --moss-ink: #215838;
+  --gold: #B07400;
+  --gold-ink: #774E00;
+  --gold-tint: #F6E6BB;
+  --red: #B8382B;
+  --red-ink: #9A2C20;
+  --font-body: "Atkinson Hyperlegible Next", system-ui, sans-serif;
+  --font-mono: "Atkinson Hyperlegible Mono", ui-monospace, Consolas, monospace;
+}
+:root[data-theme="dark"] {
+  --plate: #151F19;
+  --dot: #27352C;
+  --surface: #1A251F;
+  --hull: #1C3024;
+  --ink: #E2EBE1;
+  --ink-2: #9EADA1;
+  --line: #2A3A30;
+  --moss: #72BC87;
+  --moss-ink: #92D3A5;
+  --gold: #E5AA36;
+  --gold-ink: #F2C468;
+  --gold-tint: #3A2D0F;
+  --red: #EF6B5A;
+  --red-ink: #F59A8D;
+}
+html, body { margin: 0; background: transparent; }
+.sprite { position: absolute; width: 0; height: 0; overflow: hidden; }
+.plate {
+  position: absolute; left: 0; top: 0;
+  box-sizing: border-box;
+  display: none;
+  padding: 12px;
+  border-radius: 20px;
+  background-color: var(--plate);
+  background-image: radial-gradient(circle, var(--dot) 1.1px, transparent 1.5px);
+  background-size: 16px 16px;
+  background-position: 8px 8px;
+}
+.plate.on { display: block; }
+.plate svg { display: block; width: 100%; height: auto; overflow: visible; }
+
+.fig text { font-family: var(--font-body); font-size: 13px; fill: var(--ink-2); }
+.fig .lbl, .fig .mid { text-anchor: middle; }
+.fig .hull-label, .fig .tab-text { font-weight: 700; fill: var(--moss-ink); }
+.fig .tab-text.red { fill: var(--red-ink); }
+.fig .m-name { font-weight: 700; font-size: 13.5px; fill: var(--ink); }
+.fig .m-right { font-size: 13px; fill: var(--ink-2); }
+.fig .m-right.red { font-weight: 700; fill: var(--red-ink); }
+.fig .m-right.deny { font-weight: 700; fill: var(--ink); }
+.fig .mission-text { font-weight: 700; fill: var(--gold-ink); text-anchor: middle; }
+.fig .pill-text { font-weight: 700; font-size: 12.5px; fill: var(--ink); text-anchor: middle; }
+.fig .q { font-weight: 700; font-size: 18px; fill: var(--ink-2); text-anchor: middle; }
+.fig .chip-text { font-weight: 700; font-size: 12px; fill: var(--ink); text-anchor: middle; }
+.fig #m-chip.below .chip-text { fill: var(--gold-ink); }
+.fig .lbl.on { font-weight: 700; fill: var(--gold-ink); }
+.chip { fill: var(--surface); stroke: var(--line); stroke-width: 1.5; }
+#m-chip.below .chip { fill: var(--gold-tint); stroke: var(--gold); }
+.ring { fill: var(--surface); stroke: var(--moss); stroke-width: 2.5; }
+.ring.on { stroke: var(--gold); }
+.ring.packed { fill: var(--hull); }
+.ring.stranger { stroke: var(--ink-2); stroke-width: 2; stroke-dasharray: 4 4; }
+.ripple { fill: none; stroke: var(--moss); stroke-width: 2; }
+.ripple.red { stroke: var(--red); }
+.glow, .halo { fill: var(--gold); }
+.wave { fill: none; stroke: var(--gold); stroke-width: 1.8; stroke-linecap: round; }
+.link { stroke: var(--moss); stroke-width: 2.5; }
+.hull { fill: var(--hull); stroke: var(--moss); stroke-width: 1.5; }
+.hull.locked { stroke-width: 2.6; }
+.hull.soft { fill: var(--moss); fill-opacity: 0.09; }
+.hull.rescue { fill: var(--red); fill-opacity: 0.1; stroke: var(--red); }
+.tab { fill: var(--surface); stroke: var(--moss); stroke-width: 1.5; }
+.tab.rescue { stroke: var(--red); }
+.mini line { stroke: var(--moss); stroke-width: 1.6; }
+.mini circle { fill: var(--moss); }
+.ico {
+  color: var(--ink);
+  fill: none; stroke: currentColor; stroke-width: 1.7;
+  stroke-linecap: round; stroke-linejoin: round;
+}
+.ico-moss { color: var(--moss-ink); stroke-width: 2; }
+.ico-red { color: var(--red-ink); stroke-width: 2; }
+.mission-line { fill: none; stroke: var(--gold); stroke-width: 2.5; stroke-dasharray: 7 6; }
+.mission-head { fill: var(--gold); }
+.pill { fill: var(--gold-tint); stroke: var(--gold); stroke-width: 1.5; }
+.hit { stroke: var(--ink-2); stroke-width: 4; stroke-linecap: round; }
+.burst path { fill: none; stroke: var(--ink-2); stroke-width: 2.2; stroke-linecap: round; }
+.rescue-link { stroke: var(--red); stroke-width: 2; stroke-dasharray: 4 4; }
+.pin { fill: var(--red); stroke: var(--surface); stroke-width: 2; }
+.card { fill: var(--surface); stroke: var(--line); stroke-width: 1.5; }
+.fig .log-head { font-family: var(--font-mono); font-weight: 600; font-size: 11px; letter-spacing: 0.14em; fill: var(--ink-2); }
+.live { fill: var(--moss); }
+.fig .l-time { font-family: var(--font-mono); font-size: 12px; fill: var(--ink-2); }
+.fig .l-time.fresh { font-weight: 600; fill: var(--moss-ink); }
+.fig .l-title { font-weight: 700; font-size: 13px; fill: var(--ink); }
+.fig .l-mission { font-weight: 700; font-size: 12.5px; fill: var(--gold-ink); }
+.fig .l-detail { font-size: 12.5px; fill: var(--ink-2); }
+.l-sep { stroke: var(--line); stroke-width: 1; }
+.l-fresh { fill: var(--moss); }
+.num { fill: var(--surface); stroke: var(--line); stroke-width: 1.5; }
+.fig .num-t { font-family: var(--font-mono); font-weight: 600; font-size: 11px; fill: var(--ink-2); text-anchor: middle; }
+</style>
+</head>
+<body>
+
+<svg class="sprite" aria-hidden="true" focusable="false">
+  <symbol id="i-phone" viewBox="0 0 24 24"><rect x="7" y="2.5" width="10" height="19" rx="2.2"/><path d="M10.8 18.6h2.4"/></symbol>
+  <symbol id="i-laptop" viewBox="0 0 24 24"><rect x="5" y="4.5" width="14" height="10" rx="1.3"/><path d="M2.8 18.8h18.4l-2.1-4.3H4.9z"/></symbol>
+  <symbol id="i-bulb" viewBox="0 0 24 24"><path d="M9.2 17.6h5.6M10.2 20.6h3.6"/><path d="M12 3.4a5.6 5.6 0 0 0-3.5 10c.8.7 1.2 1.5 1.2 2.4v.2h4.6v-.2c0-.9.4-1.7 1.2-2.4A5.6 5.6 0 0 0 12 3.4z"/></symbol>
+  <symbol id="i-rock" viewBox="0 0 24 24"><path d="M3 17.5c-.6-2.8.8-5.4 3.2-6.5.6-2.6 3.2-4.3 5.8-3.8 1.4-1.6 4.1-1.7 5.6-.1 1.9.9 3.2 3 3.1 5.3.9 1.3 1 3.4.3 5.1z"/><path d="M10.6 11.4l1.5 2.2-.8 2"/><path d="M2 21c1.5-.8 3-.8 4.5 0s3 .8 4.5 0 3-.8 4.5 0 3 .8 4.5 0"/></symbol>
+  <symbol id="i-heater" viewBox="0 0 24 24"><rect x="3.5" y="5.5" width="17" height="12" rx="1.6"/><path d="M7.7 5.5v12M12 5.5v12M16.3 5.5v12M6 17.5v2.6M18 17.5v2.6"/></symbol>
+  <symbol id="i-thermo" viewBox="0 0 24 24"><path d="M10 13.7V5.2a2 2 0 0 1 4 0v8.5a4 4 0 1 1-4 0z"/><path d="M12 9.5v5.8"/><circle cx="12" cy="17.2" r="1.7" fill="currentColor" stroke="none"/></symbol>
+  <symbol id="i-window" viewBox="0 0 24 24"><rect x="5" y="3.5" width="14" height="17" rx="1.2"/><path d="M12 3.5v17M5 12h14"/></symbol>
+  <symbol id="i-cable" viewBox="0 0 24 24"><path d="M9.6 2.8v4M14.4 2.8v4"/><rect x="7.4" y="6.8" width="9.2" height="6.2" rx="1.6"/><path d="M12 13v3.2c0 2.1-1.6 3.8-3.8 3.8H4.5"/></symbol>
+  <symbol id="i-battery" viewBox="0 0 24 24"><rect x="2.5" y="7.5" width="16.5" height="9" rx="2"/><path d="M21.5 10.6v2.8M6.5 10.8v2.4M10 10.8v2.4M13.5 10.8v2.4"/></symbol>
+  <symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="10.5" width="14" height="10" rx="2"/><path d="M8.2 10.5V7.6a3.8 3.8 0 0 1 7.6 0v2.9M12 14.4v2.4"/></symbol>
+  <symbol id="i-boat" viewBox="0 0 24 24"><path d="M3 15.5h18l-2.6 4.2H5.6z"/><path d="M12 3.2v12.3"/><path d="M12 4.6l6.2 8.6H12"/></symbol>
+  <symbol id="i-office" viewBox="0 0 24 24"><path d="M3.5 20.5h17"/><path d="M6 20.5V4.5h8.5v16"/><path d="M14.5 9.5H18v11"/><path d="M8.6 8h3.3M8.6 11.5h3.3M8.6 15h3.3"/></symbol>
+</svg>
+
+<!-- Node: each thing in turn, as if checked -->
+<div class="plate" id="fig-node" style="width:344px">
+  <svg class="fig" viewBox="0 0 320 132">
+    <g transform="translate(46 56)">
+      <circle class="ripple" id="n0r" r="26"/>
+      <circle class="ring" id="n0c" r="26"/>
+      <use class="ico" href="#i-phone" x="-14" y="-14" width="28" height="28"/>
+      <text class="lbl" y="54">phone</text>
+    </g>
+    <g transform="translate(122 56)">
+      <circle class="ripple" id="n1r" r="26"/>
+      <circle class="ring" id="n1c" r="26"/>
+      <use class="ico" href="#i-laptop" x="-14" y="-14" width="28" height="28"/>
+      <text class="lbl" y="54">laptop</text>
+    </g>
+    <g transform="translate(198 56)">
+      <circle class="ripple" id="n2r" r="26"/>
+      <circle class="ring" id="n2c" r="26"/>
+      <circle class="glow" id="n2g" cy="-2" r="15"/>
+      <use class="ico" href="#i-bulb" x="-14" y="-14" width="28" height="28"/>
+      <text class="lbl" y="54">light</text>
+    </g>
+    <g transform="translate(274 56)">
+      <circle class="ripple" id="n3r" r="26"/>
+      <circle class="ring" id="n3c" r="26"/>
+      <use class="ico" href="#i-rock" x="-14" y="-14" width="28" height="28"/>
+      <text class="lbl" y="54">rock</text>
+    </g>
+  </svg>
+</div>
+
+<!-- Cluster: three separate things come together as Bedroom -->
+<div class="plate" id="fig-cluster" style="width:344px">
+  <svg class="fig" viewBox="0 0 320 132">
+    <g id="c-hull">
+      <rect class="hull" x="6" y="6" width="308" height="120" rx="26"/>
+      <text class="hull-label" x="26" y="30">Bedroom</text>
+    </g>
+    <line class="link" id="c-l1" x1="90" y1="72" x2="136" y2="72" pathLength="1"/>
+    <line class="link" id="c-l2" x1="184" y1="72" x2="230" y2="72" pathLength="1"/>
+    <g id="c0"><circle class="ring" r="24"/><use class="ico" href="#i-heater" x="-13" y="-13" width="26" height="26"/><text class="lbl" y="42">heater</text></g>
+    <g id="c1"><circle class="ring" r="24"/><use class="ico" href="#i-thermo" x="-13" y="-13" width="26" height="26"/><text class="lbl" y="42">thermometer</text></g>
+    <g id="c2"><circle class="ring" r="24"/><use class="ico" href="#i-window" x="-13" y="-13" width="26" height="26"/><text class="lbl" y="42">window</text></g>
+  </svg>
+</div>
+
+<!-- Mission: the bedroom cools below 62 °F, the heater comes on, then goes off again -->
+<div class="plate" id="fig-mission" style="width:344px">
+  <svg class="fig" viewBox="0 0 320 150">
+    <rect class="pill" x="78" y="8" width="164" height="28" rx="14"/>
+    <text class="pill-text" x="160" y="26.5">Keep the bedroom warm</text>
+    <g id="m-chip">
+      <rect class="chip" x="28" y="44" width="56" height="20" rx="10"/>
+      <text class="chip-text" id="m-chip-t" x="56" y="58.3">64 °F</text>
+    </g>
+    <g id="m-arrow">
+      <path class="mission-line" id="m-line" d="M88 94H222"/>
+      <path class="mission-head" d="M235 94l-13-7v14z"/>
+      <text class="mission-text" x="154" y="82">below 62 °F</text>
+      <text class="mission-text" x="154" y="115">turn on</text>
+    </g>
+    <circle class="ring" cx="56" cy="94" r="24"/>
+    <use class="ico" href="#i-thermo" x="43" y="81" width="26" height="26"/>
+    <text class="lbl" x="56" y="140">thermometer</text>
+    <circle class="halo" id="m-halo" cx="264" cy="94" r="32"/>
+    <path class="wave" id="m-w0" d="M254 66c-2-2 2-4 0-6s2-4 0-6"/>
+    <path class="wave" id="m-w1" d="M264 66c-2-2 2-4 0-6s2-4 0-6"/>
+    <path class="wave" id="m-w2" d="M274 66c-2-2 2-4 0-6s2-4 0-6"/>
+    <circle class="ring" id="m-heater" cx="264" cy="94" r="24"/>
+    <use class="ico" href="#i-heater" x="251" y="81" width="26" height="26"/>
+    <text class="lbl" id="m-hlabel" x="264" y="140">heater</text>
+  </svg>
+</div>
+
+<!-- A phone becomes a cluster, and the cluster becomes one thing on a desk -->
+<div class="plate" id="fig-grow" style="width:344px">
+  <svg class="fig" viewBox="0 0 320 200">
+    <g id="g-desk">
+      <rect class="hull" id="g-dhull" x="8" y="8" width="304" height="152" rx="24"/>
+      <text class="hull-label" id="g-dlabel" x="26" y="32">Desk</text>
+      <line class="link" id="g-dl1" x1="94" y1="88" x2="136" y2="88" pathLength="1"/>
+      <line class="link" id="g-dl2" x1="184" y1="88" x2="226" y2="88" pathLength="1"/>
+      <g id="g-laptop"><circle class="ring" r="24"/><use class="ico" href="#i-laptop" x="-13" y="-13" width="26" height="26"/><text class="lbl" y="46">laptop</text></g>
+      <g id="g-lamp"><circle class="ring" r="24"/><use class="ico" href="#i-bulb" x="-13" y="-13" width="26" height="26"/><text class="lbl" y="46">lamp</text></g>
+      <g id="g-packed">
+        <circle class="ring packed" r="24"/>
+        <g class="mini">
+          <line x1="-8" y1="5" x2="0" y2="-7"/><line x1="0" y1="-7" x2="8" y2="5"/><line x1="-8" y1="5" x2="8" y2="5"/>
+          <circle cx="-8" cy="5" r="3.6"/><circle cx="0" cy="-7" r="3.6"/><circle cx="8" cy="5" r="3.6"/>
+        </g>
+        <text class="lbl" y="46">charging</text>
+      </g>
+    </g>
+    <g id="g-charging">
+      <rect class="hull" id="g-chull" x="8" y="8" width="304" height="152" rx="24"/>
+      <text class="hull-label" id="g-clabel" x="26" y="32">Charging</text>
+      <line class="link" id="g-cl1" x1="94" y1="88" x2="136" y2="88" pathLength="1"/>
+      <line class="link" id="g-cl2" x1="184" y1="88" x2="226" y2="88" pathLength="1"/>
+      <g id="g-cable"><circle class="ring" r="24"/><use class="ico" href="#i-cable" x="-13" y="-13" width="26" height="26"/><text class="lbl" y="46">cable</text></g>
+      <g id="g-battery"><circle class="ring" r="24"/><use class="ico" href="#i-battery" x="-13" y="-13" width="26" height="26"/><text class="lbl" y="46">battery</text></g>
+      <g id="g-phone"><circle class="ring" r="24"/><use class="ico" href="#i-phone" x="-13" y="-13" width="26" height="26"/><text class="lbl" y="46">phone</text></g>
+    </g>
+    <g id="g-cap1"><circle class="num" cx="22" cy="181" r="10"/><text class="num-t" x="22" y="185">1</text><text x="40" y="186">A phone is one node.</text></g>
+    <g id="g-cap2"><circle class="num" cx="22" cy="181" r="10"/><text class="num-t" x="22" y="185">2</text><text x="40" y="186">Plug in a battery pack. Now it's a cluster.</text></g>
+    <g id="g-cap3"><circle class="num" cx="22" cy="181" r="10"/><text class="num-t" x="22" y="185">3</text><text x="40" y="186">Step back. It's one thing on the desk.</text></g>
+  </svg>
+</div>
+
+<!-- A locked cluster: an unknown phone bounces off -->
+<div class="plate" id="fig-lock-home" style="width:384px">
+  <svg class="fig" viewBox="0 0 360 232">
+    <rect class="hull locked" x="6" y="6" width="232" height="220" rx="24"/>
+    <line class="hit" id="h-hit" x1="238" y1="90" x2="238" y2="122"/>
+    <g transform="translate(20 18)">
+      <rect class="tab" width="84" height="28" rx="14"/>
+      <g id="h-lock"><use class="ico ico-moss" href="#i-lock" x="10" y="5.5" width="17" height="17"/></g>
+      <text class="tab-text" x="32" y="18.5">Home</text>
+    </g>
+    <circle class="ring" cx="44" cy="82" r="19"/>
+    <use class="ico" href="#i-phone" x="33" y="71" width="22" height="22"/>
+    <text class="m-name" x="74" y="78">Your phone</text>
+    <text class="m-right" x="74" y="96">can change anything</text>
+    <circle class="ring" cx="44" cy="134" r="19"/>
+    <use class="ico" href="#i-laptop" x="33" y="123" width="22" height="22"/>
+    <text class="m-name" x="74" y="130">Laptop</text>
+    <text class="m-right" x="74" y="148">can change anything</text>
+    <circle class="ring" cx="44" cy="186" r="19"/>
+    <use class="ico" href="#i-phone" x="33" y="175" width="22" height="22"/>
+    <text class="m-name" x="74" y="182">Guest's phone</text>
+    <text class="m-right" x="74" y="200">can look only</text>
+    <g class="burst" id="h-burst"><path d="M245 89l6-7M245 123l6 7"/></g>
+    <g id="h-stranger"><circle class="ring stranger" r="21"/><text class="q" y="6.5">?</text></g>
+    <text class="m-name mid" x="300" y="150">Unknown</text>
+    <text class="m-name mid" x="300" y="167">phone</text>
+    <text class="m-right mid" id="h-deny" x="300" y="186">not let in</text>
+  </svg>
+</div>
+
+<!-- Two rival farms join a rescue, in red, and share only where their boats are -->
+<div class="plate" id="fig-lock-rescue" style="width:384px">
+  <svg class="fig" viewBox="0 0 360 232">
+    <rect class="hull locked soft" x="6" y="6" width="166" height="134" rx="22"/>
+    <rect class="hull locked soft" x="188" y="6" width="166" height="134" rx="22"/>
+    <rect class="hull locked rescue" id="r-hull" x="54" y="92" width="252" height="134" rx="22" pathLength="100"/>
+    <g transform="translate(18 16)">
+      <rect class="tab" width="92" height="28" rx="14"/>
+      <use class="ico ico-moss" href="#i-lock" x="10" y="5.5" width="17" height="17"/>
+      <text class="tab-text" x="32" y="18.5">Farm A</text>
+    </g>
+    <text class="m-right" x="24" y="66">everything</text>
+    <g transform="translate(200 16)">
+      <rect class="tab" width="92" height="28" rx="14"/>
+      <use class="ico ico-moss" href="#i-lock" x="10" y="5.5" width="17" height="17"/>
+      <text class="tab-text" x="32" y="18.5">Farm B</text>
+    </g>
+    <text class="m-right" x="206" y="66">everything</text>
+    <circle class="ring" cx="146" cy="50" r="17"/>
+    <use class="ico" href="#i-office" x="136" y="40" width="20" height="20"/>
+    <text class="lbl" x="146" y="84">office</text>
+    <circle class="ring" cx="328" cy="50" r="17"/>
+    <use class="ico" href="#i-office" x="318" y="40" width="20" height="20"/>
+    <text class="lbl" x="328" y="84">office</text>
+    <line class="rescue-link" id="r-link" x1="141" y1="116" x2="219" y2="116"/>
+    <circle class="ripple red" id="r-ripA" cx="122" cy="116" r="17"/>
+    <circle class="ripple red" id="r-ripB" cx="238" cy="116" r="17"/>
+    <circle class="ring" cx="122" cy="116" r="17"/>
+    <use class="ico" href="#i-boat" x="112" y="106" width="20" height="20"/>
+    <text class="m-name mid" x="122" y="158">Boat A</text>
+    <circle class="ring" cx="238" cy="116" r="17"/>
+    <use class="ico" href="#i-boat" x="228" y="106" width="20" height="20"/>
+    <text class="m-name mid" x="238" y="158">Boat B</text>
+    <circle class="pin" id="r-pin" cx="141" cy="116" r="5.5"/>
+    <g id="r-tab" transform="translate(68 186)">
+      <rect class="tab rescue" width="96" height="28" rx="14"/>
+      <use class="ico ico-red" href="#i-lock" x="10" y="5.5" width="17" height="17"/>
+      <text class="tab-text red" x="32" y="18.5">Rescue</text>
+    </g>
+    <text class="m-right red" id="r-only" x="176" y="205">position only</text>
+  </svg>
+</div>
+
+<!-- Log entries arriving one by one, newest on top, fresh ones lit -->
+<div class="plate" id="fig-log" style="width:344px">
+  <svg class="fig" viewBox="0 0 320 220">
+    <defs><clipPath id="l-clip"><rect x="0" y="40" width="320" height="176"/></clipPath></defs>
+    <rect class="card" x="0.75" y="0.75" width="318.5" height="218.5" rx="14"/>
+    <text class="log-head" x="16" y="25">FROM THE LOG</text>
+    <circle class="live" id="l-live" cx="302" cy="21" r="4"/>
+    <g id="l-list" clip-path="url(#l-clip)"></g>
+  </svg>
+</div>
+
+<script>
+document.documentElement.dataset.theme = new URLSearchParams(location.search).get('theme') === 'dark' ? 'dark' : 'light'
+
+const $ = id => document.getElementById(id)
+const clamp = (x, a = 0, b = 1) => Math.min(b, Math.max(a, x))
+const prog = (t, a, b) => clamp((t - a) / (b - a))          // 0 before a, 1 after b
+const lerp = (a, b, p) => a + (b - a) * p
+const ease = p => p < 0.5 ? 2 * p * p : 1 - (-2 * p + 2) ** 2 / 2
+const easeIn = p => p * p * p
+const easeOut = p => 1 - (1 - p) ** 3
+const easeBack = p => { const c = 1.70158; return 1 + (c + 1) * (p - 1) ** 3 + c * (p - 1) ** 2 }
+const op = (el, o) => el.setAttribute('opacity', clamp(o).toFixed(3))
+const at = (el, x, y, s = 1) => el.setAttribute('transform',
+  `translate(${x.toFixed(2)} ${y.toFixed(2)})` + (s === 1 ? '' : ` scale(${Math.max(0.001, s).toFixed(3)})`))
+const grow = (el, p) => { el.style.strokeDasharray = '1'; el.style.strokeDashoffset = (1 - clamp(p)).toFixed(3) }  // draws a pathLength="1" line
+
+function drawNode(t) {
+  for (let i = 0; i < 4; i++) {
+    const s = 0.3 + i * 0.9, p = prog(t, s, s + 1), live = t >= s && t < s + 1
+    $(`n${i}r`).setAttribute('r', (26 + 18 * easeOut(p)).toFixed(2))
+    op($(`n${i}r`), live ? 0.6 * (1 - p) : 0)
+    $(`n${i}c`).style.strokeWidth = live ? (2.5 + 1.3 * Math.sin(Math.PI * clamp(p / 0.4))).toFixed(2) : ''
+  }
+  const s = 0.3 + 2 * 0.9   // the light glows while it is checked
+  op($('n2g'), t >= s && t < s + 1.3 ? 0.45 * Math.sin(Math.PI * prog(t, s, s + 1.3)) : 0)
+}
+
+function drawCluster(t) {
+  const apart = [[52, 58], [160, 84], [268, 56]], together = [[66, 72], [160, 72], [254, 72]]
+  const p = ease(prog(t, 1, 2)) * (1 - ease(prog(t, 5, 5.9)))
+  for (let i = 0; i < 3; i++) at($(`c${i}`), lerp(apart[i][0], together[i][0], p), lerp(apart[i][1], together[i][1], p))
+  const kept = 1 - prog(t, 4.7, 5.1)
+  const link = t < 1.9 ? 0 : ease(prog(t, 1.9, 2.4))
+  for (const id of ['c-l1', 'c-l2']) { grow($(id), link); op($(id), kept) }
+  op($('c-hull'), ease(prog(t, 2.1, 2.6)) * kept)
+}
+
+function drawMission(t) {
+  const readings = [[0, 64], [0.9, 63], [1.8, 62], [2.7, 61], [4.7, 62], [5.6, 63], [6.5, 64]]
+  let v = 64, since = 0
+  for (const [s, value] of readings) if (t >= s) { v = value; since = s }
+  $('m-chip-t').textContent = `${v} °F`
+  $('m-chip').classList.toggle('below', v < 62)
+  const pop = since > 0 ? 1 + 0.12 * (1 - prog(t, since, since + 0.25)) : 1
+  $('m-chip').setAttribute('transform', pop === 1 ? '' : `translate(56 54) scale(${pop.toFixed(3)}) translate(-56 -54)`)
+  const act = ease(prog(t, 2.8, 3)) * (1 - ease(prog(t, 4.75, 4.95)))
+  op($('m-arrow'), 0.28 + 0.72 * act)
+  $('m-line').style.strokeDashoffset = (-19.5 * clamp(t - 2.8, 0, 2)).toFixed(2)   // 3 dash lengths, so the loop joins up
+  const on = ease(prog(t, 3, 3.25)) * (1 - ease(prog(t, 4.75, 5)))
+  op($('m-halo'), on * 0.3)
+  $('m-heater').classList.toggle('on', on > 0.5)
+  $('m-hlabel').textContent = on > 0.5 ? 'heater on' : 'heater'
+  $('m-hlabel').classList.toggle('on', on > 0.5)
+  for (let k = 0; k < 3; k++) {
+    const ph = (((t - 3) / 0.9 + k / 3) % 1 + 1) % 1
+    op($(`m-w${k}`), on * Math.sin(Math.PI * ph))
+    $(`m-w${k}`).setAttribute('transform', `translate(0 ${(-6 * ph).toFixed(2)})`)
+  }
+}
+
+function drawGrow(t) {
+  const P1 = 70, P2 = 160, P3 = 250, Y = 88
+  const again = t >= 9   // back to the lone phone before the loop starts over
+  const s = again ? 1 : lerp(1, 0.17, ease(prog(t, 5.2, 6.2)))
+  $('g-charging').setAttribute('transform', s === 1 ? '' : `translate(${P3} ${Y}) scale(${s.toFixed(3)}) translate(${-P3} ${-Y})`)
+  op($('g-charging'), again ? 1 : 1 - prog(t, 5.8, 6.2))
+  at($('g-phone'), lerp(P2, P1, again ? 0 : ease(prog(t, 1.6, 2.4))), Y)
+  op($('g-phone'), again ? ease(prog(t, 9.45, 9.85)) : 1)   // only once the desk has gone
+  const cable = again ? 0 : prog(t, 2, 2.5), battery = again ? 0 : prog(t, 2.2, 2.7)
+  at($('g-cable'), P2, Y, easeBack(cable)); op($('g-cable'), cable)
+  at($('g-battery'), P3, Y, easeBack(battery)); op($('g-battery'), battery)
+  const links = again ? 0 : ease(prog(t, 2.6, 3))
+  grow($('g-cl1'), links); grow($('g-cl2'), links)
+  const hull = again ? 0 : ease(prog(t, 2.8, 3.3))
+  op($('g-chull'), hull); op($('g-clabel'), hull)
+
+  op($('g-desk'), 1 - prog(t, 9, 9.4))
+  const desk = ease(prog(t, 5.8, 6.3))
+  op($('g-dhull'), desk); op($('g-dlabel'), desk)
+  const packed = prog(t, 5.9, 6.3), laptop = prog(t, 6.1, 6.5), lamp = prog(t, 6.3, 6.7)
+  at($('g-packed'), P3, Y, lerp(0.6, 1, easeOut(packed))); op($('g-packed'), packed)
+  at($('g-laptop'), P1, Y, easeBack(laptop)); op($('g-laptop'), laptop)
+  at($('g-lamp'), P2, Y, easeBack(lamp)); op($('g-lamp'), lamp)
+  const deskLinks = ease(prog(t, 6.6, 7))
+  grow($('g-dl1'), deskLinks); grow($('g-dl2'), deskLinks)
+
+  op($('g-cap1'), again ? prog(t, 9.4, 9.55) : 1 - prog(t, 1.8, 1.95))
+  op($('g-cap2'), prog(t, 1.95, 2.1) * (1 - prog(t, 5.3, 5.45)))
+  op($('g-cap3'), prog(t, 5.45, 5.6) * (1 - prog(t, 9.2, 9.35)))
+}
+
+function drawHome(t) {
+  const hitAt = 1.35
+  let x = 300
+  if (t >= 0.8 && t < hitAt) x = lerp(300, 262, easeIn(prog(t, 0.8, hitAt)))
+  else if (t >= hitAt && t < 2) x = lerp(262, 306, easeOut(prog(t, hitAt, 2)))
+  else if (t >= 2 && t < 2.35) x = lerp(306, 300, ease(prog(t, 2, 2.35)))
+  at($('h-stranger'), x, 106)
+  const flash = t >= hitAt && t < hitAt + 0.45 ? 1 - prog(t, hitAt, hitAt + 0.45) : 0
+  op($('h-hit'), 0.9 * flash)
+  op($('h-burst'), flash)
+  const shake = t >= hitAt && t < hitAt + 0.5 ? 12 * Math.sin((t - hitAt) * 2 * Math.PI * 6) * (1 - prog(t, hitAt, hitAt + 0.5)) : 0
+  $('h-lock').setAttribute('transform', `rotate(${shake.toFixed(2)} 18.5 14)`)
+  $('h-deny').classList.toggle('deny', t >= hitAt && t < 2.4)
+}
+
+function drawRescue(t) {
+  const kept = 1 - prog(t, 7, 7.6)   // the rescue is over: its cluster goes away
+  const hull = $('r-hull')
+  const drawn = ease(prog(t, 0.8, 2))
+  hull.style.strokeDasharray = drawn < 1 ? '100' : 'none'   // no hairline gap where the outline starts
+  hull.style.strokeDashoffset = (100 * (1 - drawn)).toFixed(2)
+  hull.style.strokeOpacity = (t >= 0.8 ? kept : 0).toFixed(3)
+  hull.style.fillOpacity = (0.1 * ease(prog(t, 1.6, 2.2)) * kept).toFixed(3)
+  const label = ease(prog(t, 1.8, 2.3)) * kept
+  op($('r-tab'), label); op($('r-only'), label)
+  op($('r-link'), 0.7 * ease(prog(t, 2.3, 2.6)) * kept)
+  const A = 141, B = 219
+  const trips = [[2.8, 3.6, A, B], [4.2, 5, B, A], [5.6, 6.4, A, B]]
+  let pin = null
+  for (const [s, e, from, to] of trips) if (t >= s && t < e) pin = { x: lerp(from, to, ease(prog(t, s, e))), o: Math.min(prog(t, s, s + 0.1), 1 - prog(t, e - 0.1, e)) }
+  $('r-pin').setAttribute('cx', (pin ? pin.x : A).toFixed(2))
+  op($('r-pin'), pin ? pin.o : 0)
+  const ripple = (id, times) => {
+    const s = times.find(s => t >= s && t < s + 0.5)
+    const p = s === undefined ? 1 : prog(t, s, s + 0.5)
+    $(id).setAttribute('r', (17 + 12 * easeOut(p)).toFixed(2))
+    op($(id), s === undefined ? 0 : 0.8 * (1 - p))
+  }
+  ripple('r-ripB', [3.6, 6.4])
+  ripple('r-ripA', [5])
+}
+
+const LOG = [
+  ['7:02 PM', 'Heater on', 'Keep the bedroom warm', 'Bedroom 61 °F, below 62 °F.'],
+  ['7:38 PM', 'Heater off', '', 'Bedroom back to 62 °F.'],
+  ['9:15 PM', 'Set by hand', '', 'Bedroom set to 55 °F, as a test.'],
+  ['9:15 PM', 'Heater on', 'Keep the bedroom warm', '55 °F, set by hand.'],
+  ['9:20 PM', 'Back to real readings', '', 'The test is over.'],
+  ['10:05 PM', 'Alert', '', 'The window sensor went quiet.'],
+  ['10:07 PM', 'Alert seen', '', 'Someone looked at it.'],
+]
+const ARRIVE = LOG.map((_, k) => 0.4 + 1.5 * k)
+const LOG_LENGTH = 10.9
+const NS = 'http://www.w3.org/2000/svg'
+const make = (tag, attrs, text) => {
+  const el = document.createElementNS(NS, tag)
+  for (const k in attrs) el.setAttribute(k, attrs[k])
+  if (text != null) el.textContent = text
+  return el
+}
+const rows = LOG.map(([time, what, mission, why]) => {
+  const g = make('g', {}), fresh = make('rect', { class: 'l-fresh', x: 8, y: 3, width: 304, height: 50, rx: 8 })
+  const clock = make('text', { class: 'l-time', x: 16, y: 22 }, time)
+  const title = make('text', { class: 'l-title', x: 84, y: 22 }, what)
+  if (mission) title.append(make('tspan', { class: 'l-mission', dx: 8 }, mission))
+  g.append(fresh, clock, title, make('text', { class: 'l-detail', x: 84, y: 41 }, why),
+    make('line', { class: 'l-sep', x1: 16, y1: 55.5, x2: 304, y2: 55.5 }))
+  $('l-list').append(g)
+  return { g, fresh, clock }
+})
+
+function drawLog(t) {
+  const push = ARRIVE.map(s => ease(prog(t, s, s + 0.3)))           // the older entries move down a row,
+  const shown = ARRIVE.map(s => ease(prog(t, s + 0.25, s + 0.55)))  // then the new one appears at the top
+  const fade = 1 - prog(t, LOG_LENGTH - 0.7, LOG_LENGTH - 0.3)
+  rows.forEach((row, k) => {
+    if (t < ARRIVE[k] + 0.25) { op(row.g, 0); return }
+    let slot = 0
+    for (let j = k + 1; j < rows.length; j++) slot += push[j]
+    row.g.setAttribute('transform', `translate(0 ${(44 + 56 * slot - 8 * (1 - shown[k])).toFixed(2)})`)
+    op(row.g, shown[k] * (1 - clamp((slot - 2) * 2)) * fade)
+    op(row.fresh, 0.16 * (1 - prog(t, ARRIVE[k] + 2, ARRIVE[k] + 2.35)))   // a short fade keeps the GIF small
+    row.clock.classList.toggle('fresh', t < ARRIVE[k] + 2.15)
+  })
+  const last = ARRIVE.filter(s => t >= s + 0.3).pop()
+  op($('l-live'), last === undefined ? 0.35 : 0.35 + 0.65 * (1 - prog(t, last + 0.3, last + 1.2)))
+}
+
+// duration: seconds in one loop. still: the moment used for the still picture.
+// fps: frames a second, if not the usual 20 (the log's sliding text makes big frames).
+const FIGURES = {
+  node: { duration: 4.4, still: 0, draw: drawNode },
+  cluster: { duration: 6, still: 3.5, draw: drawCluster },
+  mission: { duration: 7.4, still: 3.8, draw: drawMission },
+  grow: { duration: 10, still: 8, draw: drawGrow },
+  'lock-home': { duration: 3.6, still: 0, draw: drawHome },
+  'lock-rescue': { duration: 8.4, still: 6, draw: drawRescue },
+  log: { duration: LOG_LENGTH, still: 4.4, fps: 15, draw: drawLog },
+}
+let active = 'node'
+window.figures = () => Object.entries(FIGURES).map(([name, f]) => ({ name, duration: f.duration, still: f.still, fps: f.fps }))
+window.show = name => {
+  document.querySelectorAll('.plate').forEach(plate => plate.classList.toggle('on', plate.id === `fig-${name}`))
+  active = name
+  FIGURES[name].draw(0)
+  const box = $(`fig-${name}`).getBoundingClientRect()
+  return { x: box.x, y: box.y, width: box.width, height: box.height }
+}
+window.seek = t => FIGURES[active].draw(t)
+window.fontsReady = async () => {
+  await Promise.all(['400 13px', '700 13px'].map(f => document.fonts.load(`${f} "Atkinson Hyperlegible Next"`))
+    .concat(['400 12px', '600 12px'].map(f => document.fonts.load(`${f} "Atkinson Hyperlegible Mono"`))))
+  return document.fonts.check('700 13px "Atkinson Hyperlegible Next"') && document.fonts.check('400 12px "Atkinson Hyperlegible Mono"')
+}
+// Opened by hand, it plays the figure named after # (for example three-ideas.html#grow).
+if (location.hash) {
+  const name = location.hash.slice(1), start = performance.now()
+  show(name)
+  const tick = now => { seek(((now - start) / 1000) % FIGURES[name].duration); requestAnimationFrame(tick) }
+  requestAnimationFrame(tick)
+}
+</script>
+</body>
+</html>

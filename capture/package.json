@@ -7,7 +7,8 @@
     "capture": "node capture.mjs",
     "capture-walkthroughs": "node capture.mjs walkthroughs",
     "capture-charts": "node capture.mjs charts",
-    "capture-pages": "node capture.mjs pages"
+    "capture-pages": "node capture.mjs pages",
+    "capture-three-ideas": "node three-ideas.mjs"
   },
   "devDependencies": {
     "gifenc": "1.0.3",
