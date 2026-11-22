@@ -27,6 +27,9 @@ Charts are shown for reference only, not for navigation. See
 
 ## How it fits together
 
+New to all this? **[Three ideas](three-ideas.md)** shows nodes, clusters and
+missions in pictures, with everyday examples.
+
 - A **[node](nodes.md)** is one thing: a GPS, a heater plug, an oyster
   basket, a dock. Everything starts as a node.
 - A **[cluster](clusters.md)** is a group. A vessel is a cluster of its parts,
@@ -69,6 +72,7 @@ Also:
 
 | Page | What it covers |
 |---|---|
+| [Three ideas](three-ideas.md) | Nodes, clusters and missions in pictures, with everyday examples, for anyone new to Undergrowth |
 | [Fundamental logic](fundamental-logic.md) | The rules every feature has to fit: nodes, clusters, missions with priorities, commands, displays |
 | [Walkthroughs](walkthroughs.md) | Building a boat and a crab tank from scratch, step by step |
 | [Manual override](manual-override.md) | Setting a position or reading by hand to test things |
