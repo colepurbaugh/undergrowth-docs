@@ -41,18 +41,18 @@ bring the boat home.
   <img src="images/three-ideas-mission.gif" width="344" alt="The mission Keep the bedroom warm: the thermometer drops to 61 °F, below 62 °F, and the heater is on until the bedroom is back to 62 °F">
 </picture>
 
-## A node can become a cluster, and a cluster can become a node
+## A node can become a cluster, and a cluster can be part of another cluster
 
 <picture>
   <source media="(prefers-reduced-motion: reduce) and (prefers-color-scheme: dark)" srcset="images/three-ideas-grow-dark.png">
   <source media="(prefers-reduced-motion: reduce)" srcset="images/three-ideas-grow.png">
   <source media="(prefers-color-scheme: dark)" srcset="images/three-ideas-grow-dark.gif">
-  <img src="images/three-ideas-grow.gif" width="344" alt="A phone on its own. A cable and a battery pack join it in a cluster called Charging. Stepping back, the Charging cluster becomes one thing on a desk, beside a laptop and a lamp.">
+  <img src="images/three-ideas-grow.gif" width="344" alt="A phone on its own. A cable and a battery pack join it in a cluster called Charging. Stepping back, the Charging cluster is one thing on a desk, beside a laptop and a lamp.">
 </picture>
 
 1. A phone is one node.
 2. Plug it into a battery pack. Phone, cable and battery are now a cluster.
-3. Step back. On the desk, the whole charging kit counts as one thing.
+3. Step back. The charging kit is one thing in a bigger cluster, the desk, beside a laptop and a lamp.
 
 **Node or cluster?** Ask what you'd replace if it broke. If a phone's camera
 breaks, you replace the phone, so the phone is one node. If the cable breaks,
