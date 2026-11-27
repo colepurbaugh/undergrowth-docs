@@ -2,10 +2,10 @@
 
 [← Guide](README.md)
 
-Manual override lets you take over one reading, such as a vessel's position,
-its heading or a tilt sensor's roll, and set it by hand. It's how you find out
-what Undergrowth would do if the boat tipped over, without tipping the boat
-over.
+Manual override lets you take over one reading, such as a room's temperature,
+a boat's position or a tilt sensor's roll, and set it by hand. It's how you
+find out what Undergrowth would do if a greenhouse overheated or a boat tipped
+over, without making either happen.
 
 Nothing else is faked. While a value is overridden, the map and missions use
 what you set, but the real sensor keeps reporting and its readings are still
@@ -19,7 +19,7 @@ vessel jumps back to where its GPS says it is:
 
 ## How to use it
 
-1. Click a vessel (or anything else) on the map.
+1. Click something on the map, such as a boat or a tank.
 2. In its **Display**, tick **Override** next to the reading you want to set.
 3. Change it:
    - **Position:** drag the marker on the map, or type `latitude, longitude`
@@ -38,8 +38,8 @@ computer the override boxes are greyed out (see
 ## Moving something for good
 
 Override is for trying things out. When you have dragged something to where it
-really belongs (a dock you placed in the wrong spot, a basket that has been
-moved), press **Keep here** under its position. The new spot becomes its saved
+really belongs (a building you placed in the wrong spot, a basket that has
+been moved), press **Keep here** under its position. The new spot becomes its saved
 position, the override ends, and the move is written to Logs.
 
 <img src="images/keep-here.png" width="320" alt="Keep here under a hand-set position">

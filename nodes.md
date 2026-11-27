@@ -4,16 +4,17 @@
 
 ## What a node is
 
-A node is **one thing**: a GPS, a heater plug, a floating thermometer, an
-oyster basket, a dock, a sandbar to stay away from. Everything Undergrowth
+A node is **one thing**: a thermometer, a heater plug, a grow light, a GPS, a
+door, an oyster basket, a sandbar a boat has to stay away from. Everything Undergrowth
 knows about starts as a node.
 
 A node has:
 
 - **a name and an ID.** The name is for people and can change. The ID never
   changes, so its readings, missions and history stay attached to it.
-- **a place,** if it has one. A dock has coordinates. A heater plug takes its
-  place from the tank it's in. A basket on the bottom has a spot on the map.
+- **a place,** if it has one. A building or a dock has coordinates. A heater
+  plug takes its place from the room or tank it's in. A basket on the bottom
+  of a bay has a spot on the map.
 - **values:** things it reports, things people measure and type in, and things
   Undergrowth can switch or set. A thermometer reports water temperature and
   battery. A heater plug can be switched on and off, and reports how much power
@@ -25,9 +26,9 @@ inputs and outputs that you wire up however the job needs.
 
 ### Why everything starts as a node
 
-A farm changes. A dock starts as a place to tie up. Later it gets Wi-Fi, then a
-camera, then a heater for the holding tanks. Undergrowth doesn't make you
-describe all of that up front.
+A project changes. A shed starts as a place to keep tools. Later it gets Wi-Fi,
+then a camera, then a heater. A dock on a farm grows the same way. Undergrowth
+doesn't make you describe all of that up front.
 
 Add what you have now, as a node. When it grows parts, **Make it a cluster** in
 its editor turns it into a [cluster](clusters.md) that can hold them. It keeps
@@ -57,7 +58,7 @@ Bench 7330 VEML7700 ─I2C 0x10→ Bench 7330 ESP32-S3 ─Wi-Fi · 3 s ago→ Th
 - **A board says what is plugged into it.** An Undergrowth ESP32 board looks on
   its I2C port every few seconds. A sensor it knows appears as a node of its
   own within a few seconds, already wired to the board (see
-  [Sharing](sharing.md#the-computers-on-a-boat)).
+  [Sharing](sharing.md#a-pi-a-phone-and-a-board)).
 - **A Bluetooth sensor is wired to the computer that hears it,** once it is
   added (see [Bluetooth sensors](#bluetooth-sensors)).
 - **For anything else, say it yourself.** In a node's editor, **Connected
@@ -158,7 +159,7 @@ according to where the value comes from:
 | Kind | Example | What the tile lets you do |
 |---|---|---|
 | **sensor** | water temperature, GPS heading, heater power draw | Shows the latest reading and how old it is. Tick *Override* to set it by hand for testing. |
-| **entered by hand** | salinity, pH, "bay water flowing" | People measure it and type it in: enter the number and press **Record**. |
+| **entered by hand** | a meter reading, pH, salinity, "bay water flowing" | People measure it and type it in: enter the number and press **Record**. |
 | **control** | heater plug, motor, latch, grow light | A switch, a slider with **Send**, or a one-press button. Undergrowth sends the command; the tile shows what was sent, whether the device confirmed it, and what the device last reported. A number can be [eased](#easing-and-confirming). |
 
 Typed numbers are only sent when you press **Send** / **Record** or Enter, so

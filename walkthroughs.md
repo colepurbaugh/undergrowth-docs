@@ -7,6 +7,10 @@ and why. Every picture was taken doing exactly these steps in *The whole farm*
 scenario, so you can follow along there without touching your real records.
 For ready-made examples that are already set up, see [Scenarios](scenarios.md).
 
+The examples are a boat and a crab tank, but the steps are the same for any
+project. The tank's thermometer and heater plug could as well be a grow room's
+or a pool's, and the boat could be anything with a GPS.
+
 1. [A test vessel, a route, and a trip](#1-a-test-vessel-a-route-and-a-trip)
 2. [A new crab tank](#2-a-new-crab-tank)
 

@@ -59,5 +59,6 @@ Changes to configuration and their log entries are written together, so the
 record can't fall behind what was changed.
 
 Logs and readings from other computers are copied in too (see
-[Sharing between computers](sharing.md)), so the shop's Logs page also has
-what happened on each boat once that boat has been in range.
+[Sharing between computers](sharing.md)), so the office's Logs page also has
+what happened on every other computer, such as one on a boat, once it has
+been in range.

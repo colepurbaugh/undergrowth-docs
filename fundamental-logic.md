@@ -15,11 +15,11 @@ Everything in Undergrowth is one of three things:
 
 | | What it is | Examples |
 |---|---|---|
-| **Node** | One thing, not broken into parts. | A GPS, a pump, a grow light, a moisture sensor, a dock. |
-| **Cluster** | A group of nodes or other clusters. | A boat (its GPS, motor and radios), a greenhouse (its lights, fans and sensors), a bed of baskets. |
+| **Node** | One thing, not broken into parts. | A thermometer, a pump, a grow light, a moisture sensor, a GPS. |
+| **Cluster** | A group of nodes or other clusters. | A greenhouse (its lights, fans and sensors), a pool (its thermometer and heater), a boat (its GPS, motor and radios). |
 | **Mission** | What should happen between nodes and clusters, and how urgent it is. | "At 6:00, ease the lights up." "If it gets too hot, turn the lights off, run the fans and alert someone." |
 
-There is no fourth kind of thing. A boat, a greenhouse and a tank house are all
+There is no fourth kind of thing. A greenhouse, a pool and a boat are all
 clusters. A safety alarm, a schedule, a navigation plan and a colour on a
 display are all missions.
 

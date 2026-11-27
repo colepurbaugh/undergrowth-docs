@@ -8,7 +8,7 @@ up in records of its own, apart from your real ones, and switches this screen
 over to it. A yellow bar across the top shows you're in a scenario.
 
 - **Nothing in a scenario touches your real records,** and nothing in it is
-  shared with other computers. Your real farm keeps running underneath. If it
+  shared with other computers. Your real setup keeps running underneath. If it
   raises an alert while you're in a scenario, the yellow bar says so.
 - **Each scenario lists what to try.** The steps open under the yellow bar
   when you start it. **Hide steps** tucks them away, and **What to try**
@@ -18,6 +18,11 @@ over to it. A yellow bar across the top shows you're in a scenario.
 - **Leave** on the yellow bar goes back to your real records and leaves the
   scenario where it is, so **Go to it** on its card picks up where you left
   off. **End it** throws it away.
+
+Most are set on an oyster farm, where Undergrowth was first tried, and one in
+a greenhouse. What they show carries over to other projects: a crab tank going
+cold is any heated tank or room going cold, and a capsize test is any tilt
+alarm.
 
 The first six are small, so there is only one thing to look at in each. The
 last one has everything at once. To build a boat or a tank from scratch

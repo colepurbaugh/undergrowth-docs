@@ -3,15 +3,17 @@
 [← Guide](README.md)
 
 There is no central server. Every computer running Undergrowth, whether a PC
-at the shop, a Raspberry Pi on a boat or a small ESP32 board, keeps its own
-records and serves its own dashboard. A boat with no signal still records its
-position, checks its missions and shows its map. When two computers can reach
+in the office, a Raspberry Pi in a shed or on a boat, or a small ESP32 board,
+keeps its own records and serves its own dashboard. A computer with no signal,
+such as one out on the water or at the far end of a field, still records its
+readings, checks its missions and shows its map. When two computers can reach
 each other, they share what they know.
 
 ## Who can change what
 
-Whoever creates a record owns it. If the boat's Pi made the boat's GPS node,
-only the boat's Pi can change it. Every other computer holds a copy.
+Whoever creates a record owns it. If the greenhouse Pi made the grow room's
+thermometer node, only the greenhouse Pi can change it. Every other computer
+holds a copy.
 
 A copy looks like everything else on the map, but its panel says where it
 came from. Commands still work: switching a relay or pressing a button on a
@@ -24,18 +26,19 @@ Readings and log entries are shared the same way. Each one stays with the time
 it was taken, so a copy of a two-hour-old position fades just like the
 original does.
 
-If a boat's crew overrides its roll to test the capsize alarm, the shop sees
-the same roll, marked *set by hand*. The test can only be turned off on the
-boat.
+If someone in the greenhouse overrides a thermometer to test the overheat
+alarm, the office sees the same reading, marked *set by hand*. The test can
+only be turned off on the greenhouse Pi. The same goes for a boat's crew
+testing the capsize alarm: only the boat can turn it off.
 
 ## Catching up
 
 Every 10 seconds each computer asks the others what is new since last time.
-A boat that was out of range all morning catches up when it gets back, from
-where it left off.
+A computer that was out of range all morning, such as a boat's, catches up
+when it gets back, from where it left off.
 
 A computer also passes on the copies it holds. If one boat hears another out
-on the water, it brings that boat's readings back to the shop. A reading that
+on the water, it brings that boat's readings back to the office. A reading that
 arrives by two routes is only stored once.
 
 ## Adding a computer
@@ -67,7 +70,7 @@ a node and joins nothing. A browser on the computer itself always works. Any
 other has to be let in first, either to change things or to look only.
 
 1. On the new device, open the computer's address in the browser, such as
-   `http://192.168.0.12:3001`, or `http://boat-pi.local` for a Pi. It shows
+   `http://192.168.0.12:3001`, or `http://shed-pi.local` for a Pi. It shows
    *This screen isn't let in yet* and a six-digit code.
 2. On a screen that is let in already, or on the computer itself, open
    **⚙ → Screens → Let a screen in** and type the code. It says which browser
@@ -85,7 +88,7 @@ showing a code. Anything changed from a screen is logged with its name, such as
 *Graph saved: Pool, from Deck tablet*.
 
 Use the same address on that device each time: a browser is let in for the
-address it used, so `boat-pi.local` and the Pi's number count as two screens.
+address it used, so `shed-pi.local` and the Pi's number count as two screens.
 The computer has to be listening on the network. A Pi always is; a PC needs
 `UG_HOST=0.0.0.0`, as in [Installing on Linux](install-on-linux.md).
 
@@ -100,15 +103,17 @@ On plain Wi-Fi, someone else on the same network could watch what a screen
 sends and pretend to be it. Let screens in on a network you trust, and remove
 any you no longer trust.
 
-## The computers on a boat
+## A Pi, a phone and a board
 
-A boat carries a Raspberry Pi 4 on a battery pack. The crew's phone is the
-hotspot, and runs the [Undergrowth app](install-on-android.md) as a node of
-its own, introduced into the boat's cluster with the Pi. A phone without the
-app can use the Pi's dashboard in its browser once it is
-[let in](#letting-a-screen-in).
+Somewhere away from the office, such as a shed, a field or a boat, a
+Raspberry Pi 4 can keep the records, on a battery pack if there is no power
+socket. On a boat, the crew's phone is the hotspot, and runs the
+[Undergrowth app](install-on-android.md) as a node of its own, introduced into
+the boat's cluster with the Pi. A phone without the app can use the Pi's
+dashboard in its browser once it is [let in](#letting-a-screen-in).
 
-The GPS and motion sensor can be wired two ways, and either works:
+Sensors can be wired two ways, and either works. Here, a boat's GPS and motion
+sensor:
 
 ```
 GPS ─I2C─ Pi

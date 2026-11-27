@@ -2,11 +2,11 @@
 
 [← Guide](README.md) · [Map](map.md) · [Nodes](nodes.md) · [Clusters](clusters.md) · **Missions** · [Scenarios](scenarios.md) · [Graphs](graphs.md) · [Logs](logs.md) · [Data](data.md) · [Reports](reports.md)
 
-A mission is **a goal**, not a list of steps. "Take Big Toot to basket 4."
-"Tell someone if a crab tank drops below 42 °F." Every 5 seconds, whether or
-not anyone has the dashboard open, Undergrowth checks each mission against what
-is happening right now, and writes each change of decision to [Logs](logs.md)
-with the reason.
+A mission is **a goal**, not a list of steps. "Lights on from 6:00 to 18:00."
+"Tell someone if a crab tank drops below 42 °F." "Take Big Toot to basket 4."
+Every 5 seconds, whether or not anyone has the dashboard open, Undergrowth
+checks each mission against what is happening right now, and writes each
+change of decision to [Logs](logs.md) with the reason.
 
 There is only one kind of mission. Every mission has three parts:
 
@@ -34,7 +34,8 @@ and whether it's in effect right now.
 - **Mark complete** and **Cancel** finish it. The most recent finished
   missions are listed at the bottom with **Reactivate**. Everything any
   mission did stays in [Logs](logs.md).
-- **Show on map** goes to the vessel or thing the mission is about.
+- **Show on map** goes to the thing the mission is about, such as a tank or a
+  boat.
 
 ## Setting a control
 

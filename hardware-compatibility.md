@@ -22,7 +22,7 @@ reports. See [Undergrowth versions](undergrowth-versions.md) for the editions.
 | Linux Mint | Tested | Installed by following [Installing on Linux](install-on-linux.md). |
 | Ubuntu, and other Linux computers like it | Should work | The same steps as Linux Mint. |
 | Windows 11 PC | Should work | |
-| Raspberry Pi 4 | Planned | One on each boat, for the boat's own records and radios. |
+| Raspberry Pi 4 | Planned | A computer of its own for a shed, a greenhouse or a boat, with its own records and radios. |
 | Mac | Not tried | |
 
 ## Phones and tablets
@@ -41,7 +41,7 @@ its web browser, once it is [let in](sharing.md#letting-a-screen-in).
 
 A board runs **Undergrowth Lite**: a small node with a plain status page, that
 owns the sensors plugged into it and shares their readings over Wi-Fi. See
-[Sharing between computers](sharing.md#the-computers-on-a-boat).
+[Sharing between computers](sharing.md#a-pi-a-phone-and-a-board).
 
 | | Board | Status | Notes |
 |---|---|---|---|

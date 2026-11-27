@@ -6,20 +6,22 @@
 
 A cluster is **a group**: of [nodes](nodes.md), of other clusters, or both.
 
-- A **vessel** is a cluster of its parts: GPS, motor controller, radios, tilt
-  sensor.
+- A **room** is a cluster of its thermometer, heater and window, and a
+  **greenhouse** is a cluster of grow rooms.
 - A **tank** is a cluster of a thermometer and a heater plug, and a **tank
   house** is a cluster of tanks.
-- A **route** is a cluster of waypoints, and a **bed** is a cluster of
+- A **boat** (a vessel) is a cluster of its parts: GPS, motor controller,
+  radios, tilt sensor.
+- A **route** is a cluster of waypoints, and a **bed** is a cluster of oyster
   baskets.
 
 Clusters can hold clusters as deep as you like, and one thing can belong to
 more than one cluster. A cluster can have values of its own too: a tank has
 salinity and pH, which belong to the tank rather than to any one part.
 
-Treating a group as one thing is what lets Undergrowth say "Big Toot is here,
-heading 300°" instead of listing eight parts, and lets one mission cover
-every tank in a house.
+Treating a group as one thing is what lets one mission cover every room in a
+greenhouse or every tank in a house, and lets the map say "Big Toot is here,
+heading 300°" instead of listing eight parts.
 
 ## The Clusters page
 
@@ -39,9 +41,15 @@ A cluster takes its place from some of its members, chosen with **＋** next to
 
 - a **vessel** is wherever its GPS is, and its other parts follow;
 - a **bed** is the centre of its baskets;
-- a **tank house** has the coordinates of the building.
+- a **room** or a **tank house** has the coordinates of the building.
 
-## Vessels
+## Examples from *The whole farm*
+
+*The whole farm* scenario shows two kinds of cluster up close: boats (vessels)
+and tank houses. A greenhouse's grow rooms work the same way as a tank house's
+tanks: see [Setting up a greenhouse](setup-greenhouse.md).
+
+### Vessels
 
 Click a vessel and its panel lists what it is made of. In *The whole farm*
 scenario, *Big Toot* has a GPS, a motor controller, a latch, a solar panel, a
@@ -57,7 +65,7 @@ The panel shows:
 - **Display**: the tiles chosen for it, here a tile per value from its parts.
   See [Displays](nodes.md#displays) and [Values](nodes.md#values).
 
-## Tank houses
+### Tank houses
 
 *The whole farm* scenario has two tank houses: **Crab tanks** (10 tanks) and
 **Oyster tanks** (8 tanks). Each tank has:
@@ -121,7 +129,8 @@ a barge is pushed along by a skiff. Undergrowth does this with two edits:
 
 Now the towed boat goes wherever the other goes. Alerting missions treat it as a
 part of the boat doing the towing, so being alongside doesn't set off a
-too-close alarm. To cast off, undo both edits.
+too-close alarm. To cast off, undo both edits. The same two edits work for
+anything carried along by something else, such as a trailer behind a truck.
 
 A boat sent on a mission to another boat is never warned about getting close
 to it, so a rescue boat can come alongside without an alarm. Once the mission
